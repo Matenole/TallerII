@@ -5,8 +5,7 @@ public class VOpaseolistado extends VOpaseoingreso{
 		
 		private float monto;
 
-		public VOpaseolistado(String codigo, String destino, time horasalida, time horallegada, float precio,
-				int maxboletos, float monto) {
+		public VOpaseolistado(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos, float monto) {
 			super(codigo, destino, horasalida, horallegada, precio, maxboletos);
 			this.monto = monto;
 		}
