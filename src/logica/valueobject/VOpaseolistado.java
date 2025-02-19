@@ -1,4 +1,5 @@
 package logica.valueobject;
+import java.time.*;
 
 public class VOpaseolistado extends VOpaseoingreso{
 		
