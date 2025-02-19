@@ -16,5 +16,8 @@ public class especial extends boleto{
 		public void setDescuento(float descuento) {
 			Descuento = descuento;
 		}
-				
+		
+		public float calcularMonto(float x) {
+			return x;
+		}
 }

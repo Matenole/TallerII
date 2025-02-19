@@ -17,5 +17,12 @@ public class VOpaseolistado extends VOpaseoingreso{
 		public void setMonto(float monto) {
 			this.monto = monto;
 		}
-	
+		
+		public int cantMaxBoletos(int x) {
+			return x;
+		}
+		
+		public int cantBoletosDisponibles(int x) {
+			return x;
+		}
 }

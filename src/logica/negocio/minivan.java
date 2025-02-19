@@ -1,4 +1,7 @@
 package logica.negocio;
+import logica.negocio.paseo;
+import logica.valueobject.VOboletolistado;
+import logica.valueobject.VOpaseolistado;
 
 public class minivan {
 
@@ -49,5 +52,13 @@ public class minivan {
 		public void setCantasientos(int cantasientos) {
 			Cantasientos = cantasientos;
 		}
-
+		
+		public void insertarPaseo(paseo p) {
+			
+		}
+		
+		public VOpaseolistado listarPaseo() {
+			VOpaseolistado x = new VOpaseolistado(Marca, Marca, null, null, Cantasientos, Cantasientos, Cantasientos);
+			return x;
+		}
 }

@@ -50,4 +50,7 @@ public class boleto {
 			this.celular = celular;
 		}
 		
+		public float calcularMonto(float x) {
+			return x;
+		}
 }

@@ -1,5 +1,7 @@
 package logica.negocio;
 import java.time.*;
+import logica.valueobject.VOboletolistado;
+import logica.negocio.boleto;
 
 public class paseo {
 		
@@ -73,6 +75,16 @@ public class paseo {
 			this.maxboletos = maxboletos;
 		}
 		
-			
-
+		public boleto ventaBoleto(boleto B) {
+			return B;
+		}
+		
+		public float montoRecaudado(float mo) {
+			return mo;
+		}
+		
+		public VOboletolistado listarBoletos() {
+			VOboletolistado x = new VOboletolistado(Codigo, maxboletos, Codigo, maxboletos, precio);
+			return x;
+		}
 }

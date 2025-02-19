@@ -1,5 +1,5 @@
-package grafica
-import java.util.concurrent.*;
+package grafica;
+
 public class Jincana {
- system.out.println("Hola mundo");
+	
 }
