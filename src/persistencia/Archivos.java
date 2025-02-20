@@ -1,7 +1,7 @@
 package persistencia;
 import java.io.*;
 import logica.negocio.*;
-// import sistema.logica.excepciones.PersistenciaException;
+import logica.excepciones.Excepciones;
 
 public class Archivos{
 	
