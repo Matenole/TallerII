@@ -1,5 +1,5 @@
 package logica.negocio;
-
+import logica.negocio.paseo;
 public class boleto {
 
 		private int numero;
@@ -50,7 +50,11 @@ public class boleto {
 			this.celular = celular;
 		}
 		
-		public float calcularMonto(float x) {
+		public float calcularMonto(float x,paseo p) {
+			if(getEdad() < 18)
+				x = x + p.getPrecio();
+			else
+				x = (float) ((x + p.getPrecio()) * 0.75);
 			return x;
 		}
 }
