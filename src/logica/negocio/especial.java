@@ -18,6 +18,6 @@ public class especial extends boleto{
 		}
 		
 		public float calcularMonto(float x) {
-			return x;
+			return x - Descuento;
 		}
 }
