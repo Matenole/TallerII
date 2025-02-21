@@ -80,6 +80,7 @@ public class paseo {
 		}
 		
 		public float montoRecaudado(float mo) {
+			
 			return mo;
 		}
 		

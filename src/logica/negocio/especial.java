@@ -1,5 +1,5 @@
 package logica.negocio;
-
+import logica.negocio.*;
 public class especial extends boleto{
 
 		private float Descuento;
@@ -17,7 +17,11 @@ public class especial extends boleto{
 			Descuento = descuento;
 		}
 		
-		public float calcularMonto(float x) {
-			return x;
+		public float calcularMonto(float x,paseo p) {
+			if(getEdad() < 18)
+			 x = (float) ((x + p.getPrecio()- Descuento)* 0.75);
+			else
+				x = x + p.getPrecio() - Descuento;
+				return x;	
 		}
 }

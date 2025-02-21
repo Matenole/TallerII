@@ -23,7 +23,14 @@ public class Paseos {
 	}
 	
 	public void insert(logica.negocio.paseo p) {
-		
+		Iterator<paseo> iter = AVL_Paseos.values().iterator();
+		 //while (iter.hasNext()){
+		//	 if(iter.next() == null) {
+				 AVL_Paseos.values().add(p);
+		//	 }
+		//	 String elem = iter.next();
+		//	 System.out.println (elem);
+		 }
 	}
 	
 	public logica.negocio.paseo find(String cod) {
