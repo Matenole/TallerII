@@ -61,16 +61,15 @@ public class Paseos {
 		return vopl;
 	}
 	
-	//public void insert(logica.negocio.paseo p) {
-	//	Iterator<paseo> iter = AVL_Paseos.values().iterator();
-		 //while (iter.hasNext()){
-		//	 if(iter.next() == null) {
-		//		 AVL_Paseos.values().add(p);
-		//	 }
-		//	 String elem = iter.next();
-		//	 System.out.println (elem);
-		 //}
-	//}
+	public void insert(logica.negocio.paseo p) {
+		Iterator<paseo> iter = AVL_Paseos.values().iterator();///creamos iterador 
+		 while (iter.hasNext()){///controlamos si no hay mas datos
+			 if(iter.next() == null) {
+				 AVL_Paseos.values().add(p);///insertamos el paseo donde se debe
+			 }
+			 paseo elem = iter.next();
+		 }
+	}
 	
 	public paseo find(String cod) {
 		paseo p = null;

@@ -1,5 +1,10 @@
 package logica.negocio;
 import java.time.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import logica.valueobject.VOboletolistado;
 import logica.colecciones.*;
 public class paseo {
@@ -17,6 +22,8 @@ public class paseo {
 		private int maxboletos;
 		
 		private String minivanMatricula;
+
+		private Boletos boletosVendidos;
 		
 		//private Paseos ListaPaseos;
 
@@ -98,11 +105,40 @@ public class paseo {
 		    }
 		    return mo;
 		}
-		/*
-		public VOboletolistado listarBoletos() {
 		
-			VOboletolistado x = null;
-			return x;
-		}
-		*/
+		public List<VOboletolistado> listarBoletos(String tipoBoleto) {
+	        if (!existePaseo(this.Codigo)) {
+	            throw new IllegalArgumentException("Error: el código no figura");
+	        }
+
+	        List<VOboletolistado> listado = new ArrayList<>();
+
+	        boletosVendidos = null;
+			for (int i = 0; i < boletosVendidos.size(); i++) {
+	            boleto b = boletosVendidos.kesimo(i);
+	            if (listado != null) {
+	                VOboletolistado vo = new VOboletolistado(
+	                    b.getNombrepasajero(),
+	                    b.getEdad(),
+	                    b.getCelular(),
+	                    b.getNumero(),
+	                    b.calcularMonto(0, this) // Calculamos el monto del boleto
+	                );
+	                listado.add(vo);
+	            }
+	        }
+
+	        // Ordenamos la lista por número de boleto
+	        Collections.sort(listado, Comparator.comparingInt(VOboletolistado::getNumero));
+
+	        return listado;
+	    }
+
+	    private boolean existePaseo(String codigo) {
+	        // Aquí deberías implementar la lógica para verificar si el paseo existe
+	        // Por ejemplo, buscar en una lista de paseos o en una base de datos
+	        return true; // Asumimos que el paseo existe para este ejemplo
+	    }
 }
+
+		

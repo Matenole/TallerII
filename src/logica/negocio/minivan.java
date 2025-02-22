@@ -58,11 +58,11 @@ public class minivan {
 		public void setCantasientos(int cantasientos) {
 			Cantasientos = cantasientos;
 		}
-		/*
+		
 		public void insertarPaseo(paseo p) {
 			Dic_Paseos.insert(p);
 		}
-		*/
+		
 		public VOpaseolistado listarPaseo() {
 		    // Llamar al método listadoPaseos de la clase Paseos
 		    return Dic_Paseos.listadoPaseos(getMatricula());
