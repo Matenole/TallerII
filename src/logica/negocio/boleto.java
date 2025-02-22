@@ -1,5 +1,4 @@
 package logica.negocio;
-import logica.negocio.paseo;
 public class boleto {
 
 		private int numero;
@@ -50,11 +49,11 @@ public class boleto {
 			this.celular = celular;
 		}
 		
-		public float calcularMonto(float x,paseo p) {
-			if(getEdad() < 18)
-				x = x + p.getPrecio();
+		public float calcularMonto(float x,paseo p) {//Paseo recibe el float q es creado en el calcularmonto de la clase paseo
+			if(getEdad() > 18)//Verificamos q la edad sea mayor q 18
+				x = x + p.getPrecio();//Le ponemos el precio normal
 			else
-				x = (float) ((x + p.getPrecio()) * 0.75);
+				x = (float) ((x + p.getPrecio()) * 0.75);//Le ponemos el precio mas el descuento indicado por la letra
 			return x;
 		}
 }

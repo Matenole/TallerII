@@ -1,7 +1,6 @@
 package logica.negocio;
 import java.util.Iterator;
 import java.util.TreeMap;
-
 import logica.colecciones.Paseos;
 import logica.negocio.paseo;
 import logica.valueobject.VOboletolistado;
@@ -59,15 +58,13 @@ public class minivan {
 		public void setCantasientos(int cantasientos) {
 			Cantasientos = cantasientos;
 		}
-		
+		/*
 		public void insertarPaseo(paseo p) {
 			Dic_Paseos.insert(p);
 		}
-		
+		*/
 		public VOpaseolistado listarPaseo() {
-			//Iterator <String> iter = Dic_Paseos.values().iterator()
-			//while (AVL_Paseos.)
-			VOpaseolistado vopl = null;	//Solo nos sirve CantAsientos verdad? De donde sacamos el resto de datos?
-			return vopl;
+		    // Llamar al método listadoPaseos de la clase Paseos
+		    return Dic_Paseos.listadoPaseos(getMatricula());
 		}
 }

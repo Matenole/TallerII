@@ -1,8 +1,7 @@
 package logica.negocio;
 import java.time.*;
 import logica.valueobject.VOboletolistado;
-import logica.negocio.boleto;
-
+import logica.colecciones.*;
 public class paseo {
 		
 		private String Codigo;
@@ -16,8 +15,12 @@ public class paseo {
 		private float precio;
 		
 		private int maxboletos;
+		
+		private String minivanMatricula;
+		
+		//private Paseos ListaPaseos;
 
-		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos) {
+		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos,String minivanMatricula) {
 			super();
 			Codigo = codigo;
 			Destino = destino;
@@ -25,8 +28,13 @@ public class paseo {
 			Horallegada = horallegada;
 			this.precio = precio;
 			this.maxboletos = maxboletos;
+			//ListaPaseos = new Paseos();
+			this.minivanMatricula = minivanMatricula;
 		}
-
+		
+		public String getMinivanMatricula() {
+	        return minivanMatricula;
+	    }
 		public String getCodigo() {
 			return Codigo;
 		}
@@ -74,18 +82,27 @@ public class paseo {
 		public void setMaxboletos(int maxboletos) {
 			this.maxboletos = maxboletos;
 		}
+	
 		
 		public boleto ventaBoleto(boleto B) {
 			return B;
 		}
 		
-		public float montoRecaudado(float mo) {
-			
-			return mo;
+		public float montoRecaudado(Boletos N, paseo p) {
+		    float mo = 0;
+		    int i = N.size(); // Obtener el tamaño real del ArrayList
+		    while (i != 0) {
+		        i--; // Decrementar antes de acceder al elemento
+		        boleto b = N.kesimo(i); // Obtener el boleto en la posición i
+		        mo = mo + b.calcularMonto(mo, p); // Calcular el monto para este boleto
+		    }
+		    return mo;
 		}
-		
+		/*
 		public VOboletolistado listarBoletos() {
-			VOboletolistado x = new VOboletolistado(Codigo, maxboletos, Codigo, maxboletos, precio);
+		
+			VOboletolistado x = null;
 			return x;
 		}
+		*/
 }

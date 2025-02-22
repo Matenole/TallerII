@@ -1,5 +1,4 @@
 package logica.negocio;
-import logica.negocio.*;
 public class especial extends boleto{
 
 		private float Descuento;
