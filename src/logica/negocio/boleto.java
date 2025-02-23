@@ -1,6 +1,6 @@
 package logica.negocio;
 public class boleto {
-
+		///Atributos
 		private int numero;
 		
 		private String nombrepasajero;
@@ -8,7 +8,7 @@ public class boleto {
 		private int edad;
 		
 		private String celular;
-
+		///Constructor
 		public boleto(int numero, String nombrepasajero, int edad, String celular) {
 			super();
 			this.numero = numero;
@@ -16,7 +16,7 @@ public class boleto {
 			this.edad = edad;
 			this.celular = celular;
 		}
-
+		///Getters y Setters
 		public int getNumero() {
 			return numero;
 		}
@@ -48,7 +48,7 @@ public class boleto {
 		public void setCelular(String celular) {
 			this.celular = celular;
 		}
-		
+		///Metodos
 		public float calcularMonto(float x,paseo p) {//Paseo recibe el float q es creado en el calcularmonto de la clase paseo
 			if(getEdad() > 18)//Verificamos q la edad sea mayor q 18
 				x = x + p.getPrecio();//Le ponemos el precio normal

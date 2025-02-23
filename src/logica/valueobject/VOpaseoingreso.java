@@ -2,7 +2,7 @@ package logica.valueobject;
 import java.time.*;
 
 public class VOpaseoingreso {
-
+	///Atributos
 	private String Codigo;
 	
 	private String Destino;
@@ -14,7 +14,7 @@ public class VOpaseoingreso {
 	private float precio;
 	
 	private int maxboletos;
-
+	///Constructor
 	public VOpaseoingreso(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio,
 			int maxboletos) {
 		super();
@@ -25,7 +25,7 @@ public class VOpaseoingreso {
 		this.precio = precio;
 		this.maxboletos = maxboletos;
 	}
-
+	///Getter y Setters
 	public String getCodigo() {
 		return Codigo;
 	}

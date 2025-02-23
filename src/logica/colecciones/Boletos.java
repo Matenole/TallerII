@@ -26,8 +26,22 @@ public class Boletos {
         }
     }
 
-    public VOboletolistado listadoBoletos() {
-        VOboletolistado vobl = new VOboletolistado(null, 0, null, 0, 0);
-        return vobl;
+    public VOboletolistado listadoBoletos(int indice) {
+        // Verificar si el índice es válido
+        if (indice < 0 || indice >= Array_Boletos.size()) {
+            throw new IndexOutOfBoundsException("Índice fuera de rango: " + indice);
+        }
+
+        // Obtener el boleto en la posición indicada
+        boleto bol = Array_Boletos.get(indice);
+
+        // Crear y devolver el VOboletolistado con los datos del boleto
+        return new VOboletolistado(
+            bol.getNombrepasajero(),
+            bol.getEdad(),
+            bol.getCelular(),
+            bol.getNumero(),
+            0 // El monto se puede calcular luego si es necesario
+        );
     }
 }

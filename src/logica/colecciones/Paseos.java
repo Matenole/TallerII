@@ -70,14 +70,21 @@ public class Paseos {
 			 paseo elem = iter.next();
 		 }
 	}
-	
-	public paseo find(String cod) {
-		paseo p = null;
-		return p;
-	}
-	
 	public boolean member(String cod) {
-		boolean b = false;
-		return b;
+		// Verificamos si el TreeMap es nulo o está vacío
+        if (AVL_Paseos == null || AVL_Paseos.isEmpty()) {
+            return false;
+        }
+        // Verificamos si el codigo existe en el TreeMap
+        return AVL_Paseos.containsKey(cod);	}
+	public paseo find(String cod) {
+		//Controlamos que el arbol no sea nulo o este vacio
+		if(AVL_Paseos == null || AVL_Paseos.isEmpty())
+			throw new IllegalStateException("El TreeMap está vacío");
+		//Verificamos si el paseo esta en el AVL
+		if(!member(cod))
+			throw new NoSuchElementException("El paseo con codigo " + cod + " no existe");
+		//Obtenemos paseo asociado al codigo
+		return AVL_Paseos.get(cod);
 	}
 }

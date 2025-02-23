@@ -1,20 +1,20 @@
 package logica.valueobject;
 
 public class VOboletoingreso {
-		
+		///Atributos
 		private String nombrepasajero;
 		
 		private int edad;
 		
 		private String celular;
-
+		///Constructor
 		public VOboletoingreso(String nombrepasajero, int edad, String celular) {
 			super();
 			this.nombrepasajero = nombrepasajero;
 			this.edad = edad;
 			this.celular = celular;
 		}
-
+		///Getters y Setters
 		public String getNombrepasajero() {
 			return nombrepasajero;
 		}

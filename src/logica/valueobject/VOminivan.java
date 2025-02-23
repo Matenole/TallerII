@@ -1,7 +1,7 @@
 package logica.valueobject;
 
 public class VOminivan {
-	
+	///Atributos
 	private String Matricula;
 	
 	private String Marca;
@@ -9,7 +9,7 @@ public class VOminivan {
 	private String Modelo;
 	
 	private int Cantasientos;
-
+	///Constructor
 	public VOminivan(String matricula, String marca, String modelo, int cantasientos) {
 		super();
 		Matricula = matricula;
@@ -17,7 +17,7 @@ public class VOminivan {
 		Modelo = modelo;
 		Cantasientos = cantasientos;
 	}
-
+	///Getters y Setters
 	public String getMatricula() {
 		return Matricula;
 	}

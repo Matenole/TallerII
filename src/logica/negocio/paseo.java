@@ -8,7 +8,7 @@ import java.util.List;
 import logica.valueobject.VOboletolistado;
 import logica.colecciones.*;
 public class paseo {
-		
+		///Atributos
 		private String Codigo;
 		
 		private String Destino;
@@ -26,7 +26,7 @@ public class paseo {
 		private Boletos boletosVendidos;
 		
 		//private Paseos ListaPaseos;
-
+		///Constructor
 		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos,String minivanMatricula) {
 			super();
 			Codigo = codigo;
@@ -38,7 +38,7 @@ public class paseo {
 			//ListaPaseos = new Paseos();
 			this.minivanMatricula = minivanMatricula;
 		}
-		
+		/// Getters y Setters
 		public String getMinivanMatricula() {
 	        return minivanMatricula;
 	    }
@@ -89,8 +89,7 @@ public class paseo {
 		public void setMaxboletos(int maxboletos) {
 			this.maxboletos = maxboletos;
 		}
-	
-		
+		///Metodos
 		public boleto ventaBoleto(boleto B) {
 			return B;
 		}

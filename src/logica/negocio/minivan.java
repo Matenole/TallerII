@@ -1,13 +1,9 @@
 package logica.negocio;
-import java.util.Iterator;
-import java.util.TreeMap;
 import logica.colecciones.Paseos;
-import logica.negocio.paseo;
-import logica.valueobject.VOboletolistado;
 import logica.valueobject.VOpaseolistado;
 
 public class minivan {
-
+		///Atributos
 		private String Matricula;
 		
 		private String Marca;
@@ -17,7 +13,7 @@ public class minivan {
 		private int Cantasientos;
 		
 		private Paseos Dic_Paseos;
-
+		///Constructor
 		public minivan(String matricula, String marca, String modelo, int cantasientos) {
 			super();
 			Matricula = matricula;
@@ -26,7 +22,7 @@ public class minivan {
 			Cantasientos = cantasientos;
 			Dic_Paseos = new Paseos();
 		}
-
+		///Getters y Setters
 		public String getMatricula() {
 			return Matricula;
 		}
@@ -62,7 +58,7 @@ public class minivan {
 		public void insertarPaseo(paseo p) {
 			Dic_Paseos.insert(p);
 		}
-		
+		///Metodos
 		public VOpaseolistado listarPaseo() {
 		    // Llamar al método listadoPaseos de la clase Paseos
 		    return Dic_Paseos.listadoPaseos(getMatricula());
