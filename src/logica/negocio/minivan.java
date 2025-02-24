@@ -58,6 +58,7 @@ public class minivan {
 		public void insertarPaseo(paseo p) {
 			Dic_Paseos.insert(p);
 		}
+		
 		///Metodos
 		public VOpaseolistado listarPaseo() {
 		    // Llamar al método listadoPaseos de la clase Paseos

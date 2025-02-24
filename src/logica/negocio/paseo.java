@@ -27,7 +27,7 @@ public class paseo {
 		
 		//private Paseos ListaPaseos;
 		///Constructor
-		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos,String minivanMatricula) {
+		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos) {
 			super();
 			Codigo = codigo;
 			Destino = destino;
@@ -36,7 +36,7 @@ public class paseo {
 			this.precio = precio;
 			this.maxboletos = maxboletos;
 			//ListaPaseos = new Paseos();
-			this.minivanMatricula = minivanMatricula;
+			this.boletosVendidos = new Boletos();
 		}
 		/// Getters y Setters
 		public String getMinivanMatricula() {
@@ -90,17 +90,17 @@ public class paseo {
 			this.maxboletos = maxboletos;
 		}
 		///Metodos
-		public boleto ventaBoleto(boleto B) {
-			return B;
+		public void ventaBoleto(boleto B) {
+			boletosVendidos.insert(B);
 		}
 		
-		public float montoRecaudado(Boletos N, paseo p) {
+		public float montoRecaudado() {
 		    float mo = 0;
-		    int i = N.size(); // Obtener el tamaño real del ArrayList
+		    int i = boletosVendidos.size(); // Obtener el tamaño real del ArrayList
 		    while (i != 0) {
 		        i--; // Decrementar antes de acceder al elemento
-		        boleto b = N.kesimo(i); // Obtener el boleto en la posición i
-		        mo = mo + b.calcularMonto(mo, p); // Calcular el monto para este boleto
+		        boleto b = boletosVendidos.kesimo(i); // Obtener el boleto en la posición i
+		        mo = mo + b.calcularMonto(precio); // Calcular el monto para este boleto
 		    }
 		    return mo;
 		}
@@ -121,7 +121,7 @@ public class paseo {
 	                    b.getEdad(),
 	                    b.getCelular(),
 	                    b.getNumero(),
-	                    b.calcularMonto(0, this) // Calculamos el monto del boleto
+	                    b.calcularMonto(precio) // Calculamos el monto del boleto
 	                );
 	                listado.add(vo);
 	            }

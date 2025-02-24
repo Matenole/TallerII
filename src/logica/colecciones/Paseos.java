@@ -1,9 +1,7 @@
 package logica.colecciones;
 import java.time.LocalTime;
 import java.util.*;
-import logica.negocio.minivan;
 import logica.negocio.paseo;
-import logica.valueobject.VOminivan;
 import logica.valueobject.VOpaseolistado;
 
 public class Paseos {
@@ -12,7 +10,9 @@ public class Paseos {
 	public Paseos() {
         AVL_Paseos = new TreeMap<>();
     }
-
+	public void insert(paseo p) {
+		AVL_Paseos.put(p.getCodigo(),p);
+	}
 	public VOpaseolistado listadoPaseos(String mat) {
 	    ArrayList<paseo> paseosFiltrados = new ArrayList<>();
 

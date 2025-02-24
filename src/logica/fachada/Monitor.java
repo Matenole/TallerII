@@ -25,7 +25,7 @@ public class Monitor {
 		public synchronized void terminoLectura (){
 			cantlectores--;
 			if (cantlectores == 0) {
-					notifyAll();
+					notify();
 			}
 		}
 		
@@ -42,7 +42,7 @@ public class Monitor {
 		
 		public synchronized void terminoEscritura (){
 			escribiendo = false;
-			notifyAll();
+			notify();
 		}
 				
 }

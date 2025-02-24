@@ -16,11 +16,13 @@ public class especial extends boleto{
 			Descuento = descuento;
 		}
 		///Metodo
-		public float calcularMonto(float x,paseo p) {
-			if(getEdad() < 18)
-			 x = (float) ((x + p.getPrecio()- Descuento)* 0.75);
+		public float calcularMonto(float precio) {
+			float resu = 0;//Paseo recibe el float q es creado en el calcularmonto de la clase paseo
+			if(getEdad() > 18)//Verificamos q la edad sea mayor q 18
+				resu = resu + precio;//Le ponemos el precio normal
 			else
-				x = x + p.getPrecio() - Descuento;
-				return x;	
+				resu = (float) ((resu + precio) * 0.75);//Le ponemos el precio mas el descuento indicado por la letra
+			resu = resu - Descuento;
+			return resu;
 		}
 }
