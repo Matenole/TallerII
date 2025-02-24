@@ -1,7 +1,9 @@
 package logica.colecciones;
 import java.time.LocalTime;
 import java.util.*;
+import logica.negocio.minivan;
 import logica.negocio.paseo;
+import logica.valueobject.VOminivan;
 import logica.valueobject.VOpaseolistado;
 
 public class Paseos {
@@ -52,31 +54,81 @@ public class Paseos {
 	}
 	
 	public VOpaseolistado listadoPaseosPorDestino(String dest) {
-		VOpaseolistado vopl = null;;
-		return vopl;
+		// Verificamos si el TreeMap está vacío
+        if (AVL_Paseos == null || AVL_Paseos.isEmpty()) {
+            throw new IllegalStateException("El TreeMap está vacío");
+        }
+
+        // Obtenemos la primera entrada del TreeMap (la de menor clave)
+        String primerdestino = AVL_Paseos.firstKey();
+        paseo el_paseo = AVL_Paseos.get(primerdestino);
+
+        // Crear y devolver el VOminivan con los datos de la primera minivan
+        return new VOpaseolistado(
+            el_paseo.getCodigo(),
+            el_paseo.getDestino(), 
+            el_paseo.getHorasalida(),
+            el_paseo.getHorallegada(),
+            0,
+            0,
+            0
+        );
 	}
 	
-	public VOpaseolistado listadoPorDisponibilidad(int cant_Bol) {
-		VOpaseolistado vopl = null;;
-		return vopl;
-	}
-	
-	public void insert(logica.negocio.paseo p) {
-		Iterator<paseo> iter = AVL_Paseos.values().iterator();///creamos iterador 
-		 while (iter.hasNext()){///controlamos si no hay mas datos
-			 if(iter.next() == null) {
-				 AVL_Paseos.values().add(p);///insertamos el paseo donde se debe
-			 }
-			 paseo elem = iter.next();
-		 }
-	}
+	 // Método para listar paseos según la cantidad de boletos disponibles
+    public VOpaseolistado listadoPorDisponibilidad(int cant_Bol) {
+        // Verificar si el TreeMap está vacío
+        if (AVL_Paseos == null || AVL_Paseos.isEmpty()) {
+            throw new IllegalStateException("El TreeMap está vacío");
+        }
+
+        // Lista para almacenar paseos que cumplen con la condición
+        ArrayList<paseo> paseosFiltrados = new ArrayList<>();
+
+        // Recorrer todos los paseos en el TreeMap
+        for (paseo p : AVL_Paseos.values()) {
+            if (p.getMaxboletos() >= cant_Bol) { // Verificar si tiene suficientes boletos disponibles
+                paseosFiltrados.add(p);
+            }
+        }
+
+        // Si no hay paseos que cumplan la condición, devolver null o un objeto vacío
+        if (paseosFiltrados.isEmpty()) {
+            return null; // O podrías devolver un objeto VOpaseolistado con valores predeterminados
+        }
+
+        // Calcular datos agregados
+        String codigoCombinado = "codigo-combinado"; // Puedes generar un código único si es necesario
+        String destinoCombinado = "destino-combinado"; // Puedes combinar destinos si es necesario
+        LocalTime primeraHoraSalida = paseosFiltrados.get(0).getHorasalida(); // Primera hora de salida
+        LocalTime ultimaHoraLlegada = paseosFiltrados.get(paseosFiltrados.size() - 1).getHorallegada(); // Última hora de llegada
+        float montoTotal = 0.0f;
+        int maxBoletosTotal = 0;
+
+        for (paseo p : paseosFiltrados) {
+            montoTotal += p.getPrecio(); // Sumar el precio de cada paseo
+            maxBoletosTotal += p.getMaxboletos(); // Sumar el máximo de boletos de cada paseo
+        }
+
+        // Construir y devolver el objeto VOpaseolistado
+        return new VOpaseolistado(
+            codigoCombinado,
+            destinoCombinado,
+            primeraHoraSalida,
+            ultimaHoraLlegada,
+            montoTotal,
+            maxBoletosTotal,
+            montoTotal
+        );
+    }
 	public boolean member(String cod) {
 		// Verificamos si el TreeMap es nulo o está vacío
         if (AVL_Paseos == null || AVL_Paseos.isEmpty()) {
             return false;
         }
         // Verificamos si el codigo existe en el TreeMap
-        return AVL_Paseos.containsKey(cod);	}
+        return AVL_Paseos.containsKey(cod);	
+        }
 	public paseo find(String cod) {
 		//Controlamos que el arbol no sea nulo o este vacio
 		if(AVL_Paseos == null || AVL_Paseos.isEmpty())
