@@ -4,6 +4,7 @@ import logica.colecciones.*;
 
 public class VOPersistencia implements Serializable{
 	///Atributos
+	private static final long serialVersionUID = 1L;
 	private Minivans mini;
 	private Paseos pas;
 	///Constructor
