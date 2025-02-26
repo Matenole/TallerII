@@ -9,6 +9,7 @@ import logica.valueobject.VOminivan;
 import logica.valueobject.VOpaseoingreso;
 
 public class IFachada {
+	/*
 	///Atributos
 	private  Minivans Locomocion;
 	private Paseos Viaje;
@@ -31,4 +32,5 @@ public class IFachada {
 	public float MonRec(String cod);
 	public void respaldardatos();	
 	public void recuperardatos();
+	*/
 }

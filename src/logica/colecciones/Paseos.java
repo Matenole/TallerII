@@ -3,7 +3,6 @@ import java.time.LocalTime;
 import java.util.*;
 import logica.negocio.paseo;
 import logica.valueobject.VOpaseolistado;
-
 public class Paseos {
 	
 	private TreeMap <String, paseo> AVL_Paseos;
@@ -29,8 +28,8 @@ public class Paseos {
 	    }
 
 	    // Calcular datos agregados
-	    String codigoCombinado = "codigo-combinado"; // Puedes generar un código único si es necesario
-	    String destinoCombinado = "destino-combinado"; // Puedes combinar destinos si es necesario
+	    String codigoCombinado = "codigo-combinado"; // Podemos generar un código único si es necesario
+	    String destinoCombinado = "destino-combinado"; // Podemos combinar destinos si es necesario
 	    LocalTime primeraHoraSalida = paseosFiltrados.get(0).getHorallegada(); // Primera hora de salida
 	    LocalTime ultimaHoraLlegada = paseosFiltrados.get(paseosFiltrados.size() - 1).getHorallegada(); // Última hora de llegada
 	    float montoTotal = 0.0f;

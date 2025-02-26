@@ -89,6 +89,13 @@ public class paseo {
 		public void setMaxboletos(int maxboletos) {
 			this.maxboletos = maxboletos;
 		}
+		
+		public Boletos getBoletosVendidos() {
+			return boletosVendidos;
+		}
+		public void setBoletosVendidos(Boletos boletosVendidos) {
+			this.boletosVendidos = boletosVendidos;
+		}
 		///Metodos
 		public void ventaBoleto(boleto B) {
 			boletosVendidos.insert(B);
