@@ -31,16 +31,18 @@ public class Fachada {
 	public void VentaBol(String codigo,Boletos bo) throws LogicaException {
 		if(Viaje.member(codigo))//maxboletos esta en paseo
 			throw new LogicaException("El codigo no existe en la realidad");
-		if(bo.size() == Viaje.get(getMaxboletos()))
-			throw new LogicaException("La cantidad de boletos disponibles con la cantidad maxima de boletos no coincide");
-		if(bo.get(getEdad()) || bo.get(getEdad()))
-			throw new LogicaException("El celular o la edad es menor que 0");
+		//if(bo.size() == Viaje.get(getMaxboletos()))
+		//	throw new LogicaException("La cantidad de boletos disponibles con la cantidad maxima de boletos no coincide");
+		//if(bo.get(getEdad()) || bo.get(getEdad()))
+		//	throw new LogicaException("El celular o la edad es menor que 0");
 	}
 	public void RegisMin(VOminivan mini) {
-		if()
+		if(true) {
+			
+		}
 	}
 	public VOminivan LisMin() {
-		VOminivan vo = null;
+		VOminivan vo = Locomocion.listarMinivan();
 		return vo;
 	}
 	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws LogicaException {
@@ -62,27 +64,26 @@ public class Fachada {
 		else
 			return Viaje.listadoPaseosPorDestino(des);
 	}
-	public VOpaseoingreso LisDisBol(int maxb,Boletos bo) {
+	/*public VOpaseoingreso LisDisBol(int maxb,Boletos bo) {
 		VOpaseoingreso AU = null;
-		if(Viaje.get(getMaxboletos()) - bo.size() >= maxb)
-			return AU;
-		else 
-			throw new LogicaException("el maximo de boletos es menor a la resta de los boletos maximos y los boletos disponibles");
+		//if(Viaje.get(getMaxboletos()) - bo.size() >= maxb)
+		//	return AU;
+		//else 
+		//	throw new LogicaException("el maximo de boletos es menor a la resta de los boletos maximos y los boletos disponibles");
 		
-	}
+	}*/
 	public VOpaseoingreso LisPasBolVen(String cod) {
 		VOpaseoingreso CO2 = null;
 		return CO2;
 	}
 	public float MonRec(String cod) {
-		float mon = 0;
-		return mon;
+		float x = 0;
+		return x;
 	}
 	public void respaldardatos() {
 		
 	}
 	public void recuperardatos() {
-		
 	}
 	
 }	

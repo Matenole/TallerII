@@ -1,4 +1,6 @@
 package logica.negocio;
+import java.util.ArrayList;
+
 import logica.colecciones.Paseos;
 import logica.valueobject.VOpaseolistado;
 
@@ -60,8 +62,8 @@ public class minivan {
 		}
 		
 		///Metodos
-		public VOpaseolistado listarPaseo() {
+		public ArrayList<VOpaseolistado> listarPaseo() {
 		    // Llamar al método listadoPaseos de la clase Paseos
-		    return Dic_Paseos.listadoPaseos(getMatricula());
+		    return Dic_Paseos.listadoPaseos();
 		}
 }

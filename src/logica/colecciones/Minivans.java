@@ -1,10 +1,10 @@
 package logica.colecciones;
 import java.util.*;
 import logica.negocio.minivan;
-import logica.valueobject.VOminivan;
+import logica.valueobject.VOminivanlistado;
 
 public class Minivans {
-	
+	///Atributos
 	private TreeMap <String, minivan> AVL_Minivans;
 	///Constructor
 	 public Minivans() {
@@ -12,7 +12,7 @@ public class Minivans {
 	}
 	///Metodos
 	 // Método para listar la primera minivan
-	    public VOminivan listarMinivan() {
+	    public VOminivanlistado listarMinivan() {
 	        // Verificar si el TreeMap está vacío
 	        if (AVL_Minivans == null || AVL_Minivans.isEmpty()) {
 	            throw new IllegalStateException("El TreeMap está vacío");
@@ -23,12 +23,8 @@ public class Minivans {
 	        minivan primeraMinivan = AVL_Minivans.get(primeraMatricula);
 
 	        // Crear y devolver el VOminivan con los datos de la primera minivan
-	        return new VOminivan(
-	            primeraMinivan.getMatricula(),
-	            primeraMinivan.getMarca(),
-	            primeraMinivan.getModelo(),
-	            primeraMinivan.getCantasientos()
-	        );
+	        VOminivanlistado vo = new VOminivanlistado(primeraMinivan.getMatricula(),primeraMinivan.getMarca(),primeraMinivan.getModelo(),primeraMinivan.getCantasientos(), 0);
+	        return vo;
 	    }
 	//Metodo para insertar una minivan en el AVL
 	public void insert(minivan m) {

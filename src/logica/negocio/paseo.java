@@ -112,14 +112,8 @@ public class paseo {
 		    return mo;
 		}
 		
-		public List<VOboletolistado> listarBoletos(String tipoBoleto) {
-	        if (!existePaseo(this.Codigo)) {
-	            throw new IllegalArgumentException("Error: el código no figura");
-	        }
-
+		public List<VOboletolistado> listarBoletos() {
 	        List<VOboletolistado> listado = new ArrayList<>();
-
-	        boletosVendidos = null;
 			for (int i = 0; i < boletosVendidos.size(); i++) {
 	            boleto b = boletosVendidos.kesimo(i);
 	            if (listado != null) {

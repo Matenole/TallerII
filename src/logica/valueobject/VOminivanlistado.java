@@ -1,9 +1,9 @@
 package logica.valueobject;
-public class VOMinivanListado extends VOminivan {
+public class VOminivanlistado extends VOminivan {
 	///Atributo
 	private int cantpaseosasignados;
 	///Constructor
-	public VOMinivanListado(String matricula, String marca, String modelo, int cantasientos,int cantpaseosasignados) {
+	public VOminivanlistado(String matricula, String marca, String modelo, int cantasientos,int cantpaseosasignados) {
 		super(matricula, marca, modelo, cantasientos);
 		this.cantpaseosasignados = cantpaseosasignados;
 		// TODO Auto-generated constructor stub

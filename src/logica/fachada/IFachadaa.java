@@ -5,7 +5,7 @@ package logica.fachada;
 	import logica.valueobject.VOboletoingreso;
 	import logica.valueobject.VOminivan;
 	import logica.valueobject.VOpaseoingreso;
-
+/*
 	public class IFachadaa {
 		///Atributos
 		private  Minivans Locomocion;
@@ -31,3 +31,4 @@ package logica.fachada;
 		public void recuperardatos();
 	}
 }
+*/
