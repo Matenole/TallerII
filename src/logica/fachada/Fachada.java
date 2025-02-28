@@ -106,15 +106,17 @@ public class Fachada {
 		int sisi = bo.size();
 		if(sisi < p.getMaxboletos() )
 			throw new LogicaException("La cantidad de boletos vendida no es la suficiente");
+		ArrayList<VOpaseolistado> list = Viaje.listadoPorDisponibilidad(sisi);
 		m.terminoLectura();
-		return Viaje.listadoPorDisponibilidad(sisi);
+		return list;
 	}
 	
 	public float MonRec(String cod) throws RemoteException{
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
-		m.comienzoEscritura();
-		return p.montoRecaudado();
+		float monto = p.montoRecaudado();
+		m.terminoLectura();
+		return monto;
 	}
 	
 	public void respaldardatos() throws RemoteException, PersistenciaException{

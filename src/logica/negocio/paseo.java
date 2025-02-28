@@ -103,6 +103,7 @@ public class paseo {
 		public float montoRecaudado() {
 		    float mo = 0;
 		    int i = boletosVendidos.size(); // Obtener el tamaño real del ArrayList
+		    
 		    while (i != 0) {
 		        i--; // Decrementar antes de acceder al elemento
 		        boleto b = boletosVendidos.kesimo(i); // Obtener el boleto en la posición i
