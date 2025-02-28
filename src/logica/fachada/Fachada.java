@@ -3,19 +3,26 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.rmi.RemoteException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import logica.colecciones.*;
 import logica.valueobject.*;
 import logica.excepciones.*;
 import logica.negocio.*;
+import persistencia.*;
+import java.util.Properties;
 public class Fachada {
 	///Atributos
 	private  Minivans Locomocion;
 	private Paseos Viaje;
+	private Monitor m;
 	///Constructor
 	public Fachada() {
 		super();
 		Locomocion =new Minivans();
 		Viaje = new Paseos();
+		m = new Monitor();
 	}
 	
 	///Metodos
@@ -88,10 +95,54 @@ public class Fachada {
 		return p.montoRecaudado();
 	}
 	
-	public void respaldardatos() {
-		
+	public void respaldardatos() throws RemoteException, PersistenciaException{
+		m.comienzoLectura();
+		VOPersistencia vo = new VOPersistencia(Locomocion,Viaje);
+		Persistencia p = new Persistencia();
+		try{
+			Properties prop = new Properties();
+			String nomArch = "config/properties";
+			prop.load (new FileInputStream (nomArch));
+			String nombrearchivo = prop.getProperty(nomArch);
+			p.respaldar(nombrearchivo, vo);
+			m.terminoLectura();
+		}catch(PersistenciaException e) {
+			m.terminoLectura();
+			throw e;
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+			m.terminoLectura();
+			throw new PersistenciaException(e.getMessage());
+		}catch(IOException e) {
+			e.printStackTrace();
+			m.terminoLectura();
+			throw new PersistenciaException(e.getMessage());
+		}	
 	}
-	public void recuperardatos() {
+
+	public void recuperardatos() throws RemoteException, PersistenciaException{
+		m.comienzoEscritura();
+		Persistencia p = new Persistencia();
+		try{
+			Properties prop = new Properties();
+			String nomArch = "config/properties";
+			prop.load (new FileInputStream (nomArch));
+			String nombrearchivo = prop.getProperty(nomArch);
+			VOPersistencia vo = p.recuperar(nombrearchivo);
+			Locomocion = vo.getMini();
+			Viaje = vo.getPas();
+			m.terminoEscritura();
+		}catch(PersistenciaException e) {
+			m.terminoEscritura();
+			throw e;
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+			m.terminoEscritura();
+			throw new PersistenciaException(e.getMessage());
+		}catch(IOException e) {
+			e.printStackTrace();
+			m.terminoEscritura();
+			throw new PersistenciaException(e.getMessage());
+		}
 	}
-	
-}	
+}

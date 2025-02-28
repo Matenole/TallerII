@@ -4,10 +4,10 @@ public class Monitor {
 		private int cantlectores;
 		private boolean escribiendo;
 		///Constructor
-		public Monitor(int cantlectores, boolean escribiendo) {
+		public Monitor() {
 			super();
-			this.cantlectores = 0;
-			this.escribiendo = false;
+			cantlectores = 0;
+			escribiendo = false;
 		}
 		///Metodos
 		public synchronized void comienzoLectura (){
