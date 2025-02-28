@@ -23,15 +23,16 @@ public class Testprincipal {
 		p1.ventaBoleto(b2);
 		float resu = p1.montoRecaudado();
 		System.out.println("El Monto es:" + " " + resu);
-		
 		List<VOboletolistado> vobl = p1.listarBoletos();
 		vobl.forEach((vo)-> System.out.println("El boleto es: " + vo.getNumero()+ ", " + vo.getCelular() + ", " + vo.getEdad() + ", " + vo.getNombrepasajero() + ", " + vo.getMonto()));
-		
 		List<VOminivanlistado> vom = m.listarMinivan();
 		vom.forEach((vo)-> System.out.println("La minivan es: " + vo.getMatricula()+ ", " + vo.getMarca() + ", " + vo.getModelo() + ", " + vo.getCantasientos() + ", " + vo.getCantpaseosasignados()));
-		
 		List<VOpaseolistado> vopl = p.listadoPaseos();
 		vopl.forEach((vo)-> System.out.println("El paseo es: " + vo.getCodigo() + ", " + vo.getDestino() + ", " + vo.getMaxboletos() + ", " + vo.getMonto() + ", " + vo.getPrecio()));
+		if(m.esta_asignado(p1.getCodigo()))
+			System.out.println("Esta asignado");
+		else
+			System.out.println("No esta asignado");
 	}
 
 }
