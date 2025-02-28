@@ -1,5 +1,7 @@
 package logica.colecciones;
 import java.util.*;
+
+import logica.excepciones.LogicaException;
 import logica.negocio.minivan;
 import logica.valueobject.VOminivanlistado;
 import logica.valueobject.VOpaseolistado;
@@ -23,8 +25,13 @@ public class Minivans {
 		    return minivans;
 	    }
 	//Metodo para insertar una minivan en el AVL
-	public void insert(minivan m) {
-		AVL_Minivans.put(m.getMatricula(), m);
+	public void insert(minivan m) throws LogicaException {
+		if(m.getMatricula().matches("[a-zA-Z0-9]+")) {
+			AVL_Minivans.put(m.getMatricula(), m);
+		}
+		else {
+			throw new LogicaException("La matricula ingresada no es Alfanumerica");
+		}
 	}
 	
 	
