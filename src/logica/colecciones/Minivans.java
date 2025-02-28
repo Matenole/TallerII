@@ -8,13 +8,16 @@ import logica.valueobject.VOminivanlistado;
 import logica.valueobject.VOpaseolistado;
 
 public class Minivans {
+	
 	///Atributos
 	private TreeMap <String, minivan> AVL_Minivans;
 	private Consumer<? super VOpaseolistado> key;
+	
 	///Constructor
 	 public Minivans() {
 	        AVL_Minivans = new TreeMap<>();
 	}
+	 
 	///Metodos
 	 // Método para listar la primera minivan
 	    public List<VOminivanlistado> listarMinivan() {

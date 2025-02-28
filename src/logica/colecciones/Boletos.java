@@ -5,8 +5,10 @@ import logica.negocio.especial;
 import logica.valueobject.VOboletolistado;
 
 public class Boletos {
+	
 	///Atributos
     private ArrayList<boleto> Array_Boletos;
+    
     ///Constructor
     public Boletos() {
         Array_Boletos = new ArrayList<>();
