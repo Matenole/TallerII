@@ -16,7 +16,7 @@ public interface IFachada extends Remote {
 	
 	public void RegisMin(VOminivan mini) throws RemoteException,LogicaException;
 	public void VentaBol(String codigo,Boletos bo) throws RemoteException,LogicaException;
-	public void recuperardatos() throws RemoteException, PersistenciaException;
+	public void recuperardatos1() throws RemoteException, PersistenciaException;
 	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,LogicaException;
 	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat);
 	public ArrayList<VOpaseolistado> LisPasDes(String des);
