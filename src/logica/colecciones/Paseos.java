@@ -1,5 +1,4 @@
 package logica.colecciones;
-import java.time.LocalTime;
 import java.util.*;
 import logica.negocio.paseo;
 import logica.valueobject.VOpaseolistado;

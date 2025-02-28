@@ -64,6 +64,10 @@ public class minivan {
 		public int getCantidadPaseosAsignados() {
 			return Dic_Paseos.largo();
 		}
+
+		public Paseos getDicPaseos() {
+			return Dic_Paseos;
+		}
 		
 		///Metodos
 		public ArrayList<VOpaseolistado> listarPaseo() {

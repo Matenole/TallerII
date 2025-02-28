@@ -34,10 +34,10 @@ public class Fachada {
 			throw new LogicaException("El celular es menor o igual que 0");
 		if(e.getDescuento() <= 0)
 			throw new LogicaException("El Descuento es menor o igual que 0");
-		controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(null);
+		controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
 	}
 	
-	public void RegisMin(VOminivan mini) throws LogicaException {
+	public void RegisMin(VOminivan mini) throws RemoteException,LogicaException {
 		minivan m = new minivan(mini.getMatricula(), mini.getMarca(), mini.getModelo(), mini.getCantasientos());
 		Locomocion.insert(m);
 	}
@@ -46,7 +46,7 @@ public class Fachada {
 		return Locomocion.listarMinivan();
 	}
 	
-	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws LogicaException {
+	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,LogicaException {
 		if(Viaje.member(cod) || !cod.matches("[a-zA-Z0-9]+") )
 			throw new LogicaException("El paseo no se puede registrar porque el mismo ya se encuentra en el sistema o el codigo ingresado no es alfanumerico");
 		else {
@@ -55,16 +55,15 @@ public class Fachada {
 		}
 	}
 	
-	public VOpaseoingreso LisPasAsMin() {
-		VOpaseoingreso h20 = null;
-		return h20;
+	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat) {
+		return Locomocion.listadoporasignacionpaseos(mat);
 	}
 	
 	public ArrayList<VOpaseolistado> LisPasDes(String des) {
 		return Viaje.listadoPaseosPorDestino(des);
 	}
 	
-	public VOpaseoingreso LisDisBol(int maxb,Boletos bo) throws LogicaException {
+	public VOpaseoingreso LisDisBol(int maxb,Boletos bo) throws RemoteException,LogicaException {
 		String asesoramientoPaseos = Viaje.keyfinder();
         paseo a_asesorar = Viaje.find(asesoramientoPaseos);
         VOpaseoingreso AU = new VOpaseoingreso(asesoramientoPaseos,a_asesorar.getDestino(),a_asesorar.getHorasalida(),a_asesorar.getHorallegada(),maxb,maxb);
@@ -74,9 +73,14 @@ public class Fachada {
 		throw new LogicaException("el maximo de boletos es menor a la resta de los boletos maximos y los boletos disponibles");
 	}
 	
-	public VOpaseoingreso LisPasBolVen(String cod) {
-		VOpaseoingreso CO2 = null;
-		return CO2;
+	public  ArrayList<VOpaseolistado> LisPasBolVen(String cod) throws RemoteException,LogicaException {
+		paseo p = Viaje.find(cod);
+		Boletos bo = p.getBoletosVendidos();
+		int sisi = bo.size();
+		if(sisi >= p.getMaxboletos() )
+			return Viaje.listadoPorDisponibilidad(sisi);
+		else
+			throw new LogicaException("La cantidad de boletos vendida no es la suficiente");
 	}
 	
 	public float MonRec(String cod) {

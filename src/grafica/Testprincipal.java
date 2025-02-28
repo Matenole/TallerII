@@ -3,10 +3,11 @@ import java.time.LocalTime;
 import java.util.List;
 import logica.valueobject.*;
 import logica.colecciones.*;
+import logica.excepciones.LogicaException;
 import logica.negocio.*;
 public class Testprincipal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws LogicaException {
 		// TODO Auto-generated method stub
 		Minivans  m = new Minivans();
 		minivan m1 = new minivan("dwdwd","toyota","prius",14);
