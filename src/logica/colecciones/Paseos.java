@@ -12,7 +12,7 @@ public class Paseos {
 	public void insert(paseo p) {
 		AVL_Paseos.put(p.getCodigo(),p);
 	}
-	public ArrayList<VOpaseolistado> listadoPaseos() {										///LISTO
+	public ArrayList<VOpaseolistado> listadoPaseos() {										
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
 	    								VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(),pas.getMaxboletos(),pas.montoRecaudado());
@@ -21,7 +21,7 @@ public class Paseos {
 	    				  );
 	    return recorrido;
 	}
-	public ArrayList<VOpaseolistado> listadoPaseosPorDestino(String dest) {					///CORREGIDO
+	public ArrayList<VOpaseolistado> listadoPaseosPorDestino(String dest) {				
 		
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
@@ -96,6 +96,9 @@ public class Paseos {
             montoTotal
         );*/
     }
+    public String keyfinder() {
+    	return AVL_Paseos.firstKey();
+    }
 	public boolean member(String cod) {
 		// Verificamos si el TreeMap es nulo o está vacío
         if (AVL_Paseos == null || AVL_Paseos.isEmpty()) {
@@ -113,5 +116,9 @@ public class Paseos {
 			throw new NoSuchElementException("El paseo con codigo " + cod + " no existe");
 		//Obtenemos paseo asociado al codigo
 		return AVL_Paseos.get(cod);
+	}
+	
+	public int largo() {
+		return AVL_Paseos.size();
 	}
 }

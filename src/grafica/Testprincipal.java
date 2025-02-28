@@ -25,7 +25,7 @@ public class Testprincipal {
 		System.out.println("El Monto es:" + " " + resu);
 		List<VOboletolistado> vobl = p1.listarBoletos();
 		vobl.forEach((vo)-> System.out.println("El boleto es: " + vo.getNumero()+ ", " + vo.getCelular() + ", " + vo.getEdad() + ", " + vo.getNombrepasajero() + ", " + vo.getMonto()));
-		VOminivanlistado  vom = m.listarMinivan();
+		List<VOminivanlistado>  vom = m.listarMinivan();
 		System.out.println("La minivan es: " + vom.getMatricula()+ ", " + vom.getMarca() + ", " + vom.getModelo() + ", " + vom.getCantasientos() + ", " + vom.getCantpaseosasignados());
 		List<VOpaseolistado> vopl = p.listadoPaseos();
 		vopl.forEach((vo)-> System.out.println("El paseo es: " + vo.getCodigo() + ", " + vo.getDestino() + ", " + vo.getMaxboletos() + ", " + vo.getMonto() + ", " + vo.getPrecio()));

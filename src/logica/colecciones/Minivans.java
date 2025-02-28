@@ -2,6 +2,7 @@ package logica.colecciones;
 import java.util.*;
 import logica.negocio.minivan;
 import logica.valueobject.VOminivanlistado;
+import logica.valueobject.VOpaseolistado;
 
 public class Minivans {
 	///Atributos
@@ -12,24 +13,52 @@ public class Minivans {
 	}
 	///Metodos
 	 // Método para listar la primera minivan
-	    public VOminivanlistado listarMinivan() {
-	        // Verificar si el TreeMap está vacío
-	        if (AVL_Minivans == null || AVL_Minivans.isEmpty()) {
-	            throw new IllegalStateException("El TreeMap está vacío");
-	        }
-
-	        // Obtener la primera entrada del TreeMap (la de menor clave)
-	        String primeraMatricula = AVL_Minivans.firstKey();
-	        minivan primeraMinivan = AVL_Minivans.get(primeraMatricula);
-
-	        // Crear y devolver el VOminivan con los datos de la primera minivan
-	        VOminivanlistado vo = new VOminivanlistado(primeraMinivan.getMatricula(),primeraMinivan.getMarca(),primeraMinivan.getModelo(),primeraMinivan.getCantasientos(), 0);
-	        return vo;
+	    public List<VOminivanlistado> listarMinivan() {
+	    	ArrayList<VOminivanlistado> minivans = new ArrayList<VOminivanlistado>();
+		    AVL_Minivans.forEach((key,min) ->	{
+		    								VOminivanlistado vo = new VOminivanlistado(min.getMatricula(), min.getMarca(), min.getModelo(), min.getCantasientos(), min.getCantidadPaseosAsignados());
+		    								minivans.add(vo);
+		    								}
+		    				  );
+		    return minivans;
 	    }
 	//Metodo para insertar una minivan en el AVL
 	public void insert(minivan m) {
 		AVL_Minivans.put(m.getMatricula(), m);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
     public boolean member(String mat) {
         // Verificar si el TreeMap es nulo o está vacío

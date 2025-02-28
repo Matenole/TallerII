@@ -35,7 +35,6 @@ public class paseo {
 			Horallegada = horallegada;
 			this.precio = precio;
 			this.maxboletos = maxboletos;
-			//ListaPaseos = new Paseos();
 			this.boletosVendidos = new Boletos();
 		}
 		/// Getters y Setters

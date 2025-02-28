@@ -1,5 +1,4 @@
 package logica.fachada;
-
 public class Monitor {
 		///Atributos
 		private int cantlectores;

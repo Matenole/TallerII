@@ -1,15 +1,17 @@
 package logica.colecciones;
 import java.util.*;
 import logica.negocio.boleto;
+import logica.negocio.especial;
 import logica.valueobject.VOboletolistado;
 
 public class Boletos {
+	///Atributos
     private ArrayList<boleto> Array_Boletos;
-
+    ///Constructor
     public Boletos() {
         Array_Boletos = new ArrayList<>();
     }
-
+    ///Metodos
     public void insert(boleto b) {
         Array_Boletos.add(b); // Agrega un boleto al ArrayList
     }

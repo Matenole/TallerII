@@ -61,6 +61,10 @@ public class minivan {
 			Dic_Paseos.insert(p);
 		}
 		
+		public int getCantidadPaseosAsignados() {
+			return Dic_Paseos.largo();
+		}
+		
 		///Metodos
 		public ArrayList<VOpaseolistado> listarPaseo() {
 		    // Llamar al método listadoPaseos de la clase Paseos
