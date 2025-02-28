@@ -74,4 +74,5 @@ public class minivan {
 		    // Llamar al método listadoPaseos de la clase Paseos
 		    return Dic_Paseos.listadoPaseos();
 		}
+		
 }

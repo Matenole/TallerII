@@ -38,15 +38,13 @@ public class Minivans {
 	    public ArrayList<VOpaseolistado> listadoporasignacionpaseos(String mat){
 	    	minivan m = AVL_Minivans.get(mat);
 	    	Paseos po = m.getDicPaseos();
-	    	paseo p = po.find(mat);
-	    	ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
+	    	String llave = po.keyfinder();
+	    	paseo p = po.find(llave);
 			if(esta_asignado(p.getCodigo()))
-	    		
-	    		 recorrido.forEach(key);	{
-						VOpaseolistado vo = new VOpaseolistado(p.getCodigo(),p.getDestino(),p.getHorasalida(),p.getHorallegada(),p.getPrecio(),p.getMaxboletos(),p.montoRecaudado());
-						recorrido.add(vo);
-						}
-	    		 return recorrido;
+	    		return po.listadoPaseos();
+			else
+				return null;
+	    		 
 	    }
 	//Metodo para insertar una minivan en el AVL
 	public void insert(minivan m) throws LogicaException {

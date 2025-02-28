@@ -33,6 +33,9 @@ public class Testprincipal {
 			System.out.println("Esta asignado");
 		else
 			System.out.println("No esta asignado");
+		List<VOpaseolistado> minivanasignada =m.listadoporasignacionpaseos(m1.getMatricula());
+		minivanasignada.forEach((vo)-> System.out.println("La minivan es: " + vo.getCodigo()+ ", " + vo.getDestino() + ", " + vo.getHorasalida() + ", " + vo.getHorallegada() + ", " + vo.getMonto()));
+		;
 	}
 
 }
