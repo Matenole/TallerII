@@ -3,12 +3,10 @@ package logica.valueobject;
 public class VOminivan {
 	///Atributos
 	private String Matricula;
-	
 	private String Marca;
-			
 	private String Modelo;
-	
 	private int Cantasientos;
+	
 	///Constructor
 	public VOminivan(String matricula, String marca, String modelo, int cantasientos) {
 		super();

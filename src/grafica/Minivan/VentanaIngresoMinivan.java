@@ -1,4 +1,4 @@
-package grafica.ventanas;
+package grafica.Minivan;
 //public void recuperardatos() throws RemoteException, PersistenciaException;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -19,6 +20,7 @@ public class VentanaIngresoMinivan extends JFrame {
 	private JTextField txtMarca;
 	private JTextField txtModelo;
 	private JTextField txtCapacidad;
+	private ControladorIngresoMinivan controlador;
 
 	/**
 	 * Launch the application.
@@ -40,6 +42,8 @@ public class VentanaIngresoMinivan extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaIngresoMinivan() {
+		controlador = new ControladorIngresoMinivan(this);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 210, 210);
 		contentPane = new JPanel();
@@ -86,11 +90,19 @@ public class VentanaIngresoMinivan extends JFrame {
 		JButton btnIngresar = new JButton("Aceptar");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				String matricula = txtMatricula.getText();
+				String marca = txtMarca.getText();
+				String modelo = txtModelo.getText();
+				int asientos = Integer.valueOf(txtCapacidad.getText());
+				controlador.IngresarMinivan(matricula, marca, modelo, asientos);
 			}
 		});
 		btnIngresar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnIngresar.setBounds(54, 137, 89, 23);
 		contentPane.add(btnIngresar);
+	}
+
+	public void MostrarMensaje(String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
 	}
 }

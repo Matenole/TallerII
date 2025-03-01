@@ -2,12 +2,10 @@ package logica.negocio;
 public class boleto {
 		///Atributos
 		private int numero;
-		
 		private String nombrepasajero;
-		
 		private int edad;
-		
 		private String celular;
+		
 		///Constructor
 		public boleto(int numero, String nombrepasajero, int edad, String celular) {
 			super();
