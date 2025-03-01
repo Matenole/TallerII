@@ -149,7 +149,7 @@ public class Fachada {
 		Persistencia p = new Persistencia();
 		try{
 			Properties prop = new Properties();
-			String nomArch = "config/properties";
+			String nomArch = "config/txt.properties";
 			prop.load (new FileInputStream (nomArch));
 			String nombrearchivo = prop.getProperty(nomArch);
 			VOPersistencia vo = p.recuperar(nombrearchivo);
