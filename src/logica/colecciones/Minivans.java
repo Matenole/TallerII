@@ -1,7 +1,6 @@
 package logica.colecciones;
 import java.util.*;
-import java.util.function.Consumer;
-import logica.excepciones.LogicaException;
+import logica.excepciones.RegistroException;
 import logica.negocio.minivan;
 import logica.negocio.paseo;
 import logica.valueobject.VOminivanlistado;
@@ -11,7 +10,6 @@ public class Minivans {
 	
 	///Atributos
 	private TreeMap <String, minivan> AVL_Minivans;
-	private Consumer<? super VOpaseolistado> key;
 	
 	///Constructor
 	 public Minivans() {
@@ -50,21 +48,19 @@ public class Minivans {
 	    		 
 	    }
 	//Metodo para insertar una minivan en el AVL
-	public void insert(minivan m) throws LogicaException {
+	public void insert(minivan m) throws RegistroException {
 		if(m.getMatricula().matches("[a-zA-Z0-9]+")) {
 			AVL_Minivans.put(m.getMatricula(), m);
 		}
 		else {
-			throw new LogicaException("La matricula ingresada no es Alfanumerica");
+			throw new RegistroException("La matricula ingresada no es Alfanumerica");
 		}
 	}
     public boolean member(String mat) {
-        // Verificar si el TreeMap es nulo o está vacío
-        if (AVL_Minivans == null || AVL_Minivans.isEmpty()) {
-            return false;
-        }
-        // Verificar si la matrícula existe en el TreeMap
-        return AVL_Minivans.containsKey(mat);
+      if(AVL_Minivans.containsKey(mat))
+    	  return true;
+      else 
+    		  return false;
     }
     // Método para buscar una minivan por matrícula
     public minivan find(String mat) {

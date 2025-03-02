@@ -29,12 +29,10 @@ public class Fachada {
 	}
 	
 	///Metodos
-	public void VentaBol(String codigo,Boletos bo) throws RemoteException,LogicaException {
+	public void VentaBol(String codigo,boleto b) throws RemoteException,LogicaException {
 		m.comienzoEscritura();
-		String checkeadordemlimusinas = Viaje.keyfinder();
-        paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(checkeadordemlimusinas);
-        boleto b = bo.kesimo(1);
-        especial e = (especial) bo.kesimo(1);
+        paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
+        Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
 		if(Viaje.member(codigo))//maxboletos esta en paseo
 			throw new LogicaException("El codigo ya existe en la realidad");
 		if(bo.size() == controladorsubcutaneodecantidadmaximadeboletos.getMaxboletos())
@@ -43,17 +41,21 @@ public class Fachada {
 			throw new LogicaException("La edad es menor o igual que 0");
 		if(b.getCelular() != "0")
 			throw new LogicaException("El celular es menor o igual que 0");
-		if(e.getDescuento() <= 0)
+		if(((especial) b).getDescuento() <= 0)
 			throw new LogicaException("El Descuento es menor o igual que 0");
 		controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
 		m.terminoEscritura();
 	}
 	
-	public void RegisMin(VOminivan mini) throws RemoteException, LogicaException {
+	public void RegisMin(VOminivan mini) throws RemoteException,RegistroException{
+		if(Locomocion.member(mini.getMatricula()))
+			throw new RegistroException("La matricula ya existe en el sistema");
+		else {
 		m.comienzoEscritura();
 		minivan mi = new minivan(mini.getMatricula(), mini.getMarca(), mini.getModelo(), mini.getCantasientos());
 		Locomocion.insert(mi);
 		m.terminoEscritura();
+		}
 	}
 	
 	public List<VOminivanlistado> LisMin()  throws RemoteException{
@@ -63,15 +65,18 @@ public class Fachada {
 		return list;
 	}
 	
-	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,LogicaException {
-		m.comienzoEscritura();
-		if(Viaje.member(cod) || !cod.matches("[a-zA-Z0-9]+") )
-			throw new LogicaException("El paseo no se puede registrar porque el mismo ya se encuentra en el sistema o el codigo ingresado no es alfanumerico");
+	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,RegistroExceptionII {
+		if(Viaje.member(cod))
+			throw new RegistroExceptionII("El paseo no se puede registrar porque el mismo ya se encuentra en el sistema");
+		else
+			if(!cod.matches("[a-zA-Z0-9]+"))
+					throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
 		else {
+			m.comienzoEscritura();
 				paseo p = new paseo(cod, des, HP, HL, Prec, MaxBol);
 				Viaje.insert(p);
+			m.terminoEscritura();
 		}
-		m.terminoEscritura();
 	}
 	
 	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat) throws RemoteException{
