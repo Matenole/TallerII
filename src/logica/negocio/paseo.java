@@ -7,6 +7,8 @@ import java.util.List;
 
 import logica.valueobject.VOboletolistado;
 import logica.colecciones.*;
+import logica.negocio.minivan;
+
 public class paseo {
 		///Atributos
 		private String Codigo;
@@ -119,11 +121,10 @@ public class paseo {
 	            boleto b = boletosVendidos.kesimo(i);
 	            if (listado != null) {
 	                VOboletolistado vo = new VOboletolistado(
+	                	b.getNumero(),
 	                    b.getNombrepasajero(),
 	                    b.getEdad(),
-	                    b.getCelular(),
-	                    b.getNumero(),
-	                    b.calcularMonto(precio) // Calculamos el monto del boleto
+	                    b.getCelular()
 	                );
 	                listado.add(vo);
 	            }

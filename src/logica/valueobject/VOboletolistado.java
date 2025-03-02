@@ -18,16 +18,5 @@ public class VOboletolistado extends VOboletoingreso{
 
 		public void setNumero(int numero) {
 			this.numero = numero;
-		}
-
-		public float getMonto() {
-			return monto;
-		}
-
-		public void setMonto(float monto) {
-			this.monto = monto;
-		}
-		
-		
-	
+		}	
 }
