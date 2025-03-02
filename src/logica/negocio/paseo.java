@@ -35,6 +35,7 @@ public class paseo {
 			Horallegada = horallegada;
 			this.precio = precio;
 			this.maxboletos = maxboletos;
+			//this.maxboletos = logica.colecciones.Minivans.find(minivanMatricula).getCantasientos();  No seria algo asi?
 			this.boletosVendidos = new Boletos();
 		}
 		/// Getters y Setters
@@ -134,7 +135,7 @@ public class paseo {
 	        return listado;
 	    }
 
-	    private boolean existePaseo(String codigo) {
+	    private boolean existePaseo(String codigo) {									///Aparentemente no se usa, lo borramos?
 	        // Aquí deberías implementar la lógica para verificar si el paseo existe
 	        // Por ejemplo, buscar en una lista de paseos o en una base de datos
 	        return true; // Asumimos que el paseo existe para este ejemplo

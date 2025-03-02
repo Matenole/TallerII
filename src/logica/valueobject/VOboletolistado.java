@@ -3,13 +3,13 @@ package logica.valueobject;
 public class VOboletolistado extends VOboletoingreso{
 		///Atributos
 		private int numero;
+		private String celular;
 		
-		private float monto;
 		///Constructor
-		public VOboletolistado(String nombrepasajero, int edad, String celular, int numero, float monto) {
+		public VOboletolistado(int numero, String nombrepasajero, int edad, String celular) {
 			super(nombrepasajero, edad, celular);
 			this.numero = numero;
-			this.monto = monto;
+			this.celular = celular;
 		}
 		///Getters y Setters
 		public int getNumero() {
