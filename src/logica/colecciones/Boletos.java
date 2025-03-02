@@ -2,7 +2,7 @@ package logica.colecciones;
 import java.util.*;
 import logica.negocio.boleto;
 import logica.negocio.especial;
-import logica.valueobject.VOboletolistado;
+import logica.valueobject.*;
 
 public class Boletos {
 	
@@ -41,11 +41,10 @@ public class Boletos {
 
         // Crear y devolver el VOboletolistado con los datos del boleto
         return new VOboletolistado(
+        	bol.getNumero(),
             bol.getNombrepasajero(),
             bol.getEdad(),
-            bol.getCelular(),
-            bol.getNumero(),
-            0 // El monto se puede calcular luego si es necesario
+            bol.getCelular()
         );
     }
 }

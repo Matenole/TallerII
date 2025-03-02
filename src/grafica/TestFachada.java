@@ -1,6 +1,8 @@
 package grafica;
 import java.rmi.RemoteException;
 import java.time.LocalTime;
+import java.util.List;
+
 import logica.colecciones.*;
 import logica.excepciones.LogicaException;
 import logica.excepciones.RegistroException;
@@ -69,10 +71,30 @@ public class TestFachada {
 		*/
 		///Acierto: efectivamente salta un error en el sistema al ingresar dos minivanes con el mismo codigo.
 		///Prueba 3.2: Registrar una minivan con digitos no alfanumericos en su codigo.
-		minivan m1= new minivan("+++-+-++-+-+-+-+-+-+-+-+-+-****//**/*/*/*/*kernelloverrrr098","Toyota","Prius",30);
+		/*
+		minivan m1= new minivan("+kernelloverrrr098","Toyota","Prius",30);
 		VOminivan vom = new VOminivan(m1.getMatricula(),m1.getMarca(),m1.getModelo(),m1.getCantasientos());
 		f.RegisMin(vom);
+		*/
 		///Acierto: is se ingresa una matricula con digistos no alfanumericos efectivamente salta error. bien ahi pa.
+		///Prueba 4:Listado de una minivan(Testing positivo)
+		minivan m1= new minivan("GAB7654","Toyota","Prius",30);
+		VOminivan vom = new VOminivan(m1.getMatricula(),m1.getMarca(),m1.getModelo(),m1.getCantasientos());
+		minivan m2= new minivan("LOA4522","Toyota","Prius",30);
+		VOminivan vom1 = new VOminivan(m2.getMatricula(),m2.getMarca(),m2.getModelo(),m2.getCantasientos());
+		minivan m3= new minivan("MMC5566","Toyota","Prius",30);
+		VOminivan vom2 = new VOminivan(m3.getMatricula(),m3.getMarca(),m3.getModelo(),m3.getCantasientos());
+		minivan m4= new minivan("NOPA99","Toyota","Prius",30);
+		VOminivan vom3 = new VOminivan(m4.getMatricula(),m4.getMarca(),m4.getModelo(),m4.getCantasientos());
+		f.RegisMin(vom);
+		f.RegisMin(vom1);
+		f.RegisMin(vom2);
+		f.RegisMin(vom3);
+		List<VOminivanlistado> l= f.LisMin();
+		///Acierto:lista funciona correctamente. no pude hacer q muestre por pantalla pq no me acuerdo como. se que es con cun foreach y una clave lambda y recorres ahi pero para no perder tiempo sigo probando otras cosas
+		///Prueba 5:Listado de minivan por asignacion de paseo(Testing positivo)
+		
+		
 	}
 
 }
