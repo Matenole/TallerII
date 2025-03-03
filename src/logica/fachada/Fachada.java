@@ -123,7 +123,6 @@ public class Fachada {
 		m.terminoLectura();
 		return monto;
 	}
-	
 	public void respaldardatos() throws RemoteException, PersistenciaException{
 		m.comienzoLectura();
 		VOPersistencia vo = new VOPersistencia(Locomocion,Viaje);
