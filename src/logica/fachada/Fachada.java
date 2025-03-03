@@ -34,7 +34,7 @@ public class Fachada {
         paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
         Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
 		if(bo.size() == controladorsubcutaneodecantidadmaximadeboletos.getMaxboletos())
-			throw new LogicaException("No hay mas boloe");
+			throw new LogicaException("Ya se vendieron todos los boletos rey, haber estado mas atento");
 		if(b.getEdad() <= 0)
 			throw new LogicaException("La edad es menor o igual que 0");
 		if(b.getCelular() == "0")
@@ -77,9 +77,9 @@ public class Fachada {
 		}
 	}
 	
-	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat) throws RemoteException{
+	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat,String cod) throws RemoteException{
 		m.comienzoLectura();
-		ArrayList<VOpaseolistado> array = Locomocion.listadoporasignacionpaseos(mat);
+		ArrayList<VOpaseolistado> array = Locomocion.listadoporasignacionpaseos(mat,cod);
 		m.terminoLectura();
 		return array;
 	}
@@ -121,6 +121,11 @@ public class Fachada {
 		float monto = p.montoRecaudado();
 		m.terminoLectura();
 		return monto;
+	}
+	public void asignar(String mat,String cod) {
+		minivan m = Locomocion.find(mat);
+		paseo p = Viaje.find(cod);
+		m.insertarPaseo(p);
 	}
 	public void respaldardatos() throws RemoteException, PersistenciaException{
 		m.comienzoLectura();

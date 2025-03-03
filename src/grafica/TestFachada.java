@@ -19,19 +19,49 @@ public class TestFachada {
 		///Inicio Prueba fachada
 		Fachada f = new Fachada();
 		///Prueba 1: venta boleto(testing positivo)
-		
-	
 		/*
 		paseo p3 = new paseo("guillermobenitez345","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
 		boleto b1 = new boleto(1122,"Josh Peck",14,"urrutia098588832");
 		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
 		f.VentaBol(p3.getCodigo(),b1);
 		*/
-		
-		
-		///Error: en ventaboleto siempre salta en que el codigo ya existe sin ningun tipo de sentido, se probo agregar un mismo paseo con los mismos datos y 
-		///Distinto codigo y siempre salta ese error.cuando no deberia. Se sugiere crear excepciones para cada error particular en la fachada para evitar apropiamientos
-		///de valores en las excepciones e impedir que las excepciones no funcionen como deberia. mi temor personal es que las excepciones esten mal usadas y sobrecargadas en este programa. 
+		///Acierto: ventaboleto funciona correctamente. 
+		///Prueba 1.1:ingresar un boleto con descuento negativo(Testing negativo)
+		/*
+		paseo p3 = new paseo("guillermobenitez345","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
+		especial b1 = new especial(1122,"Josh Peck",14,"urrutia098588832",-10000.50000f);
+		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
+		f.VentaBol(p3.getCodigo(),b1);
+		*/
+		///Acierto:Efectivamente da error el ingresar un boleto especial con valores negativos.
+		///Prueba 1.2:ingresar un boleto con edad menor o igual a 0
+		/*
+		paseo p3 = new paseo("guillermobenitez345","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
+		boleto b1 = new boleto(1122,"Josh Peck",-100,"urrutia098588832");
+		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
+		f.VentaBol(p3.getCodigo(),b1);
+		*/
+		///Acierto: tanto para el caso de que sea 0 o negativo, el boleto no se ingresa y da error, como tiene que ser.
+		///Prueba 1.3:ingresar un boleto 0 o con valores negqativos en el en su celular
+		/*
+		paseo p3 = new paseo("guillermobenitez345","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
+		boleto b1 = new boleto(1122,"Josh Peck",14,"-52066667879234");
+		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
+		f.VentaBol(p3.getCodigo(),b1);
+		*/
+		///Acierto:Tanto para valores negativos como 0 dan error. es lo q se busca y efectivamente se logra.
+		///Prueba 1.4: ingresar boletos cuando enrealidad no hay mas lugar:
+		/*
+		paseo p3 = new paseo("guillermobenitez345","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,2);
+		boleto b1 = new boleto(1122,"Josh Peck",14,"urrutia098588832");
+		boleto b2 = new boleto(3344,"Josh Peck",14,"urrutia098588832");
+		boleto b3 = new boleto(5566,"Josh Peck",14,"urrutia098588832");
+		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
+		f.VentaBol(p3.getCodigo(),b1);
+		f.VentaBol(p3.getCodigo(),b2);
+		f.VentaBol(p3.getCodigo(),b3);
+		*/
+		///Acierto:el ingresar un boleto cuando no hay mas lugar el error correspondiente salta cuando tiene que saltar
 		///Prueba 2:Registrar un paseo en el sistema(testing positivo)
 		///
 		/*
@@ -40,7 +70,6 @@ public class TestFachada {
 		*/
 		//Acierto: registrar un paseo en el sistema funciona correctamente.
 		//Prueba 2.1: ingresar dos paseos con el mismo codigo(testing negativo)
-		
 		/*
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
 		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
@@ -120,20 +149,31 @@ public class TestFachada {
 		f.RegisMin(vom1);
 		f.RegisMin(vom2);
 		f.RegisMin(vom3);
-		List<VOpaseolistado> l= f.LisPasAsMin(p2.getCodigo());
+		List<VOpaseolistado> l= f.LisPasAsMin(m1.getMatricula(),p2.getCodigo());
 		*/
 		//Acierto: efectivamente da error.
 		///Prueba 5.1:listar una minivan si asignada al sistema(Testing positivo):
-		
+		/*
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
+		paseo p3 = new paseo("Kloe456","Rocha",LocalTime.of(11,20),LocalTime.of(18,40),100.5f,12);
 		minivan m1= new minivan("GAB7654","Toyota","Prius",30);
-		m1.insertarPaseo(p2);
 		VOminivan vom = new VOminivan(m1.getMatricula(),m1.getMarca(),m1.getModelo(),m1.getCantasientos());
 		f.RegisMin(vom);
 		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
-		List<VOpaseolistado> l= f.LisPasAsMin(m1.getMatricula());
-
-		///Error: ocuerre un error en las asignaciones de las variables y la insercion de los paseos en la minvan es aparentemente incorrecta.
+		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
+		f.asignar(m1.getMatricula(),p2.getCodigo());
+		List<VOpaseolistado> l= f.LisPasAsMin(m1.getMatricula(),p2.getCodigo());
+		for (VOpaseolistado pas : l) {
+            System.out.println("Codigo: " + pas.getCodigo());
+            System.out.println("Destino: " + pas.getDestino());
+            System.out.println("Salida: " + pas.getHorasalida());
+            System.out.println("Llegada: " + pas.getHorallegada());
+            System.out.println("Precio: " + pas.getPrecio());
+            System.out.println("Cantidadmaximadeboletos: " + pas.getMaxboletos());
+            System.out.println("-----------------------------");
+        }
+        */
+		///Acierto: Listar paseos asignados a su correspondiente minivan funciona correctamente. el que esta asignado se lista y el paseo que no esta asignado a esa minivan no se lista. perfecto, mejor imposible.
 		///Prueba 6:Listar paseos por su destino:(Testing positivo)
 		/*
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
@@ -218,21 +258,21 @@ public class TestFachada {
 		*/
 		///Acierto: el boleto modifica su monto correctamente. incluso modificando la edad a un numero mayor que 18 tambien modifica correctamente la edad
 		///Prueba 11:listar  por boletos vendidos(Testing positivo):
-		/*
+		
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,3);
 		boleto b = new boleto(7788,"Tarzan",18,"pochoclo89100");
 		boleto c = new boleto(6733,"George de la selva",15,"Atuctuc1122");
-		boleto d = new boleto(9999,"Cenicienta",22,"hermanastra043");
-		p2.ventaBoleto(b);
-		p2.ventaBoleto(c);
-		p2.ventaBoleto(d);
-		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
+		especial d = new especial(9999,"Cenicienta",22,"hermanastra043",109.5f);
+		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorasalida(),p2.getHorallegada(),p2.getPrecio(),p2.getMaxboletos());
 		paseo p3 = new paseo("Lucerna6433","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,2);
 		boleto e = new boleto(77,"Tarzan",18,"pochoclo89100");
-		boleto g = new boleto(7,"Cenicienta",22,"hermanastra043");
-		p2.ventaBoleto(e);
-		p2.ventaBoleto(g);
-		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
+		especial g = new especial(7,"Cenicienta",22,"hermanastra043",10.5f);
+		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorasalida(),p3.getHorallegada(),p3.getPrecio(),p3.getMaxboletos());
+		f.VentaBol(p2.getCodigo(), b);
+		f.VentaBol(p2.getCodigo(), c);
+		f.VentaBol(p2.getCodigo(), d);
+		f.VentaBol(p3.getCodigo(), e);
+		f.VentaBol(p3.getCodigo(), g);
 		List<VOpaseolistado> l= f.LisPasBolVen(p2.getCodigo());
 		 for (VOpaseolistado pas : l) {
 	            System.out.println("Codigo: " + pas.getCodigo());
@@ -243,18 +283,18 @@ public class TestFachada {
 	            System.out.println("Cantidadmaximadeboletos: " + pas.getMaxboletos());
 	            System.out.println("-----------------------------");
 	        }
-		 List<VOpaseolistado> o= f.LisPasDes(p3.getCodigo());
-			 for (VOpaseolistado pas : o) {
-		            System.out.println("Codigo: " + pas.getCodigo());
-		            System.out.println("Destino: " + pas.getDestino());
-		            System.out.println("Salida: " + pas.getHorasalida());
-		            System.out.println("Llegada: " + pas.getHorallegada());
-		            System.out.println("Precio: " + pas.getPrecio());
-		            System.out.println("Cantidadmaximadeboletos: " + pas.getMaxboletos());
+		 List<VOpaseolistado> o= f.LisPasBolVen(p3.getCodigo());
+			 for (VOpaseolistado pes : o) {
+		            System.out.println("Codigo: " + pes.getCodigo());
+		            System.out.println("Destino: " + pes.getDestino());
+		            System.out.println("Salida: " + pes.getHorasalida());
+		            System.out.println("Llegada: " + pes.getHorallegada());
+		            System.out.println("Precio: " + pes.getPrecio());
+		            System.out.println("Cantidadmaximadeboletos: " + pes.getMaxboletos());
 		            System.out.println("-----------------------------");
 		        }
-			*/ 
-	  ///Error: la condicion siempre da error. verificar en boletos el funcionamiento de las cosas y siempre da error en la condicion del if en la comparacion del tamaño de boletos del paseo con la cantidad maxima de boletos.
+			 
+	  ///Acierto: se lista correctamente los paseos que poseen misma cantidad de boletos y maxima cantidad de boletos vendidos.
 	}
 
 }

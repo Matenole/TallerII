@@ -27,24 +27,11 @@ public class Minivans {
 		    				  );
 		    return minivans;
 	    }
-	    public boolean esta_asignado(String cod) {
-	    	String llave = AVL_Minivans.firstKey();
-	    	minivan m =AVL_Minivans.get(llave);
-	    	Paseos po = m.getDicPaseos();
-	    	if(po.member(cod))
-	    		return true;
-	    	else
-	    		return false;
-	    }
-	    public ArrayList<VOpaseolistado> listadoporasignacionpaseos(String mat){
+	    public ArrayList<VOpaseolistado> listadoporasignacionpaseos(String mat,String cod){
 	    	minivan m = AVL_Minivans.get(mat);
 	    	Paseos po = m.getDicPaseos();
-	    	String llave = po.keyfinder();
-	    	paseo p = po.find(llave);
-			if(esta_asignado(p.getCodigo()))
-	    		return po.listadoPaseos();
-			else
-				return null;
+	    	paseo p = po.find(cod);
+	    	return po.listadoPaseos();
 	    		 
 	    }
 	//Metodo para insertar una minivan en el AVL
