@@ -178,8 +178,82 @@ public class TestFachada {
 	*/
 			///Error: dan multiples errores en simultaneo, puntualmente en la fachada. parece que no se respaldan correctamente los archivos, puntualmente a la hora de obtener el mensaje y en el nombramiento del archivo.
 			///Prueba 8:Recuperacion de los datos:(Testing positivo):
+			/*
 			f.recuperardatos();
+			*/
 			///Error: errores parecidos en la parte de respaldo tambien los hay en la parte de recuperar. hay algo q no funciona correctamente en la capa de persistencia.
+			///Prueba 9: listar por disponibilidad de boletos:
+			/*
+			paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,8);
+			f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
+			paseo p3 = new paseo("NegroDelTunel11","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,07);
+			f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
+			paseo p4 = new paseo("PokimaneCheta0456","PuntaDelDiablo",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
+			f.RegisPas(p4.getCodigo(),p4.getDestino(),p4.getHorallegada(),p4.getHorasalida(),p4.getPrecio(),p4.getMaxboletos());
+			int op = 7;
+			VOpaseoingreso l = f.LisDisBol(op, p2.getBoletosVendidos());
+			System.out.println("Codigo: " + l.getCodigo());
+		    System.out.println("Destino: " + l.getDestino());
+		    System.out.println("Salida: " + l.getHorasalida());
+		    System.out.println("Llegada: " + l.getHorallegada());
+		    System.out.println("Precio: " + l.getPrecio());
+		    System.out.println("Cantidadmaximadeboletos: " + l.getMaxboletos());
+		    System.out.println("-----------------------------");
+		    */
+		    ///Acierto: el codigo esta bien y cuando se cumple la condicion de error salta correctamente y no salta cuando no. eso esta perfecto.
+		    ///Sugerencia: en vez de devolver un VOpaseolistado devolver una lista del mismo como de costumbre con los demas listados.
+		    ///Prueba 10:Monto recaudado(Testing positivo):
+		/*
+		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,8);
+		boleto b = new boleto(7788,"Tarzan",18,"pochoclo89100");
+		boleto c = new boleto(6733,"George de la selva",15,"Atuctuc1122");
+		especial d = new especial(7788,"Cenicienta",22,"hermanastra043",10.5f);
+		p2.ventaBoleto(b);
+		p2.ventaBoleto(c);
+		p2.ventaBoleto(d);
+		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
+		float i = f.MonRec(p2.getCodigo());
+		System.out.println("Precio: " + i);
+		*/
+		///Error: el boleto no se ingresa correctamente. siempre queda en 0
+		///Prueba 11:listar  por boletos vendidos(Testing positivo):
+		///
+		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,3);
+		boleto b = new boleto(7788,"Tarzan",18,"pochoclo89100");
+		boleto c = new boleto(6733,"George de la selva",15,"Atuctuc1122");
+		especial d = new especial(9999,"Cenicienta",22,"hermanastra043",10.5f);
+		p2.ventaBoleto(b);
+		p2.ventaBoleto(c);
+		p2.ventaBoleto(d);
+		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
+		paseo p3 = new paseo("Lucerna6433","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,2);
+		boleto e = new boleto(77,"Tarzan",18,"pochoclo89100");
+		especial g = new especial(7,"Cenicienta",22,"hermanastra043",10.5f);
+		p2.ventaBoleto(e);
+		p2.ventaBoleto(g);
+		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
+		List<VOpaseolistado> l= f.LisPasBolVen(p2.getCodigo());
+		 for (VOpaseolistado pas : l) {
+	            System.out.println("Codigo: " + pas.getCodigo());
+	            System.out.println("Destino: " + pas.getDestino());
+	            System.out.println("Salida: " + pas.getHorasalida());
+	            System.out.println("Llegada: " + pas.getHorallegada());
+	            System.out.println("Precio: " + pas.getPrecio());
+	            System.out.println("Cantidadmaximadeboletos: " + pas.getMaxboletos());
+	            System.out.println("-----------------------------");
+	        }
+		 List<VOpaseolistado> o= f.LisPasDes(p3.getCodigo());
+			 for (VOpaseolistado pas : o) {
+		            System.out.println("Codigo: " + pas.getCodigo());
+		            System.out.println("Destino: " + pas.getDestino());
+		            System.out.println("Salida: " + pas.getHorasalida());
+		            System.out.println("Llegada: " + pas.getHorallegada());
+		            System.out.println("Precio: " + pas.getPrecio());
+		            System.out.println("Cantidadmaximadeboletos: " + pas.getMaxboletos());
+		            System.out.println("-----------------------------");
+		        }
+			 
+	  ///Error: la condicion siempre da error. verificar en boletos el funcionamiento de las cosas
 	}
 
 }

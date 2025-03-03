@@ -109,7 +109,7 @@ public class Fachada {
 		paseo p = Viaje.find(cod);
 		Boletos bo = p.getBoletosVendidos();
 		int sisi = bo.size();
-		if(sisi < p.getMaxboletos() )
+		if(sisi != p.getMaxboletos() )
 			throw new LogicaException("La cantidad de boletos vendida no es la suficiente");
 		ArrayList<VOpaseolistado> list = Viaje.listadoPorDisponibilidad(sisi);
 		m.terminoLectura();
