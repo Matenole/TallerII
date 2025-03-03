@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 import logica.colecciones.*;
+import logica.excepciones.DescuentoException;
 import logica.excepciones.LogicaException;
 import logica.excepciones.PersistenciaException;
 import logica.excepciones.RegistroException;
@@ -13,7 +14,7 @@ import logica.negocio.*;
 import logica.valueobject.*;
 public class TestFachada {
 
-	public static void main(String[] args) throws LogicaException, RegistroException, RemoteException, RegistroExceptionII, PersistenciaException {
+	public static void main(String[] args) throws LogicaException, RegistroException, RemoteException, RegistroExceptionII, PersistenciaException, DescuentoException {
 		// TODO Auto-generated method stub
 		///Inicio Prueba fachada
 		Fachada f = new Fachada();
@@ -122,16 +123,16 @@ public class TestFachada {
 		List<VOpaseolistado> l= f.LisPasAsMin(p2.getCodigo());
 		*/
 		//Acierto: efectivamente da error.
-		///Prueba 5.1:listar una minivan si asignada al sistema(Testung positivo):
-		/*
+		///Prueba 5.1:listar una minivan si asignada al sistema(Testing positivo):
+		
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
 		minivan m1= new minivan("GAB7654","Toyota","Prius",30);
-		VOminivan vom = new VOminivan(m1.getMatricula(),m1.getMarca(),m1.getModelo(),m1.getCantasientos());
 		m1.insertarPaseo(p2);
+		VOminivan vom = new VOminivan(m1.getMatricula(),m1.getMarca(),m1.getModelo(),m1.getCantasientos());
 		f.RegisMin(vom);
 		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
 		List<VOpaseolistado> l= f.LisPasAsMin(m1.getMatricula());
-		*/
+
 		///Error: ocuerre un error en las asignaciones de las variables y la insercion de los paseos en la minvan es aparentemente incorrecta.
 		///Prueba 6:Listar paseos por su destino:(Testing positivo)
 		/*
@@ -206,18 +207,18 @@ public class TestFachada {
 		/*
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,8);
 		boleto b = new boleto(7788,"Tarzan",18,"pochoclo89100");
-		boleto c = new boleto(6733,"George de la selva",15,"Atuctuc1122");
-		especial d = new especial(7788,"Cenicienta",22,"hermanastra043",10.5f);
-		p2.ventaBoleto(b);
-		p2.ventaBoleto(c);
-		p2.ventaBoleto(d);
+		boleto c = new boleto(6733,"George de la selva",18,"Atuctuc1122");
+		especial d = new especial(1122,"Cenicienta",22,"hermanastra043",10.5f);
 		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
+		f.VentaBol(p2.getCodigo(),b);
+		f.VentaBol(p2.getCodigo(),c);
+		f.VentaBol(p2.getCodigo(),d);
 		float i = f.MonRec(p2.getCodigo());
 		System.out.println("Precio: " + i);
 		*/
-		///Error: el boleto no se ingresa correctamente. siempre queda en 0
+		///Acierto: el boleto modifica su monto correctamente. incluso modificando la edad a un numero mayor que 18 tambien modifica correctamente la edad
 		///Prueba 11:listar  por boletos vendidos(Testing positivo):
-		
+		/*
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,3);
 		boleto b = new boleto(7788,"Tarzan",18,"pochoclo89100");
 		boleto c = new boleto(6733,"George de la selva",15,"Atuctuc1122");
@@ -252,7 +253,7 @@ public class TestFachada {
 		            System.out.println("Cantidadmaximadeboletos: " + pas.getMaxboletos());
 		            System.out.println("-----------------------------");
 		        }
-			 
+			*/ 
 	  ///Error: la condicion siempre da error. verificar en boletos el funcionamiento de las cosas y siempre da error en la condicion del if en la comparacion del tamaño de boletos del paseo con la cantidad maxima de boletos.
 	}
 

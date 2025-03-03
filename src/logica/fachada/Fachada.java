@@ -33,16 +33,14 @@ public class Fachada {
 		m.comienzoEscritura();
         paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
         Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
-		if(Viaje.member(codigo))//maxboletos esta en paseo
-			throw new LogicaException("El codigo ya existe en la realidad");
 		if(bo.size() == controladorsubcutaneodecantidadmaximadeboletos.getMaxboletos())
-			throw new LogicaException("La cantidad de boletos disponibles con la cantidad maxima de boletos no coincide");
+			throw new LogicaException("No hay mas boloe");
 		if(b.getEdad() <= 0)
 			throw new LogicaException("La edad es menor o igual que 0");
-		if(b.getCelular() != "0")
-			throw new LogicaException("El celular es menor o igual que 0");
-		if(((especial) b).getDescuento() <= 0)
-			throw new LogicaException("El Descuento es menor o igual que 0");
+		if(b.getCelular() == "0")
+			throw new LogicaException("El celular es 0");
+		if(b.getCelular().contains("-"))
+			throw new LogicaException("El celular es negativo");
 		controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
 		m.terminoEscritura();
 	}

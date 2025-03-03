@@ -1,11 +1,16 @@
 package logica.negocio;
+
+import logica.excepciones.DescuentoException;
+
 public class especial extends boleto{
 		///Atributo
 		private float Descuento;
 		///Constructor
-		public especial(int numero, String nombre, int edad, String celular, float descuento) {
+		public especial(int numero, String nombre, int edad, String celular, float descuento) throws DescuentoException {
 			super(numero, nombre, edad, celular);
 			Descuento = descuento;
+			if(descuento <= 0)
+				throw new DescuentoException("el descuento ingresado no puede ser menor o igual a 0");
 		}
 		///Getter y Setter
 		public float getDescuento() {
