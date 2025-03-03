@@ -109,7 +109,8 @@ public class Fachada {
 		paseo p = Viaje.find(cod);
 		Boletos bo = p.getBoletosVendidos();
 		int sisi = bo.size();
-		if(sisi != p.getMaxboletos() )
+		int nono = p.getMaxboletos();
+		if(sisi != nono)
 			throw new LogicaException("La cantidad de boletos vendida no es la suficiente");
 		ArrayList<VOpaseolistado> list = Viaje.listadoPorDisponibilidad(sisi);
 		m.terminoLectura();
@@ -129,7 +130,7 @@ public class Fachada {
 		Persistencia p = new Persistencia();
 		try{
 			Properties prop = new Properties();
-			String nomArch = "config/properties";
+			String nomArch = "C:\\Users\\mateo\\Documents\\Taller II\\Taller2-20250217T021949Z-001\\TallerII\\test";
 			prop.load (new FileInputStream (nomArch));
 			String nombrearchivo = prop.getProperty(nomArch);
 			p.respaldar(nombrearchivo, vo);

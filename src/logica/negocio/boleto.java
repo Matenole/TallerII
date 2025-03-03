@@ -52,7 +52,7 @@ public class boleto {
 			if(getEdad() > 18)//Verificamos q la edad sea mayor q 18
 				resu = resu + precio;//Le ponemos el precio normal
 			else
-				resu = (float) ((resu + precio) * 0.75);//Le ponemos el precio mas el descuento indicado por la letra
+				resu =  ((resu + precio) * 0.75f);//Le ponemos el precio mas el descuento indicado por la letra
 			return resu;
 		}
 }

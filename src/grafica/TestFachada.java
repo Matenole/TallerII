@@ -176,7 +176,7 @@ public class TestFachada {
 			f.RegisMin(vom3);
 			f.respaldardatos();
 	*/
-			///Error: dan multiples errores en simultaneo, puntualmente en la fachada. parece que no se respaldan correctamente los archivos, puntualmente a la hora de obtener el mensaje y en el nombramiento del archivo.
+			///Error: dan multiples errores en simultaneo, puntualmente en la fachada. parece que no se respaldan correctamente los archivos, puntualmente a la hora de obtener el mensaje y en el nombramiento del archivo. si no lo encuentra que lo cree 
 			///Prueba 8:Recuperacion de los datos:(Testing positivo):
 			/*
 			f.recuperardatos();
@@ -217,18 +217,18 @@ public class TestFachada {
 		*/
 		///Error: el boleto no se ingresa correctamente. siempre queda en 0
 		///Prueba 11:listar  por boletos vendidos(Testing positivo):
-		///
+		
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,3);
 		boleto b = new boleto(7788,"Tarzan",18,"pochoclo89100");
 		boleto c = new boleto(6733,"George de la selva",15,"Atuctuc1122");
-		especial d = new especial(9999,"Cenicienta",22,"hermanastra043",10.5f);
+		boleto d = new boleto(9999,"Cenicienta",22,"hermanastra043");
 		p2.ventaBoleto(b);
 		p2.ventaBoleto(c);
 		p2.ventaBoleto(d);
 		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
 		paseo p3 = new paseo("Lucerna6433","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,2);
 		boleto e = new boleto(77,"Tarzan",18,"pochoclo89100");
-		especial g = new especial(7,"Cenicienta",22,"hermanastra043",10.5f);
+		boleto g = new boleto(7,"Cenicienta",22,"hermanastra043");
 		p2.ventaBoleto(e);
 		p2.ventaBoleto(g);
 		f.RegisPas(p3.getCodigo(),p3.getDestino(),p3.getHorallegada(),p3.getHorasalida(),p3.getPrecio(),p3.getMaxboletos());
@@ -253,7 +253,8 @@ public class TestFachada {
 		            System.out.println("-----------------------------");
 		        }
 			 
-	  ///Error: la condicion siempre da error. verificar en boletos el funcionamiento de las cosas
+	  ///Error: la condicion siempre da error. verificar en boletos el funcionamiento de las cosas y siempre da error en la condicion del if en la comparacion del tamaño de boletos del paseo con la cantidad maxima de boletos.
 	}
 
 }
+
