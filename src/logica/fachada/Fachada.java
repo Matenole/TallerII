@@ -12,16 +12,20 @@ import logica.excepciones.*;
 import logica.negocio.*;
 import persistencia.*;
 import java.util.Properties;
-
-public class Fachada {
-	
+import java.rmi.server.UnicastRemoteObject;
+public class Fachada extends UnicastRemoteObject implements IFachada{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	///Atributos
 	private  Minivans Locomocion;
 	private Paseos Viaje;
 	private Monitor m;
 	
+	
 	///Constructor
-	public Fachada() {
+	public Fachada() throws RemoteException {
 		super();
 		Locomocion =new Minivans();
 		Viaje = new Paseos();
@@ -45,7 +49,7 @@ public class Fachada {
 		m.terminoEscritura();
 	}
 	
-	public void RegisMin(VOminivan mini) throws RemoteException,RegistroException{
+	public void RegisMin(VOminivan mini) throws RemoteException, RegistroException{
 		if(Locomocion.member(mini.getMatricula()))
 			throw new RegistroException("La matricula ya existe en el sistema");
 		else {
@@ -91,18 +95,21 @@ public class Fachada {
 		return array;
 	}
 	
-	public VOpaseoingreso LisDisBol(int maxb,Boletos bo) throws RemoteException,LogicaException {
+	public ArrayList<VOpaseolistado> LisDisBol(int maxb,Boletos bo) throws RemoteException,LogicaException {
 		m.comienzoLectura();
 		String asesoramientoPaseos = Viaje.keyfinder();
         paseo a_asesorar = Viaje.find(asesoramientoPaseos);
         if(a_asesorar.getMaxboletos() - bo.size() < maxb)
 			throw new LogicaException("el maximo de boletos es menor a la resta de los boletos maximos y los boletos disponibles");
-        VOpaseoingreso AU = new VOpaseoingreso(asesoramientoPaseos,a_asesorar.getDestino(),a_asesorar.getHorasalida(),a_asesorar.getHorallegada(),a_asesorar.getPrecio(),maxb);
+        else
+        {
+        	ArrayList<VOpaseolistado> arr = Viaje.listadoPorDisponibilidad(maxb);
 		m.terminoLectura();
-		return AU;
+		return arr;
+        }
 	}
 	
-	public  ArrayList<VOpaseolistado> LisPasBolVen(String cod) throws RemoteException,LogicaException {
+	public Boletos LisPasBolVen(String cod) throws RemoteException,LogicaException {
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
 		Boletos bo = p.getBoletosVendidos();
@@ -110,9 +117,10 @@ public class Fachada {
 		int nono = p.getMaxboletos();
 		if(sisi != nono)
 			throw new LogicaException("La cantidad de boletos vendida no es la suficiente");
-		ArrayList<VOpaseolistado> list = Viaje.listadoPorDisponibilidad(sisi);
-		m.terminoLectura();
-		return list;
+		else
+			m.terminoLectura();
+			return bo;
+		
 	}
 	
 	public float MonRec(String cod) throws RemoteException{
@@ -176,5 +184,15 @@ public class Fachada {
 			m.terminoEscritura();
 			throw new PersistenciaException(e.getMessage());
 		}
+	}
+
+	@Override
+	public void recuperardatos1() throws RemoteException, PersistenciaException {
+		
+	}
+
+	@Override
+	public ArrayList<VOpaseolistado> LisPasAsMin(String mat) {
+		return null;
 	}
 }
