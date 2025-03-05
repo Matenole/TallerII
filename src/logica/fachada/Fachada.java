@@ -109,10 +109,10 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
         }
 	}
 	
-	public Boletos LisPasBolVen(String cod) throws RemoteException,LogicaException {
+	public ArrayList<VOboletolistado> LisPasBolVen(String cod) throws RemoteException,LogicaException {
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
-		Boletos bo = p.getBoletosVendidos();
+		ArrayList<VOboletolistado> bo = p.getBoletosVendidos();
 		int sisi = bo.size();
 		int nono = p.getMaxboletos();
 		if(sisi != nono)
