@@ -1,6 +1,7 @@
 package grafica;
 import java.rmi.RemoteException;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import logica.colecciones.*;
@@ -196,7 +197,7 @@ public class TestFachada {
 		//Acierto: imprime correctamente la cantidad correcta de paseos por pantalla de los paseos con el destino correcto.
 		 ///Para poder probar listarboletospordisponibilidad,listadoporvoletosvendidos y montorecaudado hay que arreglar ventaboleto y verificar la insercion de boletos a los paseos correspondientes.
 	///Prueba 7:Guardar la realidad en un archivo respaldando los datos(Testing positivo)
-	/*
+			/*
 		 	paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
 			f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
 			paseo p3 = new paseo("NegroDelTunel11","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
@@ -216,7 +217,7 @@ public class TestFachada {
 			f.RegisMin(vom2);
 			f.RegisMin(vom3);
 			f.respaldardatos();
-	*/
+			*/
 			///Error: dan multiples errores en simultaneo, puntualmente en la fachada. parece que no se respaldan correctamente los archivos, puntualmente a la hora de obtener el mensaje y en el nombramiento del archivo. si no lo encuentra que lo cree 
 			///Prueba 8:Recuperacion de los datos:(Testing positivo):
 			/*
@@ -258,7 +259,6 @@ public class TestFachada {
 		*/
 		///Acierto: el boleto modifica su monto correctamente. incluso modificando la edad a un numero mayor que 18 tambien modifica correctamente la edad
 		///Prueba 11:listar  por boletos vendidos(Testing positivo):
-		
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,3);
 		boleto b = new boleto(7788,"Tarzan",18,"pochoclo89100");
 		boleto c = new boleto(6733,"George de la selva",15,"Atuctuc1122");
@@ -273,28 +273,23 @@ public class TestFachada {
 		f.VentaBol(p2.getCodigo(), d);
 		f.VentaBol(p3.getCodigo(), e);
 		f.VentaBol(p3.getCodigo(), g);
-		List<VOpaseolistado> l= f.LisPasBolVen(p2.getCodigo());
-		 for (VOpaseolistado pas : l) {
-	            System.out.println("Codigo: " + pas.getCodigo());
-	            System.out.println("Destino: " + pas.getDestino());
-	            System.out.println("Salida: " + pas.getHorasalida());
-	            System.out.println("Llegada: " + pas.getHorallegada());
-	            System.out.println("Precio: " + pas.getPrecio());
-	            System.out.println("Cantidadmaximadeboletos: " + pas.getMaxboletos());
+		Boletos l= f.LisPasBolVen(p2.getCodigo());
+		 for (boleto pas : l) {
+	            System.out.println("Codigo: " + pas.getNumero());
+	            System.out.println("Destino: " + pas.getNombrepasajero());
+	            System.out.println("Salida: " + pas.getEdad());
+	            System.out.println("Llegada: " +pas.getCelular());
 	            System.out.println("-----------------------------");
 	        }
-		 List<VOpaseolistado> o= f.LisPasBolVen(p3.getCodigo());
-			 for (VOpaseolistado pes : o) {
-		            System.out.println("Codigo: " + pes.getCodigo());
-		            System.out.println("Destino: " + pes.getDestino());
-		            System.out.println("Salida: " + pes.getHorasalida());
-		            System.out.println("Llegada: " + pes.getHorallegada());
-		            System.out.println("Precio: " + pes.getPrecio());
-		            System.out.println("Cantidadmaximadeboletos: " + pes.getMaxboletos());
+		 Boletos o= f.LisPasBolVen(p3.getCodigo());
+			 for (boleto pes : o) {
+		            System.out.println("Codigo: " + pes.getNumero());
+		            System.out.println("Destino: " + pes.getNombrepasajero());
+		            System.out.println("Salida: " + pes.getEdad());
+		            System.out.println("Llegada: " + pes.getCelular());
 		            System.out.println("-----------------------------");
 		        }
-			 
-	  ///Acierto: se lista correctamente los paseos que poseen misma cantidad de boletos y maxima cantidad de boletos vendidos.
+	  ///Acierto: se lista correctamente los paseos que poseen misma cantidad de boletos y maxima cantidad de boletos vendidos. el paseo salus1 se listo dos veces, igual de momento no jode mucho eso. venimos bien
 	}
 
 }

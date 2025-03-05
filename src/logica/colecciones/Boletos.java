@@ -30,21 +30,4 @@ public class Boletos {
         }
     }
 
-    public VOboletolistado listadoBoletos(int indice) {
-        // Verificar si el índice es válido
-        if (indice < 0 || indice >= Array_Boletos.size()) {
-            throw new IndexOutOfBoundsException("Índice fuera de rango: " + indice);
-        }
-
-        // Obtener el boleto en la posición indicada
-        boleto bol = Array_Boletos.get(indice);
-
-        // Crear y devolver el VOboletolistado con los datos del boleto
-        return new VOboletolistado(
-        	bol.getNumero(),
-            bol.getNombrepasajero(),
-            bol.getEdad(),
-            bol.getCelular()
-        );
-    }
 }
