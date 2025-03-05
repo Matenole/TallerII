@@ -1,15 +1,12 @@
 package grafica.Boleto;
 
 import logica.excepciones.LogicaException;
-import logica.excepciones.PersistenciaException;
 import logica.fachada.IFachada;
 import logica.valueobject.VOboletolistado;
-import logica.valueobject.VOpaseolistado;
 import java.util.ArrayList;
 import java.rmi.RemoteException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.util.Properties;
 import java.io.FileInputStream;
@@ -50,12 +47,12 @@ public class ControladorLisBoletosVendidosPorPaseo {
 
 	}
 		
-	public void ListarBoletos() {
+	public void ListarBoletos(String codigo) throws LogicaException {
 		try {
 			DefaultTableModel dm = (DefaultTableModel) VLBV.tableListadoBoletos.getModel();
 			while (VLBV.tableListadoBoletos.getRowCount() != 0)
 				dm.removeRow(VLBV.tableListadoBoletos.getRowCount() - 1);
-			ArrayList<VOpaseolistado> Boleto = f.LisPasBolVen(null);
+			ArrayList<VOboletolistado> Boleto = f.LisPasBolVen(codigo);
 			if (Boleto.isEmpty()) {
 				VLBV.mostrarMensaje("No hay ningun Boleto registrado");
 			} else {
@@ -66,8 +63,6 @@ public class ControladorLisBoletosVendidosPorPaseo {
 			}
 		} catch (RemoteException e) {
 			VLBV.mostrarMensaje("Error");
-		} catch (PersistenciaException e) {
-			VLBV.mostrarMensaje(e.getMensaje());
 		}
 
 	}

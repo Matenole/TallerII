@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 import logica.excepciones.LogicaException;
+import logica.excepciones.RegistroExceptionII;
 import logica.fachada.IFachada;
 
 public class ControladorRegistroPaseo {
@@ -45,15 +46,18 @@ public class ControladorRegistroPaseo {
 		}
 	}
 	
-	public void VentaBoleto(String cod, String des, String HP, String HL, float Prec, int MaxBol){
+	public void VentaBoleto(String cod, String des, String HP, String HL, String Prec, String MaxBol) throws RegistroExceptionII{
 		try {
+			
+			int maxb = Integer.parseInt(MaxBol);
+			float pre = Float.parseFloat(Prec);
 			
 			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
 	        LocalTime partida = LocalTime.parse(HP, dateTimeFormatter);
 	        LocalTime llegada = LocalTime.parse(HL, dateTimeFormatter);
 			
-			f.RegisPas(cod, des, partida, llegada, Prec, MaxBol);
+			f.RegisPas(cod, des, partida, llegada, pre, maxb);
 			v.MostrarMensaje("Paseo ingresado correctamente");
 		} catch (LogicaException | RemoteException e) {
 			v.MostrarMensaje(e.getMessage());

@@ -5,12 +5,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import logica.excepciones.RegistroExceptionII;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Button;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaRegistroPaseo extends JFrame {
 
@@ -24,6 +29,7 @@ public class VentanaRegistroPaseo extends JFrame {
 	private JTextField txtPrecio;
 	private JLabel lblMaxBoletos;
 	private JTextField txtMaxBoletos;
+	private ControladorRegistroPaseo controlador;
 
 	/**
 	 * Launch the application.
@@ -45,6 +51,9 @@ public class VentanaRegistroPaseo extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaRegistroPaseo() {
+		
+		controlador = new ControladorRegistroPaseo(this);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 300);
 		contentPane = new JPanel();
@@ -111,6 +120,15 @@ public class VentanaRegistroPaseo extends JFrame {
 		contentPane.add(txtMaxBoletos);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					controlador.VentaBoleto(txtCodigo.getText(), txtDestino.getText(), txtHoraPartida.getText(), txtHoraLlegada.getText(), txtPrecio.getText(), txtMaxBoletos.getText());
+				} catch (RegistroExceptionII e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnAceptar.setBounds(95, 232, 85, 21);
 		contentPane.add(btnAceptar);
 	}

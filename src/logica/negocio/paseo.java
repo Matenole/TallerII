@@ -116,8 +116,8 @@ public class paseo {
 		    return mo;
 		}
 		
-		public List<VOboletolistado> listarBoletos() {
-	        List<VOboletolistado> listado = new ArrayList<>();
+		public ArrayList<VOboletolistado> listarBoletos() {
+			ArrayList<VOboletolistado> listado = new ArrayList<>();
 			for (int i = 0; i < boletosVendidos.size(); i++) {
 	            boleto b = boletosVendidos.kesimo(i);
 	            if (listado != null) {

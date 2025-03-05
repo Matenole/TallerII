@@ -112,7 +112,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	public ArrayList<VOboletolistado> LisPasBolVen(String cod) throws RemoteException,LogicaException {
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
-		ArrayList<VOboletolistado> bo = p.getBoletosVendidos();
+		ArrayList<VOboletolistado> bo = p.listarBoletos();
 		int sisi = bo.size();
 		int nono = p.getMaxboletos();
 		if(sisi != nono)
@@ -120,7 +120,6 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		else
 			m.terminoLectura();
 			return bo;
-		
 	}
 	
 	public float MonRec(String cod) throws RemoteException{

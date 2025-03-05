@@ -19,6 +19,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
 import grafica.Boleto.ControladorLisBoletosVendidosPorPaseo;
+import logica.excepciones.LogicaException;
+
 import java.awt.Color;
 
 public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
@@ -82,7 +84,11 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			JButton btnListar = new JButton("Listar");
 			btnListar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					controlador.ListarBoletos();
+					try {
+						controlador.ListarBoletos(txtCodigo.getText());
+					} catch (LogicaException e1) {
+						e1.printStackTrace();
+					}
 				}
 			});
 			btnListar.setBounds(210, 58, 85, 32);

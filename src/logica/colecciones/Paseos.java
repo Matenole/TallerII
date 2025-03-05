@@ -44,13 +44,7 @@ public class Paseos {
 	    				  );
 	    return recorrido;
     }
-    public ArrayList<VOboletolistado> listarboletos(String codigo) {
-    	paseo p = AVL_Paseos.get(codigo);
-    	Boletos bo = p.getBoletosVendidos();
-    	for(boleto b : bo) {
-    		
-    	}
-    }
+
     public String keyfinder() {
     	return AVL_Paseos.firstKey();
     }

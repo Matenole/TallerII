@@ -11,6 +11,7 @@ import logica.excepciones.PersistenciaException;
 import logica.excepciones.RegistroException;
 import logica.excepciones.RegistroExceptionII;
 import logica.valueobject.VOboletoingreso;
+import logica.valueobject.VOboletolistado;
 import logica.valueobject.VOminivan;
 import logica.valueobject.VOminivanlistado;
 import logica.valueobject.VOpaseoingreso;
@@ -27,7 +28,7 @@ public interface IFachada extends Remote {
 	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat);
 	public ArrayList<VOpaseolistado> LisPasDes(String des) throws RemoteException;
 	public ArrayList<VOpaseolistado> LisDisBol(int maxb,Boletos bo) throws RemoteException,LogicaException;
-	public  Boletos LisPasBolVen(String cod) throws RemoteException,LogicaException;
+	public ArrayList<VOboletolistado> LisPasBolVen(String cod) throws RemoteException,LogicaException;
 	public float MonRec(String cod) throws RemoteException;
 	public void respaldardatos() throws RemoteException, PersistenciaException;
 	public void recuperardatos() throws RemoteException, PersistenciaException;
