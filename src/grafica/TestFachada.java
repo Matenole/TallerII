@@ -259,6 +259,7 @@ public class TestFachada {
 		*/
 		///Acierto: el boleto modifica su monto correctamente. incluso modificando la edad a un numero mayor que 18 tambien modifica correctamente la edad
 		///Prueba 11:listar  por boletos vendidos(Testing positivo):
+		/*
 		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,3);
 		boleto b = new boleto(7788,"Tarzan",18,"pochoclo89100");
 		boleto c = new boleto(6733,"George de la selva",15,"Atuctuc1122");
@@ -289,6 +290,7 @@ public class TestFachada {
 		            System.out.println("Llegada: " + pes.getCelular());
 		            System.out.println("-----------------------------");
 		        }
+		 */
 	  ///Acierto: se lista correctamente los paseos que poseen misma cantidad de boletos y maxima cantidad de boletos vendidos. el paseo salus1 se listo dos veces, igual de momento no jode mucho eso. venimos bien
 	}
 

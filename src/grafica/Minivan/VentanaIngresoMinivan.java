@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import logica.excepciones.RegistroException;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -96,7 +99,11 @@ public class VentanaIngresoMinivan extends JFrame {
 				String marca = txtMarca.getText();
 				String modelo = txtModelo.getText();
 				int asientos = Integer.valueOf(txtCapacidad.getText());
-				controlador.IngresarMinivan(matricula, marca, modelo, asientos);
+				try {
+					controlador.IngresarMinivan(matricula, marca, modelo, asientos);
+				} catch (RegistroException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 11));

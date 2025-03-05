@@ -65,8 +65,6 @@ public class ControladorLisPaseosPorDispBoletos {
 			}
 		} catch (RemoteException e) {
 			VLPDB.mostrarMensaje("Error");
-		} catch (PersistenciaException e) {
-			VLPDB.mostrarMensaje(e.getMensaje());
 		}
 
 	}

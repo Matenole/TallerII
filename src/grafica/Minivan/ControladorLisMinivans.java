@@ -64,8 +64,6 @@ public class ControladorLisMinivans {
 			}
 		} catch (RemoteException e) {
 			VLM.mostrarMensaje("Error");
-		} catch (PersistenciaException e) {
-			VLM.mostrarMensaje(e.getMensaje());
 		}
 
 	}

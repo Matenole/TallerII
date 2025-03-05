@@ -10,6 +10,7 @@ import java.rmi.RemoteException;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 import logica.excepciones.LogicaException;
+import logica.excepciones.RegistroException;
 import logica.fachada.IFachada;
 import logica.valueobject.VOminivan;
 
@@ -44,7 +45,7 @@ public class ControladorIngresoMinivan {
 		}
 	}
 	
-	public void IngresarMinivan(String matricula, String marca, String modelo, int asientos){
+	public void IngresarMinivan(String matricula, String marca, String modelo, int asientos) throws RegistroException{
 		try {
 			VOminivan mini = new VOminivan(matricula, marca, modelo, asientos);
 			f.RegisMin(mini);

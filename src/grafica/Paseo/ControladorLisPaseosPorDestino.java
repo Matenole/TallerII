@@ -65,8 +65,6 @@ public class ControladorLisPaseosPorDestino {
 			}
 		} catch (RemoteException e) {
 			VLPD.mostrarMensaje("Error");
-		} catch (PersistenciaException e) {
-			VLPD.mostrarMensaje(e.getMensaje());
 		}
 
 	}

@@ -65,8 +65,6 @@ public class ControladorLisPaseosAsigMinivan {
 			}
 		} catch (RemoteException e) {
 			VLPAM.mostrarMensaje("Error");
-		} catch (PersistenciaException e) {
-			VLPAM.mostrarMensaje(e.getMensaje());
 		}
 
 	}
