@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Button;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class VentanaRegistroPaseo extends JFrame {
 
@@ -22,7 +23,7 @@ public class VentanaRegistroPaseo extends JFrame {
 	private JLabel lblPrecio;
 	private JTextField txtPrecio;
 	private JLabel lblMaxBoletos;
-	private JTextField textField_1;
+	private JTextField txtMaxBoletos;
 
 	/**
 	 * Launch the application.
@@ -47,6 +48,7 @@ public class VentanaRegistroPaseo extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -103,10 +105,10 @@ public class VentanaRegistroPaseo extends JFrame {
 		lblMaxBoletos.setBounds(10, 149, 61, 13);
 		contentPane.add(lblMaxBoletos);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(84, 146, 96, 19);
-		contentPane.add(textField_1);
+		txtMaxBoletos = new JTextField();
+		txtMaxBoletos.setColumns(10);
+		txtMaxBoletos.setBounds(84, 146, 96, 19);
+		contentPane.add(txtMaxBoletos);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(95, 232, 85, 21);

@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class VentanaIngresoMinivan extends JFrame {
 
@@ -47,6 +48,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 210, 210);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -87,8 +89,8 @@ public class VentanaIngresoMinivan extends JFrame {
 		txtCapacidad.setBounds(77, 92, 86, 20);
 		contentPane.add(txtCapacidad);
 		
-		JButton btnIngresar = new JButton("Aceptar");
-		btnIngresar.addActionListener(new ActionListener() {
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String matricula = txtMatricula.getText();
 				String marca = txtMarca.getText();
@@ -97,9 +99,9 @@ public class VentanaIngresoMinivan extends JFrame {
 				controlador.IngresarMinivan(matricula, marca, modelo, asientos);
 			}
 		});
-		btnIngresar.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnIngresar.setBounds(54, 137, 89, 23);
-		contentPane.add(btnIngresar);
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnAceptar.setBounds(54, 137, 89, 23);
+		contentPane.add(btnAceptar);
 	}
 
 	public void MostrarMensaje(String mensaje) {
