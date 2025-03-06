@@ -50,7 +50,7 @@ public class ControladorIngresoMinivan {
 			VOminivan mini = new VOminivan(matricula, marca, modelo, asientos);
 			f.RegisMin(mini);
 			v.MostrarMensaje("Minivan ingresada correctamente");
-		} catch (LogicaException | RemoteException e) {
+		} catch (RemoteException e) {
 			v.MostrarMensaje(e.getMessage());
 		}
 	}

@@ -58,7 +58,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 		private void initialize() {
 			frmListadoBoletos = new JFrame();
 			frmListadoBoletos.getContentPane().setFont(new Font("Arial", Font.PLAIN, 11));
-			frmListadoBoletos.getContentPane().setBackground(new Color(128, 0, 0));
+			frmListadoBoletos.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoBoletos.setBackground(SystemColor.inactiveCaption);
 			frmListadoBoletos.setTitle("Listado de Boletos");
 			frmListadoBoletos.setBounds(100, 100, 507, 391);

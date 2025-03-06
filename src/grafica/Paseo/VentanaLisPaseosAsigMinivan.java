@@ -54,7 +54,7 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 		private void initialize() {
 			frmListadoPaseos = new JFrame();
 			frmListadoPaseos.getContentPane().setFont(new Font("Arial", Font.PLAIN, 11));
-			frmListadoPaseos.getContentPane().setBackground(new Color(128, 0, 0));
+			frmListadoPaseos.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoPaseos.setBackground(SystemColor.inactiveCaption);
 			frmListadoPaseos.setTitle("Listado de Paseos");
 			frmListadoPaseos.setBounds(100, 100, 602, 391);

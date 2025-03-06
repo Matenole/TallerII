@@ -1,4 +1,5 @@
 package logica.colecciones;
+import java.io.Serializable;
 import java.util.*;
 import logica.excepciones.RegistroException;
 import logica.negocio.minivan;
@@ -6,7 +7,7 @@ import logica.negocio.paseo;
 import logica.valueobject.VOminivanlistado;
 import logica.valueobject.VOpaseolistado;
 
-public class Minivans {
+public class Minivans implements Serializable{
 	
 	///Atributos
 	private TreeMap <String, minivan> AVL_Minivans;

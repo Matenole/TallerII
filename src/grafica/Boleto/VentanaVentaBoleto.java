@@ -5,11 +5,20 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import grafica.Paseo.ControladorRegistroPaseo;
+import logica.excepciones.LogicaException;
+import logica.excepciones.RegistroExceptionII;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class VentanaVentaBoleto extends JFrame {
 
@@ -19,6 +28,7 @@ public class VentanaVentaBoleto extends JFrame {
 	private JTextField txtNombre;
 	private JTextField txtEdad;
 	private JTextField txtCelular;
+	private ControladorVentaBoleto controlador;
 
 	/**
 	 * Launch the application.
@@ -40,10 +50,13 @@ public class VentanaVentaBoleto extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaVentaBoleto() {
+		
+		controlador = new ControladorVentaBoleto(this);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(128, 0, 0));
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -95,6 +108,17 @@ public class VentanaVentaBoleto extends JFrame {
 		contentPane.add(lblCelular);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					controlador.VentaBoleto(txtCodigo.getText(), txtNumero.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText());
+				} catch (RemoteException e1) {
+					e1.printStackTrace();
+				} catch (LogicaException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnAceptar.setBounds(111, 232, 85, 21);
 		contentPane.add(btnAceptar);
 	}

@@ -51,7 +51,7 @@ public class VentanaLisMinivans extends JFrame {
 		private void initialize() {
 			frmListadoMinivans = new JFrame();
 			frmListadoMinivans.getContentPane().setFont(new Font("Arial", Font.PLAIN, 11));
-			frmListadoMinivans.getContentPane().setBackground(new Color(128, 0, 0));
+			frmListadoMinivans.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoMinivans.setBackground(SystemColor.inactiveCaption);
 			frmListadoMinivans.setTitle("Listado de Minivans");
 			frmListadoMinivans.setBounds(100, 100, 507, 391);

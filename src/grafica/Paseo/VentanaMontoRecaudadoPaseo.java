@@ -10,11 +10,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class VentanaMontoRecaudadoPaseo extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtCodigo;
+	private ControladorMontoRecaudadoPaseo controlador;
 
 	/**
 	 * Launch the application.
@@ -36,26 +40,34 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaMontoRecaudadoPaseo() {
+		
+		controlador = new ControladorMontoRecaudadoPaseo(this);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(128, 0, 0));
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblCodigo = new JLabel("Codigo");
-		lblCodigo.setBounds(10, 10, 45, 13);
+		lblCodigo.setBounds(58, 113, 45, 13);
 		contentPane.add(lblCodigo);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(65, 7, 96, 19);
+		txtCodigo.setBounds(113, 110, 96, 19);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(108, 232, 85, 21);
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.Monto(getName());
+			}
+		});
+		btnAceptar.setBounds(98, 198, 85, 21);
 		contentPane.add(btnAceptar);
 	}
 

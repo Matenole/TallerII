@@ -1,5 +1,8 @@
 package logica.negocio;
-public class boleto {
+
+import java.io.Serializable;
+
+public class boleto implements Serializable{
 		///Atributos
 		private int numero;
 		private String nombrepasajero;

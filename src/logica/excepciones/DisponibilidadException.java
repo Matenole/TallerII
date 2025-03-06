@@ -1,9 +1,8 @@
 package logica.excepciones;
 
-public class LogicaException extends Exception {
-	//private static final long serialVersionUID = 1L;
+public class DisponibilidadException extends Exception {
 	private String mensaje;
-	public LogicaException(String mensaje) {
+	public DisponibilidadException(String mensaje) {
 		super();
 		this.mensaje = mensaje;
 	}

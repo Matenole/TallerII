@@ -1,10 +1,11 @@
 package logica.negocio;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import logica.colecciones.Paseos;
 import logica.valueobject.VOpaseolistado;
 
-public class minivan {
+public class minivan implements Serializable{
 		///Atributos
 		private String Matricula;
 		

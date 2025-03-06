@@ -218,12 +218,12 @@ public class TestFachada {
 			f.RegisMin(vom3);
 			f.respaldardatos();
 			*/
-			///Error: dan multiples errores en simultaneo, puntualmente en la fachada. parece que no se respaldan correctamente los archivos, puntualmente a la hora de obtener el mensaje y en el nombramiento del archivo. si no lo encuentra que lo cree 
+			///Acierto
 			///Prueba 8:Recuperacion de los datos:(Testing positivo):
 			/*
 			f.recuperardatos();
 			*/
-			///Error: errores parecidos en la parte de respaldo tambien los hay en la parte de recuperar. hay algo q no funciona correctamente en la capa de persistencia.
+			///Acierto
 			///Prueba 9: listar por disponibilidad de boletos:
 			/*
 			paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,8);

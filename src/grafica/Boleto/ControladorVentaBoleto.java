@@ -27,7 +27,7 @@ public class ControladorVentaBoleto {
 			String ip = prop.getProperty("ip");
 			String puerto = prop.getProperty("puerto");
 			f = (IFachada)
-					Naming.lookup("//"+ip+":"+puerto+"/fachada");
+			Naming.lookup("//"+ip+":"+puerto+"/fachada");
 
 		} catch (MalformedURLException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion");
@@ -45,14 +45,12 @@ public class ControladorVentaBoleto {
 
 	}
 	
-	public void VentaBoleto(String codigo, int numero, String nombrepasajero, int edad, String celular){
-		try {
-			boleto boleto = new boleto(numero, nombrepasajero, edad, celular);
+	public void VentaBoleto(String codigo, String numero, String nombrepasajero, String edad, String celular) throws RemoteException, LogicaException{
+			int num = Integer.parseInt(numero);
+			int age = Integer.parseInt(edad);
+			boleto boleto = new boleto(num, nombrepasajero, age, celular);
 			f.VentaBol(codigo, boleto);
 			v.MostrarMensaje("Boleto ingresado correctamente");
-		} catch (LogicaException | RemoteException e) {
-			v.MostrarMensaje(e.getMessage());
-		}
 	}
 	
 }

@@ -1,8 +1,9 @@
 package logica.colecciones;
+import java.io.Serializable;
 import java.util.*;
 import logica.negocio.paseo;
 import logica.valueobject.VOpaseolistado;
-public class Paseos {
+public class Paseos implements Serializable{
 	
 	private TreeMap <String, paseo> AVL_Paseos;
 	public Paseos() {

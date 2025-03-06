@@ -42,7 +42,7 @@ public class ControladorMontoRecaudadoPaseo {
 		}
 	}
 	
-	public void VentaBoleto(String codigo){
+	public void Monto(String codigo){
 		try {
 			String monto = Float.toString(f.MonRec(codigo));
 			v.MostrarMensaje("Monto recaudado: " + monto);

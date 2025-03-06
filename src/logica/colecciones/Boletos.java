@@ -1,10 +1,11 @@
 package logica.colecciones;
+import java.io.Serializable;
 import java.util.*;
 import logica.negocio.boleto;
 import logica.negocio.especial;
 import logica.valueobject.*;
 
-public class Boletos {
+public class Boletos implements Serializable{
 	
 	///Atributos
     private ArrayList<boleto> Array_Boletos;

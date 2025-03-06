@@ -14,9 +14,7 @@ import persistencia.*;
 import java.util.Properties;
 import java.rmi.server.UnicastRemoteObject;
 public class Fachada extends UnicastRemoteObject implements IFachada{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	///Atributos
 	private  Minivans Locomocion;
@@ -27,7 +25,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	///Constructor
 	public Fachada() throws RemoteException {
 		super();
-		Locomocion =new Minivans();
+		Locomocion = new Minivans();
 		Viaje = new Paseos();
 		m = new Monitor();
 	}
@@ -95,12 +93,12 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		return array;
 	}
 	
-	public ArrayList<VOpaseolistado> LisDisBol(int maxb,Boletos bo) throws RemoteException,LogicaException {
+	public ArrayList<VOpaseolistado> LisDisBol(int maxb,Boletos bo) throws RemoteException,DisponibilidadException {
 		m.comienzoLectura();
 		String asesoramientoPaseos = Viaje.keyfinder();
         paseo a_asesorar = Viaje.find(asesoramientoPaseos);
         if(a_asesorar.getMaxboletos() - bo.size() < maxb)
-			throw new LogicaException("el maximo de boletos es menor a la resta de los boletos maximos y los boletos disponibles");
+			throw new DisponibilidadException("el maximo de boletos es menor a la resta de los boletos maximos y los boletos disponibles");
         else
         {
         	ArrayList<VOpaseolistado> arr = Viaje.listadoPorDisponibilidad(maxb);
@@ -113,13 +111,8 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
 		ArrayList<VOboletolistado> bo = p.listarBoletos();
-		int sisi = bo.size();
-		int nono = p.getMaxboletos();
-		if(sisi != nono)
-			throw new LogicaException("La cantidad de boletos vendida no es la suficiente");
-		else
-			m.terminoLectura();
-			return bo;
+		m.terminoLectura();
+		return bo;
 	}
 	
 	public float MonRec(String cod) throws RemoteException{
@@ -140,9 +133,9 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		Persistencia p = new Persistencia();
 		try{
 			Properties prop = new Properties();
-			String nomArch = "C:\\Users\\mateo\\Documents\\Taller II\\Taller2-20250217T021949Z-001\\TallerII\\test";
+			String nomArch = "config/txt.properties";
 			prop.load (new FileInputStream (nomArch));
-			String nombrearchivo = prop.getProperty(nomArch);
+			String nombrearchivo = prop.getProperty("nombrearchivo");
 			p.respaldar(nombrearchivo, vo);
 			m.terminoLectura();
 		}catch(PersistenciaException e) {
@@ -166,7 +159,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			Properties prop = new Properties();
 			String nomArch = "config/txt.properties";
 			prop.load (new FileInputStream (nomArch));
-			String nombrearchivo = prop.getProperty(nomArch);
+			String nombrearchivo = prop.getProperty("nombrearchivo");
 			VOPersistencia vo = p.recuperar(nombrearchivo);
 			Locomocion = vo.getMini();
 			Viaje = vo.getPas();
@@ -183,15 +176,5 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			m.terminoEscritura();
 			throw new PersistenciaException(e.getMessage());
 		}
-	}
-
-	@Override
-	public void recuperardatos1() throws RemoteException, PersistenciaException {
-		
-	}
-
-	@Override
-	public ArrayList<VOpaseolistado> LisPasAsMin(String mat) {
-		return null;
 	}
 }

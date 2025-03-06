@@ -1,5 +1,6 @@
 
 package logica.negocio;
+import java.io.Serializable;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +11,7 @@ import logica.valueobject.VOboletolistado;
 import logica.colecciones.*;
 import logica.negocio.minivan;
 
-public class paseo {
+public class paseo implements Serializable{
 		///Atributos
 		private String Codigo;
 		
