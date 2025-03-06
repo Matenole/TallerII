@@ -11,6 +11,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+
+import logica.excepciones.DestinoException;
 import logica.excepciones.LogicaException;
 import logica.excepciones.RegistroExceptionII;
 import logica.fachada.IFachada;
@@ -46,7 +48,7 @@ public class ControladorRegistroPaseo {
 		}
 	}
 	
-	public void VentaBoleto(String cod, String des, String HP, String HL, String Prec, String MaxBol) throws RegistroExceptionII{
+	public void VentaBoleto(String cod, String des, String HP, String HL, String Prec, String MaxBol) throws RegistroExceptionII, DestinoException{
 		try {
 			
 			int maxb = Integer.parseInt(MaxBol);

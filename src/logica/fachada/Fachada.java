@@ -65,12 +65,16 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		return list;
 	}
 	
-	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,RegistroExceptionII {
+	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,RegistroExceptionII, DestinoException {
 		if(Viaje.member(cod))
 			throw new RegistroExceptionII("El paseo no se puede registrar porque el mismo ya se encuentra en el sistema");
 		else
 			if(!cod.matches("[a-zA-Z0-9]+"))
 					throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
+			else
+				if (!(DestinosUruguay.esDestinoValido(des))) {
+						throw new DestinoException("El destino ingresado no es correcto");
+		        }
 		else {
 			m.comienzoEscritura();
 				paseo p = new paseo(cod, des, HP, HL, Prec, MaxBol);

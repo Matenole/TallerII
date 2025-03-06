@@ -5,13 +5,15 @@ import java.time.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
-
 import logica.valueobject.VOboletolistado;
 import logica.colecciones.*;
-import logica.negocio.minivan;
 
 public class paseo implements Serializable{
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 		///Atributos
 		private String Codigo;
 		
@@ -138,11 +140,6 @@ public class paseo implements Serializable{
 	        return listado;
 	    }
 
-	    private boolean existePaseo(String codigo) {									///Aparentemente no se usa, lo borramos?
-	        // Aquí deberías implementar la lógica para verificar si el paseo existe
-	        // Por ejemplo, buscar en una lista de paseos o en una base de datos
-	        return true; // Asumimos que el paseo existe para este ejemplo
-	    }
 }
 
 		

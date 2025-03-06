@@ -6,6 +6,7 @@ import java.util.List;
 
 import logica.colecciones.*;
 import logica.excepciones.DescuentoException;
+import logica.excepciones.DestinoException;
 import logica.excepciones.LogicaException;
 import logica.excepciones.PersistenciaException;
 import logica.excepciones.RegistroException;
@@ -15,7 +16,7 @@ import logica.negocio.*;
 import logica.valueobject.*;
 public class TestFachada {
 
-	public static void main(String[] args) throws LogicaException, RegistroException, RemoteException, RegistroExceptionII, PersistenciaException, DescuentoException {
+	public static void main(String[] args) throws LogicaException, RegistroException, RemoteException, RegistroExceptionII, PersistenciaException, DescuentoException, DestinoException {
 		// TODO Auto-generated method stub
 		///Inicio Prueba fachada
 		Fachada f = new Fachada();
@@ -65,10 +66,10 @@ public class TestFachada {
 		///Acierto:el ingresar un boleto cuando no hay mas lugar el error correspondiente salta cuando tiene que saltar
 		///Prueba 2:Registrar un paseo en el sistema(testing positivo)
 		///
-		/*
-		paseo p2 = new paseo("Salus1","Castillos",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
+		
+		paseo p2 = new paseo("Salus1","",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
 		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
-		*/
+		
 		//Acierto: registrar un paseo en el sistema funciona correctamente.
 		//Prueba 2.1: ingresar dos paseos con el mismo codigo(testing negativo)
 		/*

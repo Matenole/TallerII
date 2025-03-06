@@ -6,16 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import logica.colecciones.Boletos;
+import logica.excepciones.DestinoException;
 import logica.excepciones.DisponibilidadException;
 import logica.excepciones.LogicaException;
 import logica.excepciones.PersistenciaException;
 import logica.excepciones.RegistroException;
 import logica.excepciones.RegistroExceptionII;
-import logica.valueobject.VOboletoingreso;
 import logica.valueobject.VOboletolistado;
 import logica.valueobject.VOminivan;
 import logica.valueobject.VOminivanlistado;
-import logica.valueobject.VOpaseoingreso;
 import logica.valueobject.VOpaseolistado;
 import logica.negocio.boleto;
 public interface IFachada extends Remote {
@@ -25,7 +24,7 @@ public interface IFachada extends Remote {
 	public void VentaBol(String codigo,boleto b) throws RemoteException,LogicaException;
 	public List<VOminivanlistado> LisMin()  throws RemoteException;
 	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat,String cod) throws RemoteException;
-	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,LogicaException, RegistroExceptionII;
+	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,LogicaException, RegistroExceptionII, DestinoException;
 	public ArrayList<VOpaseolistado> LisPasDes(String des) throws RemoteException;
 	public ArrayList<VOpaseolistado> LisDisBol(int maxb,Boletos bo) throws RemoteException, DisponibilidadException;
 	public ArrayList<VOboletolistado> LisPasBolVen(String cod) throws RemoteException,LogicaException;

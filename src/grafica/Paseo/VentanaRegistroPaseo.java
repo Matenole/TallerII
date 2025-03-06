@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import logica.excepciones.DestinoException;
 import logica.excepciones.RegistroExceptionII;
 
 import javax.swing.JLabel;
@@ -126,6 +127,9 @@ public class VentanaRegistroPaseo extends JFrame {
 				try {
 					controlador.VentaBoleto(txtCodigo.getText(), txtDestino.getText(), txtHoraPartida.getText(), txtHoraLlegada.getText(), txtPrecio.getText(), txtMaxBoletos.getText());
 				} catch (RegistroExceptionII e1) {
+					e1.printStackTrace();
+				} catch (DestinoException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
