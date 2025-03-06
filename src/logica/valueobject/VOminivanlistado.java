@@ -1,5 +1,8 @@
 package logica.valueobject;
-public class VOminivanlistado extends VOminivan {
+
+import java.io.Serializable;
+
+public class VOminivanlistado extends VOminivan implements Serializable{
 	///Atributo
 	private int cantpaseosasignados;
 	///Constructor

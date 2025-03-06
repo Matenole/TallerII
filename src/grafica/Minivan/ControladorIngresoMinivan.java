@@ -3,6 +3,7 @@ package grafica.Minivan;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -14,7 +15,7 @@ import logica.excepciones.RegistroException;
 import logica.fachada.IFachada;
 import logica.valueobject.VOminivan;
 
-public class ControladorIngresoMinivan {
+public class ControladorIngresoMinivan implements Serializable{
 	private IFachada f;
 	private VentanaIngresoMinivan v;
 	

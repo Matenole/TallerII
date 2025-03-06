@@ -1,7 +1,8 @@
 package logica.valueobject;
+import java.io.Serializable;
 import java.time.*;
 
-public class VOpaseolistado extends VOpaseoingreso{
+public class VOpaseolistado extends VOpaseoingreso implements Serializable{
 		///Atributo
 		private float monto;
 		///Constructor

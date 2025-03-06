@@ -1,6 +1,8 @@
 package logica.valueobject;
 
-public class VOminivan {
+import java.io.Serializable;
+
+public class VOminivan implements Serializable{
 	///Atributos
 	private String Matricula;
 	private String Marca;

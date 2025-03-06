@@ -1,7 +1,8 @@
 package logica.valueobject;
+import java.io.Serializable;
 import java.time.*;
 
-public class VOpaseoingreso {
+public class VOpaseoingreso implements Serializable{
 	///Atributos
 	private String Codigo;
 	

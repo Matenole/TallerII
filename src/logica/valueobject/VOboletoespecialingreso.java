@@ -1,6 +1,8 @@
 package logica.valueobject;
 
-public class VOboletoespecialingreso {
+import java.io.Serializable;
+
+public class VOboletoespecialingreso implements Serializable{
 	///Atributos
 	private String nombrepasajero;
 	

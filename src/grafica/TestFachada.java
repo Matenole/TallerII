@@ -293,6 +293,5 @@ public class TestFachada {
 		 */
 	  ///Acierto: se lista correctamente los paseos que poseen misma cantidad de boletos y maxima cantidad de boletos vendidos. el paseo salus1 se listo dos veces, igual de momento no jode mucho eso. venimos bien
 	}
-
 }
 
