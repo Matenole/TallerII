@@ -69,16 +69,16 @@ public class VentanaPrincipal extends JFrame {
 		btnMonRec.setBounds(179, 71, 125, 23);
 		contentPane.add(btnMonRec);
 		
-		JButton btnMonRec_1 = new JButton("Monto Recaudado");
-		btnMonRec_1.setBounds(179, 118, 125, 23);
-		contentPane.add(btnMonRec_1);
+		JButton btnLisPasMin = new JButton("Listar Paseo por Minivan");
+		btnLisPasMin.setBounds(164, 118, 155, 23);
+		contentPane.add(btnLisPasMin);
 		
-		JButton btnMonRec_1_1 = new JButton("Monto Recaudado");
-		btnMonRec_1_1.setBounds(179, 167, 125, 23);
-		contentPane.add(btnMonRec_1_1);
+		JButton btnLisPasDes = new JButton("Listar Paseo por Destino");
+		btnLisPasDes.setBounds(164, 164, 155, 23);
+		contentPane.add(btnLisPasDes);
 		
-		JButton btnMonRec_1_1_1 = new JButton("Monto Recaudado");
-		btnMonRec_1_1_1.setBounds(179, 216, 125, 23);
-		contentPane.add(btnMonRec_1_1_1);
+		JButton btnLisPasBol = new JButton("Listar Paseo por Boletos");
+		btnLisPasBol.setBounds(164, 212, 155, 23);
+		contentPane.add(btnLisPasBol);
 	}
 }
