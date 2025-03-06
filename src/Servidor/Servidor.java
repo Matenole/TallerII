@@ -22,7 +22,7 @@ public class Servidor {
 			// instancio un objeto remoto y lo publico
 			IFachada fachada = new Fachada();
 			try {
-				//fachada.recuperardatos();
+				fachada.recuperardatos();
 			}
 			catch (Exception e) {
 				e.printStackTrace();
