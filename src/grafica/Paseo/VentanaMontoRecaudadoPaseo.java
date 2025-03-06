@@ -64,7 +64,7 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador.Monto(getName());
+				controlador.Monto(txtCodigo.getText());
 			}
 		});
 		btnAceptar.setBounds(98, 198, 85, 21);

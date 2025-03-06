@@ -20,9 +20,9 @@ import java.awt.Color;
 
 public class VentanaLisMinivans extends JFrame {
 	
+	public JTable table;
 	private JFrame frmListadoMinivans;
 	private ControladorLisMinivans controlador;
-	public JTable tableListadoMinivans;
 
 	/**
 	 * Launch the application.
@@ -82,27 +82,22 @@ public class VentanaLisMinivans extends JFrame {
 			});
 			btnListar.setBounds(210, 58, 85, 32);
 			frmListadoMinivans.getContentPane().add(btnListar);
-
-			JScrollPane scrollPaneMinivans = new JScrollPane();
-			scrollPaneMinivans.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPaneMinivans.setBounds(72, 101, 373, 189);
-			frmListadoMinivans.getContentPane().add(scrollPaneMinivans);
-
-			tableListadoMinivans = new JTable();
-			scrollPaneMinivans.setViewportView(tableListadoMinivans);
-			tableListadoMinivans.setModel(new DefaultTableModel(
+			
+			JScrollPane scrollPane = new JScrollPane();
+			scrollPane.setBounds(60, 101, 371, 189);
+			frmListadoMinivans.getContentPane().add(scrollPane);
+			
+			table = new JTable();
+			table.setEnabled(false);
+			table.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
 				new String[] {
-					"Matr\u00EDcula", "Marca", "Modelo", "Cant.Asientos", "Paseos Asignados"
+					"Matricula", "Marca", "Modelo", "Cant. Asientos", "Paseos Asig."
 				}
 			));
-			tableListadoMinivans.getColumnModel().getColumn(0).setPreferredWidth(100);
-			tableListadoMinivans.getColumnModel().getColumn(1).setPreferredWidth(100);
-			tableListadoMinivans.getColumnModel().getColumn(2).setPreferredWidth(100);
-			tableListadoMinivans.getColumnModel().getColumn(3).setPreferredWidth(80);
-			tableListadoMinivans.getColumnModel().getColumn(4).setPreferredWidth(120);
-			scrollPaneMinivans.setViewportView(tableListadoMinivans.getTableHeader());
+			scrollPane.setViewportView(table);
+			
 		}
 		public void setVisible(boolean visible) {
 			frmListadoMinivans.setVisible(visible);
@@ -111,5 +106,4 @@ public class VentanaLisMinivans extends JFrame {
 		public void mostrarMensaje (String Mensaje) {
 			JOptionPane.showMessageDialog(frmListadoMinivans, Mensaje);
 		}
-
 	}

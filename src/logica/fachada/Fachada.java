@@ -35,14 +35,22 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		m.comienzoEscritura();
         paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
         Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
-		if(bo.size() == controladorsubcutaneodecantidadmaximadeboletos.getMaxboletos())
+		if(bo.size() == controladorsubcutaneodecantidadmaximadeboletos.getMaxboletos()) {
+			m.terminoEscritura();
 			throw new LogicaException("Ya se vendieron todos los boletos rey, haber estado mas atento");
-		if(b.getEdad() <= 0)
+		}
+		if(b.getEdad() <= 0) {
+			m.terminoEscritura();
 			throw new LogicaException("La edad es menor o igual que 0");
-		if(b.getCelular() == "0")
+		}
+		if(b.getCelular() == "0") {
+			m.terminoEscritura();
 			throw new LogicaException("El celular es 0");
-		if(b.getCelular().contains("-"))
+		}
+		if(b.getCelular().contains("-")) {
+			m.terminoEscritura();
 			throw new LogicaException("El celular es negativo");
+		}
 		controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
 		m.terminoEscritura();
 	}

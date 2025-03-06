@@ -50,16 +50,16 @@ public class ControladorLisMinivans {
 	
 	public void ListarMinivans() {
 		try {
-			DefaultTableModel dm = (DefaultTableModel) VLM.tableListadoMinivans.getModel();
-			while (VLM.tableListadoMinivans.getRowCount() != 0)
-				dm.removeRow(VLM.tableListadoMinivans.getRowCount() - 1);
+			DefaultTableModel dm = (DefaultTableModel) VLM.table.getModel();
+			while (VLM.table.getRowCount() != 0) {
+				dm.removeRow(VLM.table.getRowCount() - 1);
+			}
 			List<VOminivanlistado> Minivan = f.LisMin();
 			if (Minivan.isEmpty()) {
 				VLM.mostrarMensaje("No hay ninguna Minivan registrada");
 			} else {
 				for (int i = 0; i < Minivan.size(); i++) {
-					dm.addRow(new Object[] { Minivan.get(i).getMatricula(), Minivan.get(i).getMarca(),
-							Minivan.get(i).getModelo(), Minivan.get(i).getCantasientos(), Minivan.get(i).getCantpaseosasignados() });
+					dm.addRow(new Object[] {Minivan.get(i).getMatricula(), Minivan.get(i).getMarca(), Minivan.get(i).getModelo(), Minivan.get(i).getCantasientos(), Minivan.get(i).getCantpaseosasignados()});;
 				}
 			}
 		} catch (RemoteException e) {

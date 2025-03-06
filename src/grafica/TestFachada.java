@@ -66,10 +66,10 @@ public class TestFachada {
 		///Acierto:el ingresar un boleto cuando no hay mas lugar el error correspondiente salta cuando tiene que saltar
 		///Prueba 2:Registrar un paseo en el sistema(testing positivo)
 		///
-		
+		/*
 		paseo p2 = new paseo("Salus1","",LocalTime.of(13,30),LocalTime.of(22,45),100.5f,12);
 		f.RegisPas(p2.getCodigo(),p2.getDestino(),p2.getHorallegada(),p2.getHorasalida(),p2.getPrecio(),p2.getMaxboletos());
-		
+		*/
 		//Acierto: registrar un paseo en el sistema funciona correctamente.
 		//Prueba 2.1: ingresar dos paseos con el mismo codigo(testing negativo)
 		/*
@@ -111,7 +111,7 @@ public class TestFachada {
 		*/
 		///Acierto: is se ingresa una matricula con digistos no alfanumericos efectivamente salta error. bien ahi pa.
 		///Prueba 4:Listado de una minivan(Testing positivo)
-		/*
+		
 		minivan m1= new minivan("GAB7654","Toyota","Prius",30);
 		VOminivan vom = new VOminivan(m1.getMatricula(),m1.getMarca(),m1.getModelo(),m1.getCantasientos());
 		minivan m2= new minivan("LOA4522","Toyota","Prius",30);
@@ -127,13 +127,13 @@ public class TestFachada {
 		List<VOminivanlistado> l= f.LisMin();
 		System.out.println("=== Detalles de las Minivans ===");
         for (VOminivan minivan : l) {
-            System.out.println("Matrícula: " + minivan.getMatricula());
+            System.out.println("Matricula: " + minivan.getMatricula());
             System.out.println("Marca: " + minivan.getMarca());
             System.out.println("Modelo: " + minivan.getModelo());
             System.out.println("Cantidad de Asientos: " + minivan.getCantasientos());
             System.out.println("-----------------------------");
         }
-        */
+        
 		///Acierto:lista funciona correctamente.
 		///Prueba 5: listar una minivan que no tiene asignado ningun paseo:(Testing negativo)
 		/*
