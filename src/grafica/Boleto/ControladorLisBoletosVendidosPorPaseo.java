@@ -49,10 +49,20 @@ public class ControladorLisBoletosVendidosPorPaseo {
 		
 	public void ListarBoletos(String codigo) throws LogicaException {
 		try {
+			String cod = VLBV.getCod();
+	        if (cod.isEmpty()) {
+	            VLBV.mostrarMensaje("Ingrese un codigo para listar paseos.");
+	            return;
+	        }
+	        String TipoBoleto = VLBV.getTipoBoleto();
+	        if (TipoBoleto.isEmpty()) {
+	            VLBV.mostrarMensaje("Ingrese un Tipo de Boleto para listar paseos.");
+	            return;
+	        }
 			DefaultTableModel dm = (DefaultTableModel) VLBV.tableListadoBoletos.getModel();
 			while (VLBV.tableListadoBoletos.getRowCount() != 0)
 				dm.removeRow(VLBV.tableListadoBoletos.getRowCount() - 1);
-			ArrayList<VOboletolistado> Boleto = f.LisPasBolVen(codigo);
+			ArrayList<VOboletolistado> Boleto = f.LisPasBolVen(cod);
 			if (Boleto.isEmpty()) {
 				VLBV.mostrarMensaje("No hay ningun Boleto registrado");
 			} else {

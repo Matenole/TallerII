@@ -100,19 +100,15 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			frmListadoBoletos.getContentPane().add(scrollPaneBoletos);
 
 			tableListadoBoletos = new JTable();
-			scrollPaneBoletos.setViewportView(tableListadoBoletos);
+			tableListadoBoletos.setEnabled(false);
 			tableListadoBoletos.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
 				new String[] {
-					"Numero", "Nombre pasajero", "Edad", "Celular"
+					"Numero", "Nombre Pasajero", "Edad", "Celular"
 				}
 			));
-			tableListadoBoletos.getColumnModel().getColumn(0).setPreferredWidth(100);
-			tableListadoBoletos.getColumnModel().getColumn(1).setPreferredWidth(100);
-			tableListadoBoletos.getColumnModel().getColumn(2).setPreferredWidth(100);
-			tableListadoBoletos.getColumnModel().getColumn(3).setPreferredWidth(80);
-			scrollPaneBoletos.setViewportView(tableListadoBoletos.getTableHeader());
+			scrollPaneBoletos.setViewportView(tableListadoBoletos);
 			
 			JLabel lblCodigo = new JLabel("Codigo");
 			lblCodigo.setFont(new Font("Arial", Font.BOLD, 12));
@@ -135,6 +131,12 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			txtTipoBoleto.setBounds(82, 70, 66, 20);
 			frmListadoBoletos.getContentPane().add(txtTipoBoleto);
 			txtTipoBoleto.setColumns(10);
+		}
+		public String getCod() {
+		    return txtCodigo.getText();
+		}
+		public String getTipoBoleto() {
+		    return txtTipoBoleto.getText();
 		}
 		public void setVisible(boolean visible) {
 			frmListadoBoletos.setVisible(visible);
