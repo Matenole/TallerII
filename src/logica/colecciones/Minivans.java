@@ -1,9 +1,11 @@
 package logica.colecciones;
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.*;
 import logica.excepciones.RegistroException;
 import logica.negocio.minivan;
 import logica.negocio.paseo;
+import logica.valueobject.VOminivan;
 import logica.valueobject.VOminivanlistado;
 import logica.valueobject.VOpaseolistado;
 
@@ -59,4 +61,32 @@ public class Minivans implements Serializable{
         else
         return AVL_Minivans.get(mat);
     }
+    
+    public VOminivan MiniDis (LocalTime HP,LocalTime HL) {
+    	boolean Registramos = false;
+    	VOminivan minivanDesignada = null;
+		while(AVL_Minivans != null && !Registramos) {
+			AVL_Minivans.forEach((key,min) ->	{
+													if(min.chequearHorarios(HP, HL)) {
+														minivanDesignada = new VOminivan(min.getMatricula(), min.getMarca(), min.getModelo(), min.getCantasientos());
+														Registramos = true;
+														
+												}
+											}
+											);
+		}
+		return minivanDesignada;
+		}
+    }
+    /*
+    Mientras (Haya minivan en Minivans && !Registramos)
+	Para cada paseo de la minivan:
+		Si (“hora de partida” está entre Paseo.Hora_Partida &&Paseo.Hora_Llegada) || (“hora de llegada” está entre Paseo.Hora_Partida &&Paseo.Hora_Llegada)
+			//error: No es posible registrar el paseo
+		Fin Para
+			Si ningún paseo de la Minivan se solapo
+				Registramos = TRUE
+			Fin si
+	Fin Mientras
+	*/
 }

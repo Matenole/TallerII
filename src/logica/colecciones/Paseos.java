@@ -1,5 +1,6 @@
 package logica.colecciones;
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.*;
 import logica.negocio.paseo;
 import logica.valueobject.VOpaseolistado;
@@ -62,5 +63,10 @@ public class Paseos implements Serializable{
 	
 	public int largo() {
 		return AVL_Paseos.size();
+	}
+	
+	public boolean chequearHorarios(LocalTime HP,LocalTime HL) {
+		AVL_Paseos.forEach(null);
+	}
 	}
 }

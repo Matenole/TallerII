@@ -1,14 +1,12 @@
 package logica.negocio;
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import logica.colecciones.Paseos;
 import logica.valueobject.VOpaseolistado;
 
 public class minivan implements Serializable{
-		/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 		///Atributos
@@ -80,5 +78,16 @@ public class minivan implements Serializable{
 		    // Llamar al método listadoPaseos de la clase Paseos
 		    return Dic_Paseos.listadoPaseos();
 		}
+		
+		public boolean chequearHorarios(LocalTime HP,LocalTime HL) {
+			boolean resu = false;
+			Dic_Paseos.chequearHorarios (HP, HL);
+			
+		}
+		
+		/*
+		 Si (“hora de partida” está entre Paseo.Hora_Partida &&Paseo.Hora_Llegada) || (“hora de llegada” está entre Paseo.Hora_Partida &&Paseo.Hora_Llegada)
+			//error: No es posible registrar el paseo
+		 */
 		
 }

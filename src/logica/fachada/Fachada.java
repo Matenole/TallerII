@@ -94,11 +94,28 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 						m.terminoEscritura();
 						throw new DestinoException("El destino ingresado no es correcto");
 		        }
-		else {
-			m.comienzoEscritura();
-				paseo p = new paseo(cod, des, HP, HL, Prec);
-				Viaje.insert(p);
-			m.terminoEscritura();
+				else {
+					
+					
+					m.comienzoEscritura();
+					paseo p = new paseo(cod, des, HP, HL, Prec);
+					Viaje.insert(p);
+					m.terminoEscritura();
+					
+					/*
+					 
+					
+					Si se encontró Minivan disponible:
+						Si precio =< 0
+							//error: No es posible registrar el paseo
+						Sino
+							Registramos el paseo
+							Paseo.Max Boleto = Cant. Asientos
+							Agregar el paseo al diccionario paseos de la Minivan
+					Sino
+						Error: No se encontró minivan disponible	
+					 
+					 */
 		}
 	}
 	
