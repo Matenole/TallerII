@@ -66,7 +66,12 @@ public class VentanaPrincipal extends JFrame {
 				} catch (RemoteException | PersistenciaException e1) {
 					e1.printStackTrace();
 				}
+<<<<<<< HEAD
 			}
+=======
+
+		    }
+>>>>>>> 207e08a3d7f8956f988a6588ebba3525856b4052
 		});
 		
 		JButton btnLisBol = new JButton("Listar Boletos");
