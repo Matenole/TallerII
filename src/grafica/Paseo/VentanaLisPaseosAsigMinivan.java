@@ -88,16 +88,17 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 			frmListadoPaseos.getContentPane().add(btnListar);
 
 			JScrollPane scrollPanePaseos = new JScrollPane();
-			scrollPanePaseos.setBounds(60, 101, 371, 189);
+			scrollPanePaseos.setBounds(34, 101, 464, 189);
 			frmListadoPaseos.getContentPane().add(scrollPanePaseos);
 			
 			tableListadoPaseos = new JTable();
 			tableListadoPaseos.setEnabled(false);
 			tableListadoPaseos.setModel(new DefaultTableModel(
 				new Object[][] {
+					{null, null, null, null, null, null, null},
 				},
 				new String[] {
-					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Cant. Asientos", "Paseos Asignados"
+					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Paseos Asignados"
 				}
 			));
 			scrollPanePaseos.setViewportView(tableListadoPaseos);

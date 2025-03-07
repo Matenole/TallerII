@@ -93,22 +93,16 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 			frmListadoPaseos.getContentPane().add(scrollPanePaseos);
 
 			tableListadoPaseos = new JTable();
-			scrollPanePaseos.setViewportView(tableListadoPaseos);
+			tableListadoPaseos.setEnabled(false);
 			tableListadoPaseos.setModel(new DefaultTableModel(
 				new Object[][] {
+					{null, null, null, null, null, null, null},
 				},
 				new String[] {
-					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Maxima de Boletos", "Cant. Boletos Disponibles"
+					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Paseos Asignados"
 				}
 			));
-			tableListadoPaseos.getColumnModel().getColumn(0).setPreferredWidth(100);
-			tableListadoPaseos.getColumnModel().getColumn(1).setPreferredWidth(100);
-			tableListadoPaseos.getColumnModel().getColumn(2).setPreferredWidth(100);
-			tableListadoPaseos.getColumnModel().getColumn(3).setPreferredWidth(80);
-			tableListadoPaseos.getColumnModel().getColumn(4).setPreferredWidth(80);
-			tableListadoPaseos.getColumnModel().getColumn(5).setPreferredWidth(80);
-			tableListadoPaseos.getColumnModel().getColumn(6).setPreferredWidth(80);
-			scrollPanePaseos.setViewportView(tableListadoPaseos.getTableHeader());
+			scrollPanePaseos.setViewportView(tableListadoPaseos);
 			
 			JLabel lblBoletosDisponibles = new JLabel("Boletos Disponibles");
 			lblBoletosDisponibles.setFont(new Font("Arial", Font.BOLD, 12));
@@ -121,11 +115,13 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 			frmListadoPaseos.getContentPane().add(txtCantBoletosDisponibles);
 			txtCantBoletosDisponibles.setColumns(10);
 				}
-	
+		
+		public String getBolDisp() {
+		    return txtCantBoletosDisponibles.getText();
+		}
 		public void setVisible(boolean visible) {
 			frmListadoPaseos.setVisible(visible);
 		}
-
 		public void mostrarMensaje (String Mensaje) {
 			JOptionPane.showMessageDialog(frmListadoPaseos, Mensaje);
 		}

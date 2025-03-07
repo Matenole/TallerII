@@ -51,10 +51,15 @@ public class ControladorLisPaseosPorDispBoletos {
 	
 	public void ListarPaseos() {
 		try {
+			String BolDisp = VLPDB.getBolDisp();
+	        if (BolDisp.isEmpty()) {
+	            VLPDB.mostrarMensaje("Ingrese una cantidad de Boletos Disponibles para listar paseos.");
+	            return;
+	        }
 			DefaultTableModel dm = (DefaultTableModel) VLPDB.tableListadoPaseos.getModel();
 			while (VLPDB.tableListadoPaseos.getRowCount() != 0)
 				dm.removeRow(VLPDB.tableListadoPaseos.getRowCount() - 1);
-			ArrayList<VOpaseolistado> Paseo = f.LisPasDes(null);
+			ArrayList<VOpaseolistado> Paseo = f.LisDisBol(BolDisp);
 			if (Paseo.isEmpty()) {
 				VLPDB.mostrarMensaje("No hay ningun Paseo registrado");
 			} else {

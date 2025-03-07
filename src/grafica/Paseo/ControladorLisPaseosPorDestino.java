@@ -51,10 +51,15 @@ public class ControladorLisPaseosPorDestino {
 	
 	public void ListarPaseos() {
 		try {
+			String destino = VLPD.getDes();
+	        if (destino.isEmpty()) {
+	            VLPD.mostrarMensaje("Ingrese un Destino para listar paseos.");
+	            return;
+	        }
 			DefaultTableModel dm = (DefaultTableModel) VLPD.tableListadoPaseos.getModel();
 			while (VLPD.tableListadoPaseos.getRowCount() != 0)
 				dm.removeRow(VLPD.tableListadoPaseos.getRowCount() - 1);
-			ArrayList<VOpaseolistado> Paseo = f.LisPasDes(null);
+			ArrayList<VOpaseolistado> Paseo = f.LisPasDes(destino);
 			if (Paseo.isEmpty()) {
 				VLPD.mostrarMensaje("No hay ningun Paseo registrado");
 			} else {
