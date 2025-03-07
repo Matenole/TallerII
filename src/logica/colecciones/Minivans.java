@@ -77,17 +77,6 @@ public class Minivans implements Serializable{
     		}
     		aux = AVL_Minivans.values().iterator().next();
     	}
-    	/*
-		while(AVL_Minivans != null && !Registramos) {	//Revisar con Ariel porque esta mal
-			AVL_Minivans.forEach((key,min) ->	{
-													if(min.chequearHorarios(HP, HL)) {
-														//minivanDesignada = new VOminivan(min.getMatricula(), min.getMarca(), min.getModelo(), min.getCantasientos());
-														//Registramos = true;
-														
-												}
-											}
-											);
-		}*/
 		return minivanDesignada;
 		}
 }
