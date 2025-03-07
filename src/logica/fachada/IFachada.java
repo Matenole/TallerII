@@ -31,4 +31,5 @@ public interface IFachada extends Remote {
 	public float MonRec(String cod) throws RemoteException;
 	public void respaldardatos() throws RemoteException, PersistenciaException;
 	public void recuperardatos() throws RemoteException, PersistenciaException;
+	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb);
 }

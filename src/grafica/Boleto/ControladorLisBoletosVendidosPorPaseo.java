@@ -62,7 +62,7 @@ public class ControladorLisBoletosVendidosPorPaseo {
 			DefaultTableModel dm = (DefaultTableModel) VLBV.tableListadoBoletos.getModel();
 			while (VLBV.tableListadoBoletos.getRowCount() != 0)
 				dm.removeRow(VLBV.tableListadoBoletos.getRowCount() - 1);
-			ArrayList<VOboletolistado> Boleto = f.LisPasBolVen(cod);
+			ArrayList<VOboletolistado> Boleto = f.LisBolVen(cod, null);
 			if (Boleto.isEmpty()) {
 				VLBV.mostrarMensaje("No hay ningun Boleto registrado");
 			} else {
