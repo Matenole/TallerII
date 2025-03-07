@@ -27,9 +27,8 @@ public interface IFachada extends Remote {
 	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,LogicaException, RegistroExceptionII, DestinoException;
 	public ArrayList<VOpaseolistado> LisPasDes(String des) throws RemoteException;
 	public ArrayList<VOpaseolistado> LisDisBol(int maxb) throws RemoteException, DisponibilidadException;
-	public ArrayList<VOboletolistado> LisBolVen(String cod) throws RemoteException,LogicaException;
+	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb) throws RemoteException,LogicaException;
 	public float MonRec(String cod) throws RemoteException;
 	public void respaldardatos() throws RemoteException, PersistenciaException;
 	public void recuperardatos() throws RemoteException, PersistenciaException;
-	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb);
 }
