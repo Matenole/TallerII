@@ -27,26 +27,25 @@ public class paseo implements Serializable{
 		
 		private int maxboletos;
 		
-		private String minivanMatricula;
+		private String minivanAsignada;
 
 		private Boletos boletosVendidos;
 		
 		//private Paseos ListaPaseos;
 		///Constructor
-		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos) {
+		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio) {
 			super();
 			Codigo = codigo;
 			Destino = destino;
 			Horasalida = horasalida;
 			Horallegada = horallegada;
 			this.precio = precio;
-			this.maxboletos = maxboletos;
 			//this.maxboletos = logica.colecciones.Minivans.find(minivanMatricula).getCantasientos();  No seria algo asi?
 			this.boletosVendidos = new Boletos();
 		}
 		/// Getters y Setters
 		public String getMinivanMatricula() {
-	        return minivanMatricula;
+	        return minivanAsignada;
 	    }
 		public String getCodigo() {
 			return Codigo;
@@ -139,7 +138,6 @@ public class paseo implements Serializable{
 
 	        return listado;
 	    }
-
 }
 
 		

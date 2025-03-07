@@ -1,7 +1,4 @@
 package grafica.Minivan;
-
-import logica.excepciones.LogicaException;
-import logica.excepciones.PersistenciaException;
 import logica.fachada.IFachada;
 import logica.valueobject.VOminivanlistado;
 import java.io.FileInputStream;

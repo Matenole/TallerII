@@ -56,8 +56,10 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	
 	public void RegisMin(VOminivan mini) throws RemoteException, RegistroException{
-		if(Locomocion.member(mini.getMatricula()))
+		if(Locomocion.member(mini.getMatricula())) {
+			m.terminoEscritura();
 			throw new RegistroException("La matricula ya existe en el sistema");
+		}
 		else {
 		m.comienzoEscritura();
 		minivan mi = new minivan(mini.getMatricula(), mini.getMarca(), mini.getModelo(), mini.getCantasientos());
@@ -72,20 +74,29 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		m.terminoLectura();
 		return list;
 	}
-	
-	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,RegistroExceptionII, DestinoException {
-		if(Viaje.member(cod))
+	public void asignar(String mat,String cod) {
+		minivan m = Locomocion.find(mat);
+		paseo p = Viaje.find(cod);
+		m.insertarPaseo(p);
+	}
+	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec) throws RemoteException,RegistroExceptionII, DestinoException {
+		if(Viaje.member(cod)) {
+			m.terminoEscritura();
 			throw new RegistroExceptionII("El paseo no se puede registrar porque el mismo ya se encuentra en el sistema");
+		}
 		else
-			if(!cod.matches("[a-zA-Z0-9]+"))
-					throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
+			if(!cod.matches("[a-zA-Z0-9]+")) {
+				m.terminoEscritura();
+				throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
+			}
 			else
 				if (!(DestinosUruguay.esDestinoValido(des))) {
+						m.terminoEscritura();
 						throw new DestinoException("El destino ingresado no es correcto");
 		        }
 		else {
 			m.comienzoEscritura();
-				paseo p = new paseo(cod, des, HP, HL, Prec, MaxBol);
+				paseo p = new paseo(cod, des, HP, HL, Prec);
 				Viaje.insert(p);
 			m.terminoEscritura();
 		}
@@ -104,13 +115,15 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		m.terminoLectura();
 		return array;
 	}
-	
+			
 	public ArrayList<VOpaseolistado> LisDisBol(int maxb,Boletos bo) throws RemoteException,DisponibilidadException {
 		m.comienzoLectura();
 		String asesoramientoPaseos = Viaje.keyfinder();
         paseo a_asesorar = Viaje.find(asesoramientoPaseos);
-        if(a_asesorar.getMaxboletos() - bo.size() < maxb)
+        if(a_asesorar.getMaxboletos() - bo.size() < maxb) {
+        	m.terminoEscritura();
 			throw new DisponibilidadException("el maximo de boletos es menor a la resta de los boletos maximos y los boletos disponibles");
+        }
         else
         {
         	ArrayList<VOpaseolistado> arr = Viaje.listadoPorDisponibilidad(maxb);
@@ -133,11 +146,6 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		float monto = p.montoRecaudado();
 		m.terminoLectura();
 		return monto;
-	}
-	public void asignar(String mat,String cod) {
-		minivan m = Locomocion.find(mat);
-		paseo p = Viaje.find(cod);
-		m.insertarPaseo(p);
 	}
 	public void respaldardatos() throws RemoteException, PersistenciaException{
 		m.comienzoLectura();
@@ -188,5 +196,12 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			m.terminoEscritura();
 			throw new PersistenciaException(e.getMessage());
 		}
+	}
+
+	@Override
+	public void RegisPas(String cod, String des, LocalTime HP, LocalTime HL, float Prec, int MaxBol)
+			throws RemoteException, LogicaException, RegistroExceptionII, DestinoException {
+		// TODO Auto-generated method stub
+		
 	}
 }

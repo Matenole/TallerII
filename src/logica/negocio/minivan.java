@@ -6,6 +6,11 @@ import logica.colecciones.Paseos;
 import logica.valueobject.VOpaseolistado;
 
 public class minivan implements Serializable{
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 		///Atributos
 		private String Matricula;
 		
