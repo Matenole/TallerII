@@ -51,7 +51,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		controlador = new ControladorIngresoMinivan(this);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 235, 210);
+		setBounds(100, 100, 277, 248);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(null);
@@ -59,7 +59,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblMatricula = new JLabel("Matricula:");
-		lblMatricula.setBounds(20, 11, 47, 14);
+		lblMatricula.setBounds(13, 8, 54, 20);
 		contentPane.add(lblMatricula);
 		
 		txtMatricula = new JTextField();
@@ -68,7 +68,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		txtMatricula.setColumns(10);
 		
 		JLabel lblMarca = new JLabel("Marca:");
-		lblMarca.setBounds(34, 39, 33, 14);
+		lblMarca.setBounds(13, 36, 64, 20);
 		contentPane.add(lblMarca);
 		
 		txtMarca = new JTextField();
@@ -77,7 +77,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		contentPane.add(txtMarca);
 		
 		JLabel lblModelo = new JLabel("Modelo:");
-		lblModelo.setBounds(29, 67, 38, 14);
+		lblModelo.setBounds(13, 67, 54, 14);
 		contentPane.add(lblModelo);
 		
 		txtModelo = new JTextField();
@@ -109,7 +109,7 @@ public class VentanaIngresoMinivan extends JFrame {
 			}
 		});
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnAceptar.setBounds(13, 137, 86, 23);
+		btnAceptar.setBounds(10, 175, 86, 23);
 		contentPane.add(btnAceptar);
 		
 		JButton btnVolver = new JButton("Volver");
@@ -118,7 +118,7 @@ public class VentanaIngresoMinivan extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(123, 137, 86, 23);
+		btnVolver.setBounds(165, 175, 86, 23);
 		contentPane.add(btnVolver);
 	
 	}

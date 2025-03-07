@@ -113,7 +113,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	
 	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat) throws RemoteException{
 		m.comienzoLectura();
-		ArrayList<VOpaseolistado> array = Locomocion.listadoporasignacionpaseos(mat,cod);
+		ArrayList<VOpaseolistado> array = Locomocion.listadoporasignacionpaseos(mat);
 		m.terminoLectura();
 		return array;
 	}
@@ -142,7 +142,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
         }
 	}
 	
-	public ArrayList<VOboletolistado> LisBolVen(String cod, boleto tb) throws RemoteException,LogicaException {
+	public ArrayList<VOboletolistado> LisBolVen(String cod) throws RemoteException,LogicaException {
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
 		ArrayList<VOboletolistado> bo = p.listarBoletos();
@@ -213,5 +213,11 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			throws RemoteException, LogicaException, RegistroExceptionII, DestinoException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

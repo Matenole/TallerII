@@ -19,6 +19,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
 import grafica.Paseo.ControladorLisPaseosPorDispBoletos;
+import logica.excepciones.DisponibilidadException;
+
 import java.awt.Color;
 
 public class VentanaLisPaseosPorDispBoletos extends JFrame {
@@ -81,7 +83,12 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 			JButton btnListar = new JButton("Listar");
 			btnListar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					controlador.ListarPaseos();
+					try {
+						controlador.ListarPaseos();
+					} catch (DisponibilidadException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			});
 			btnListar.setBounds(242, 58, 85, 32);

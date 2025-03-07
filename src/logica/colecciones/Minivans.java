@@ -33,10 +33,9 @@ public class Minivans implements Serializable{
 		    				  );
 		    return minivans;
 	    }
-	    public ArrayList<VOpaseolistado> listadoporasignacionpaseos(String mat,String cod){
+	    public ArrayList<VOpaseolistado> listadoporasignacionpaseos(String mat){
 	    	minivan m = AVL_Minivans.get(mat);
 	    	Paseos po = m.getDicPaseos();
-	    	paseo p = po.find(cod);
 	    	return po.listadoPaseos();
 	    		 
 	    }

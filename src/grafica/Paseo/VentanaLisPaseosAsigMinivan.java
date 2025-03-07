@@ -113,24 +113,10 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 			txtMatricula.setBounds(93, 39, 86, 20);
 			frmListadoPaseos.getContentPane().add(txtMatricula);
 			txtMatricula.setColumns(10);
-			
-			JLabel lblCodigo = new JLabel("Codigo");
-			lblCodigo.setFont(new Font("Arial", Font.BOLD, 12));
-			lblCodigo.setForeground(UIManager.getColor("Button.highlight"));
-			lblCodigo.setBounds(24, 67, 68, 14);
-			frmListadoPaseos.getContentPane().add(lblCodigo);
-			
-			txtCod = new JTextField();
-			txtCod.setBounds(93, 64, 86, 20);
-			frmListadoPaseos.getContentPane().add(txtCod);
-			txtCod.setColumns(10);
 				}
 		
 		public String getMatricula() {
 		    return txtMatricula.getText();
-		}
-		public String getcod() {
-		    return txtCod.getText();
 		}
 		public void setVisible(boolean visible) {
 			frmListadoPaseos.setVisible(visible);
