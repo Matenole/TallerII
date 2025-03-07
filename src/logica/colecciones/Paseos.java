@@ -66,7 +66,13 @@ public class Paseos implements Serializable{
 	}
 	
 	public boolean chequearHorarios(LocalTime HP,LocalTime HL) {
-		AVL_Paseos.forEach(null);
-	}
+		boolean bool = false;
+		AVL_Paseos.forEach((key,pas) ->	{
+			if((HP.compareTo(pas.getHorallegada())>=0) || (HL.compareTo(pas.getHorasalida())<=0)) {
+				//bool = true;
+			}
+				}
+				);
+		return bool;
 	}
 }

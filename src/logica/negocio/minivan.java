@@ -80,13 +80,13 @@ public class minivan implements Serializable{
 		}
 		
 		public boolean chequearHorarios(LocalTime HP,LocalTime HL) {
-			boolean resu = false;
-			Dic_Paseos.chequearHorarios (HP, HL);
+			boolean resu = Dic_Paseos.chequearHorarios (HP, HL);
+			return resu;
 			
 		}
 		
 		/*
-		 Si (“hora de partida” está entre Paseo.Hora_Partida &&Paseo.Hora_Llegada) || (“hora de llegada” está entre Paseo.Hora_Partida &&Paseo.Hora_Llegada)
+		 Si (“hora de partida” está entre Paseo.Hora_Partida && Paseo.Hora_Llegada) || (“hora de llegada” está entre Paseo.Hora_Partida && Paseo.Hora_Llegada)
 			//error: No es posible registrar el paseo
 		 */
 		

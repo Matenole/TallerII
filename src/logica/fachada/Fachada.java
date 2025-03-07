@@ -85,6 +85,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			throw new RegistroExceptionII("El paseo no se puede registrar porque el mismo ya se encuentra en el sistema");
 		}
 		else
+			//Chequear precio =< 0
 			if(!cod.matches("[a-zA-Z0-9]+")) {
 				m.terminoEscritura();
 				throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
@@ -103,18 +104,12 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 					m.terminoEscritura();
 					
 					/*
-					 
-					
 					Si se encontró Minivan disponible:
-						Si precio =< 0
-							//error: No es posible registrar el paseo
-						Sino
 							Registramos el paseo
 							Paseo.Max Boleto = Cant. Asientos
 							Agregar el paseo al diccionario paseos de la Minivan
 					Sino
 						Error: No se encontró minivan disponible	
-					 
 					 */
 		}
 	}

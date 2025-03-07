@@ -10,7 +10,10 @@ import logica.valueobject.VOminivanlistado;
 import logica.valueobject.VOpaseolistado;
 
 public class Minivans implements Serializable{
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	///Atributos
 	private TreeMap <String, minivan> AVL_Minivans;
 	
@@ -65,11 +68,11 @@ public class Minivans implements Serializable{
     public VOminivan MiniDis (LocalTime HP,LocalTime HL) {
     	boolean Registramos = false;
     	VOminivan minivanDesignada = null;
-		while(AVL_Minivans != null && !Registramos) {
+		while(AVL_Minivans != null && !Registramos) {	//Revisar con Ariel
 			AVL_Minivans.forEach((key,min) ->	{
 													if(min.chequearHorarios(HP, HL)) {
-														minivanDesignada = new VOminivan(min.getMatricula(), min.getMarca(), min.getModelo(), min.getCantasientos());
-														Registramos = true;
+														//minivanDesignada = new VOminivan(min.getMatricula(), min.getMarca(), min.getModelo(), min.getCantasientos());
+														//Registramos = true;
 														
 												}
 											}
@@ -77,7 +80,6 @@ public class Minivans implements Serializable{
 		}
 		return minivanDesignada;
 		}
-    }
     /*
     Mientras (Haya minivan en Minivans && !Registramos)
 	Para cada paseo de la minivan:
