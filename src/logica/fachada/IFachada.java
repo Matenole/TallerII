@@ -23,11 +23,11 @@ public interface IFachada extends Remote {
 	public void RegisMin(VOminivan mini) throws RemoteException, RegistroException;
 	public void VentaBol(String codigo,boleto b) throws RemoteException,LogicaException;
 	public List<VOminivanlistado> LisMin()  throws RemoteException;
-	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat,String cod) throws RemoteException;
+	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat) throws RemoteException;
 	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec,int MaxBol) throws RemoteException,LogicaException, RegistroExceptionII, DestinoException;
 	public ArrayList<VOpaseolistado> LisPasDes(String des) throws RemoteException;
-	public ArrayList<VOpaseolistado> LisDisBol(int maxb,Boletos bo) throws RemoteException, DisponibilidadException;
-	public ArrayList<VOboletolistado> LisPasBolVen(String cod) throws RemoteException,LogicaException;
+	public ArrayList<VOpaseolistado> LisDisBol(int maxb) throws RemoteException, DisponibilidadException;
+	public ArrayList<VOboletolistado> LisBolVen(String cod, boleto tb) throws RemoteException,LogicaException;
 	public float MonRec(String cod) throws RemoteException;
 	public void respaldardatos() throws RemoteException, PersistenciaException;
 	public void recuperardatos() throws RemoteException, PersistenciaException;

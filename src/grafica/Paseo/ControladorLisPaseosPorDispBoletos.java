@@ -1,5 +1,6 @@
 package grafica.Paseo;
 
+import logica.excepciones.DisponibilidadException;
 import logica.excepciones.LogicaException;
 import logica.excepciones.PersistenciaException;
 import logica.fachada.IFachada;
@@ -49,17 +50,17 @@ public class ControladorLisPaseosPorDispBoletos {
 		}
 	}
 	
-	public void ListarPaseos() {
+	public void ListarPaseos() throws DisponibilidadException {
 		try {
 			String BolDisp = VLPDB.getBolDisp();
 	        if (BolDisp.isEmpty()) {
 	            VLPDB.mostrarMensaje("Ingrese una cantidad de Boletos Disponibles para listar paseos.");
 	            return;
 	        }
-			DefaultTableModel dm = (DefaultTableModel) VLPDB.tableListadoPaseos.getModel();
+	        DefaultTableModel dm = (DefaultTableModel) VLPDB.tableListadoPaseos.getModel();
 			while (VLPDB.tableListadoPaseos.getRowCount() != 0)
 				dm.removeRow(VLPDB.tableListadoPaseos.getRowCount() - 1);
-			ArrayList<VOpaseolistado> Paseo = f.LisDisBol(BolDisp);
+			ArrayList<VOpaseolistado> Paseo = f.LisDisBol(Integer.parseInt(BolDisp));
 			if (Paseo.isEmpty()) {
 				VLPDB.mostrarMensaje("No hay ningun Paseo registrado");
 			} else {
