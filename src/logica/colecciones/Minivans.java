@@ -68,7 +68,18 @@ public class Minivans implements Serializable{
     public VOminivan MiniDis (LocalTime HP,LocalTime HL) {
     	boolean Registramos = false;
     	VOminivan minivanDesignada = null;
-		while(AVL_Minivans != null && !Registramos) {	//Revisar con Ariel
+    	minivan aux = null;
+    	
+    	aux = AVL_Minivans.values().iterator().next();
+    	while(!Registramos) {
+    		if(aux.chequearHorarios(HP, HL)) {
+				minivanDesignada = new VOminivan(aux.getMatricula(), aux.getMarca(), aux.getModelo(), aux.getCantasientos());
+				Registramos = true;
+    		}
+    		aux = AVL_Minivans.values().iterator().next();
+    	}
+    	/*
+		while(AVL_Minivans != null && !Registramos) {	//Revisar con Ariel porque esta mal
 			AVL_Minivans.forEach((key,min) ->	{
 													if(min.chequearHorarios(HP, HL)) {
 														//minivanDesignada = new VOminivan(min.getMatricula(), min.getMarca(), min.getModelo(), min.getCantasientos());
@@ -77,18 +88,7 @@ public class Minivans implements Serializable{
 												}
 											}
 											);
-		}
+		}*/
 		return minivanDesignada;
 		}
-    /*
-    Mientras (Haya minivan en Minivans && !Registramos)
-	Para cada paseo de la minivan:
-		Si (“hora de partida” está entre Paseo.Hora_Partida &&Paseo.Hora_Llegada) || (“hora de llegada” está entre Paseo.Hora_Partida &&Paseo.Hora_Llegada)
-			//error: No es posible registrar el paseo
-		Fin Para
-			Si ningún paseo de la Minivan se solapo
-				Registramos = TRUE
-			Fin si
-	Fin Mientras
-	*/
 }

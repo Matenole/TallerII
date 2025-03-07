@@ -85,33 +85,30 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			throw new RegistroExceptionII("El paseo no se puede registrar porque el mismo ya se encuentra en el sistema");
 		}
 		else
-			//Chequear precio =< 0
-			if(!cod.matches("[a-zA-Z0-9]+")) {
-				m.terminoEscritura();
-				throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
-			}
-			else
-				if (!(DestinosUruguay.esDestinoValido(des))) {
-						m.terminoEscritura();
-						throw new DestinoException("El destino ingresado no es correcto");
-		        }
-				else {
-					
-					
-					m.comienzoEscritura();
-					paseo p = new paseo(cod, des, HP, HL, Prec);
-					Viaje.insert(p);
+			if(Prec <= 0){
+				throw new RegistroExceptionII("El paseo posee un precio invalido");
+			}else {
+				if(!cod.matches("[a-zA-Z0-9]+")) {
 					m.terminoEscritura();
-					
-					/*
-					Si se encontró Minivan disponible:
-							Registramos el paseo
-							Paseo.Max Boleto = Cant. Asientos
-							Agregar el paseo al diccionario paseos de la Minivan
-					Sino
-						Error: No se encontró minivan disponible	
-					 */
+					throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
+				}
+				else
+					if (!(DestinosUruguay.esDestinoValido(des))) {
+							m.terminoEscritura();
+							throw new DestinoException("El destino ingresado no es correcto");
+			        }
+					else {
+						if (Locomocion.MiniDis(HP, HL) == null) {
+							throw new RegistroExceptionII("No hay ninguna minivan disponible para ese horario");
+						}else {
+							m.comienzoEscritura();
+							int maxBoletos = Locomocion.MiniDis(HP, HL).getCantasientos();
+							paseo p = new paseo(cod, des, HP, HL, Prec, maxBoletos);
+							Viaje.insert(p);
+							m.terminoEscritura();
 		}
+	}
+	}
 	}
 	
 	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat,String cod) throws RemoteException{

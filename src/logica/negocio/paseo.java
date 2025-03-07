@@ -33,14 +33,14 @@ public class paseo implements Serializable{
 		
 		//private Paseos ListaPaseos;
 		///Constructor
-		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio) {
+		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxBoletos) {
 			super();
 			Codigo = codigo;
 			Destino = destino;
 			Horasalida = horasalida;
 			Horallegada = horallegada;
 			this.precio = precio;
-			//this.maxboletos = logica.colecciones.Minivans.find(minivanMatricula).getCantasientos();  No seria algo asi?
+			this.maxboletos = maxBoletos;
 			this.boletosVendidos = new Boletos();
 		}
 		/// Getters y Setters
