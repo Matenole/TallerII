@@ -100,23 +100,18 @@ public class VentanaIngresoMinivan extends JFrame {
 				String matricula = txtMatricula.getText();
 				String marca = txtMarca.getText();
 				String modelo = txtModelo.getText();
-				int asientos;
-				
+				int asientos = Integer.valueOf(txtCapacidad.getText());
 				try {
-					asientos = Integer.parseInt(txtCapacidad.getText());
 					controlador.IngresarMinivan(matricula, marca, modelo, asientos);
-				} catch (NumberFormatException ex) {
-					MostrarMensaje("Capacidad debe ser un número válido.");
 				} catch (RegistroException e1) {
-					MostrarMensaje("Error al registrar la minivan: " + e1.getMessage());
+					e1.printStackTrace();
 				}
 			}
 		});
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnAceptar.setBounds(13, 137, 86, 23);
 		contentPane.add(btnAceptar);
-
-		// Botón Volver
+		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -125,12 +120,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		});
 		btnVolver.setBounds(123, 137, 86, 23);
 		contentPane.add(btnVolver);
-
-		// Comprobar si la conexión con el servidor está disponible
-		if (!controlador.estaConectado()) {
-			MostrarMensaje("No se pudo conectar al servidor. Verifique la conexión.");
-			btnAceptar.setEnabled(false);
-		}
+	
 	}
 
 	public void MostrarMensaje(String mensaje) {
