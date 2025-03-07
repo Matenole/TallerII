@@ -3,6 +3,10 @@ package logica.negocio;
 import logica.excepciones.DescuentoException;
 
 public class especial extends boleto{
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 		///Atributo
 		private float Descuento;
 		///Constructor

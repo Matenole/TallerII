@@ -66,7 +66,7 @@ public class VentanaPrincipal extends JFrame {
 				} catch (RemoteException | PersistenciaException e1) {
 					e1.printStackTrace();
 				}
-				dispose();
+
 		    }
 		});
 		
