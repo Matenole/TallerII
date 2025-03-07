@@ -38,7 +38,7 @@ public class Paseos implements Serializable{
 	    return recorrido;
 	}
 	 // Método para listar paseos según la cantidad de boletos disponibles
-    public ArrayList<VOpaseolistado> listadoPorDisponibilidad(int cant_Bol) {					///CORREGIDO
+    public ArrayList<VOpaseolistado> listadoPorDisponibilidad(int cant_Bol) {
     	ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
 	    								if (pas.getMaxboletos() >= cant_Bol) {
@@ -69,8 +69,9 @@ public class Paseos implements Serializable{
 	}
 	
 	public boolean chequearHorarios(LocalTime HP,LocalTime HL) {
-		boolean bool = false;
+		boolean bool = true;
 		
+		/*
 		paseo aux = null;
 		aux = AVL_Paseos.values().iterator().next();
     	while(!bool) {
@@ -78,15 +79,16 @@ public class Paseos implements Serializable{
     			bool = true;
     		}
     		aux = AVL_Paseos.values().iterator().next();
-    	}		
-		/*
+    	}
+    	*/	
+		
 		AVL_Paseos.forEach((key,pas) ->	{
 			if((HP.compareTo(pas.getHorallegada())>=0) || (HL.compareTo(pas.getHorasalida())<=0)) {
-				bool = true;
+				//bool = false;
 			}
 				}
 				);
-		*/
+		
 		return bool;
 	}
 }

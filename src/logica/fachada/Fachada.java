@@ -111,7 +111,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	}
 	
-	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat,String cod) throws RemoteException{
+	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat) throws RemoteException{
 		m.comienzoLectura();
 		ArrayList<VOpaseolistado> array = Locomocion.listadoporasignacionpaseos(mat,cod);
 		m.terminoLectura();
@@ -125,10 +125,11 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		return array;
 	}
 			
-	public ArrayList<VOpaseolistado> LisDisBol(int maxb,Boletos bo) throws RemoteException,DisponibilidadException {
+	public ArrayList<VOpaseolistado> LisDisBol(int maxb) throws RemoteException,DisponibilidadException {
 		m.comienzoLectura();
 		String asesoramientoPaseos = Viaje.keyfinder();
         paseo a_asesorar = Viaje.find(asesoramientoPaseos);
+        Boletos bo = a_asesorar.getBoletosVendidos();
         if(a_asesorar.getMaxboletos() - bo.size() < maxb) {
         	m.terminoEscritura();
 			throw new DisponibilidadException("el maximo de boletos es menor a la resta de los boletos maximos y los boletos disponibles");
@@ -141,7 +142,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
         }
 	}
 	
-	public ArrayList<VOboletolistado> LisPasBolVen(String cod) throws RemoteException,LogicaException {
+	public ArrayList<VOboletolistado> LisBolVen(String cod, boleto tb) throws RemoteException,LogicaException {
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
 		ArrayList<VOboletolistado> bo = p.listarBoletos();

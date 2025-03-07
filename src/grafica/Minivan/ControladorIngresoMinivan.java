@@ -21,11 +21,8 @@ public class ControladorIngresoMinivan implements Serializable{
 	
 	public ControladorIngresoMinivan(VentanaIngresoMinivan ven) {
 		v = ven;
-		conectarServidor();
-	}
-	
-	private void conectarServidor() {
 		try {
+
 			Properties prop = new Properties();
 			String nomArch = "config/txt.properties";
 			prop.load (new FileInputStream (nomArch));
@@ -33,41 +30,30 @@ public class ControladorIngresoMinivan implements Serializable{
 			String puerto = prop.getProperty("puerto");
 			f = (IFachada)
 					Naming.lookup("//"+ip+":"+puerto+"/fachada");
-		} catch (Exception e) {
-			mostrarErrorConexion();
-			f = null;
+
+		} catch (MalformedURLException e) {
+			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion");
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion");
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
-		
-	private void mostrarErrorConexion() {
-			JOptionPane.showMessageDialog(null, "No se pudo establecer conexión con el servidor",
-			"Error de Conexión", JOptionPane.ERROR_MESSAGE);
-	}
 	
-	private boolean verificarConexion() {
-		if (f == null) {
-			conectarServidor();
-		}
-		return f != null;
-	}
-	
-	public void IngresarMinivan(String matricula, String marca, String modelo, int asientos) throws RegistroException { 
-		if (!verificarConexion()) {
-		v.MostrarMensaje("Error: No hay conexión con el servidor.");
-		return;
-	}
+	public void IngresarMinivan(String matricula, String marca, String modelo, int asientos) throws RegistroException{
 		try {
 			VOminivan mini = new VOminivan(matricula, marca, modelo, asientos);
 			f.RegisMin(mini);
 			v.MostrarMensaje("Minivan ingresada correctamente");
 		} catch (RemoteException e) {
 			v.MostrarMensaje(e.getMessage());
-			f = null;
 		}
-	}
-
-	public boolean estaConectado() {
-		return false;
 	}
 	
 }
