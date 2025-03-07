@@ -53,11 +53,11 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCodigo = new JLabel("Codigo");
-		lblCodigo.setBounds(58, 113, 45, 13);
+		lblCodigo.setBounds(45, 114, 45, 13);
 		contentPane.add(lblCodigo);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(113, 110, 96, 19);
+		txtCodigo.setBounds(105, 110, 96, 19);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
@@ -67,8 +67,17 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 				controlador.Monto(txtCodigo.getText());
 			}
 		});
-		btnAceptar.setBounds(98, 198, 85, 21);
+		btnAceptar.setBounds(10, 218, 85, 21);
 		contentPane.add(btnAceptar);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnVolver.setBounds(188, 217, 86, 23);
+		contentPane.add(btnVolver);
 	}
 
 	public void MostrarMensaje(String mensaje) {

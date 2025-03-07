@@ -51,7 +51,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		controlador = new ControladorIngresoMinivan(this);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 210, 210);
+		setBounds(100, 100, 235, 210);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(null);
@@ -109,8 +109,18 @@ public class VentanaIngresoMinivan extends JFrame {
 			}
 		});
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnAceptar.setBounds(54, 137, 89, 23);
+		btnAceptar.setBounds(13, 137, 86, 23);
 		contentPane.add(btnAceptar);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnVolver.setBounds(123, 137, 86, 23);
+		contentPane.add(btnVolver);
+	
 	}
 
 	public void MostrarMensaje(String mensaje) {

@@ -134,8 +134,17 @@ public class VentanaRegistroPaseo extends JFrame {
 				}
 			}
 		});
-		btnAceptar.setBounds(95, 232, 85, 21);
+		btnAceptar.setBounds(10, 218, 85, 21);
 		contentPane.add(btnAceptar);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnVolver.setBounds(188, 217, 86, 23);
+		contentPane.add(btnVolver);
 	}
 	
 	public void MostrarMensaje(String mensaje) {

@@ -26,7 +26,8 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 	private ControladorLisPaseosAsigMinivan controlador;
 	public JTable tableListadoPaseos;
 	private JTextField txtMatricula;
-
+	private JTextField txtCod;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -87,40 +88,49 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 			frmListadoPaseos.getContentPane().add(btnListar);
 
 			JScrollPane scrollPanePaseos = new JScrollPane();
-			scrollPanePaseos.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPanePaseos.setBounds(24, 101, 525, 189);
+			scrollPanePaseos.setBounds(60, 101, 371, 189);
 			frmListadoPaseos.getContentPane().add(scrollPanePaseos);
-
+			
 			tableListadoPaseos = new JTable();
-			scrollPanePaseos.setViewportView(tableListadoPaseos);
+			tableListadoPaseos.setEnabled(false);
 			tableListadoPaseos.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
 				new String[] {
-					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Maxima de Boletos", "Cant. Boletos Disponibles"
+					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Cant. Asientos", "Paseos Asignados"
 				}
 			));
-			tableListadoPaseos.getColumnModel().getColumn(0).setPreferredWidth(100);
-			tableListadoPaseos.getColumnModel().getColumn(1).setPreferredWidth(100);
-			tableListadoPaseos.getColumnModel().getColumn(2).setPreferredWidth(100);
-			tableListadoPaseos.getColumnModel().getColumn(3).setPreferredWidth(80);
-			tableListadoPaseos.getColumnModel().getColumn(4).setPreferredWidth(80);
-			tableListadoPaseos.getColumnModel().getColumn(5).setPreferredWidth(80);
-			tableListadoPaseos.getColumnModel().getColumn(6).setPreferredWidth(80);
-			scrollPanePaseos.setViewportView(tableListadoPaseos.getTableHeader());
+			scrollPanePaseos.setViewportView(tableListadoPaseos);
 			
 			JLabel lblMatricula = new JLabel("Matricula");
 			lblMatricula.setFont(new Font("Arial", Font.BOLD, 12));
 			lblMatricula.setForeground(UIManager.getColor("Button.highlight"));
-			lblMatricula.setBounds(24, 67, 68, 14);
+			lblMatricula.setBounds(24, 42, 68, 14);
 			frmListadoPaseos.getContentPane().add(lblMatricula);
 			
 			txtMatricula = new JTextField();
-			txtMatricula.setBounds(93, 64, 86, 20);
+			txtMatricula.setBounds(93, 39, 86, 20);
 			frmListadoPaseos.getContentPane().add(txtMatricula);
 			txtMatricula.setColumns(10);
+			
+			JLabel lblCodigo = new JLabel("Codigo");
+			lblCodigo.setFont(new Font("Arial", Font.BOLD, 12));
+			lblCodigo.setForeground(UIManager.getColor("Button.highlight"));
+			lblCodigo.setBounds(24, 67, 68, 14);
+			frmListadoPaseos.getContentPane().add(lblCodigo);
+			
+			txtCod = new JTextField();
+			txtCod.setBounds(93, 64, 86, 20);
+			frmListadoPaseos.getContentPane().add(txtCod);
+			txtCod.setColumns(10);
 				}
-	
+		
+		public String getMatricula() {
+		    return txtMatricula.getText();
+		}
+		public String getcod() {
+		    return txtCod.getText();
+		}
 		public void setVisible(boolean visible) {
 			frmListadoPaseos.setVisible(visible);
 		}

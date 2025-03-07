@@ -51,10 +51,20 @@ public class ControladorLisPaseosAsigMinivan {
 	
 	public void ListarPaseos() {
 		try {
+			String matricula = VLPAM.getMatricula();
+	        if (matricula.isEmpty()) {
+	            VLPAM.mostrarMensaje("Ingrese una matrícula para listar paseos.");
+	            return;
+	        }
+	        String cod = VLPAM.getcod();
+	        if (cod.isEmpty()) {
+	            VLPAM.mostrarMensaje("Ingrese un codigo para listar paseos.");
+	            return;
+	        }
 			DefaultTableModel dm = (DefaultTableModel) VLPAM.tableListadoPaseos.getModel();
 			while (VLPAM.tableListadoPaseos.getRowCount() != 0)
 				dm.removeRow(VLPAM.tableListadoPaseos.getRowCount() - 1);
-			ArrayList<VOpaseolistado> Paseo = f.LisPasDes(null);
+			ArrayList<VOpaseolistado> Paseo = f.LisPasAsMin(matricula,cod);
 			if (Paseo.isEmpty()) {
 				VLPAM.mostrarMensaje("No hay ningun Paseo registrado");
 			} else {

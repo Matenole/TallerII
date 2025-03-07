@@ -50,9 +50,9 @@ public class ControladorLisMinivans {
 	
 	public void ListarMinivans() {
 		try {
-			DefaultTableModel dm = (DefaultTableModel) VLM.table.getModel();
-			while (VLM.table.getRowCount() != 0) {
-				dm.removeRow(VLM.table.getRowCount() - 1);
+			DefaultTableModel dm = (DefaultTableModel) VLM.tableListadoMinivans.getModel();
+			while (VLM.tableListadoMinivans.getRowCount() != 0) {
+				dm.removeRow(VLM.tableListadoMinivans.getRowCount() - 1);
 			}
 			List<VOminivanlistado> Minivan = f.LisMin();
 			if (Minivan.isEmpty()) {

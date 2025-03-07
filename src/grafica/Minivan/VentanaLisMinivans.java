@@ -20,7 +20,7 @@ import java.awt.Color;
 
 public class VentanaLisMinivans extends JFrame {
 	
-	public JTable table;
+	public JTable tableListadoMinivans;
 	private JFrame frmListadoMinivans;
 	private ControladorLisMinivans controlador;
 
@@ -83,20 +83,20 @@ public class VentanaLisMinivans extends JFrame {
 			btnListar.setBounds(210, 58, 85, 32);
 			frmListadoMinivans.getContentPane().add(btnListar);
 			
-			JScrollPane scrollPane = new JScrollPane();
-			scrollPane.setBounds(60, 101, 371, 189);
-			frmListadoMinivans.getContentPane().add(scrollPane);
+			JScrollPane scrollPaneLisMin = new JScrollPane();
+			scrollPaneLisMin.setBounds(60, 101, 371, 189);
+			frmListadoMinivans.getContentPane().add(scrollPaneLisMin);
 			
-			table = new JTable();
-			table.setEnabled(false);
-			table.setModel(new DefaultTableModel(
+			tableListadoMinivans = new JTable();
+			tableListadoMinivans.setEnabled(false);
+			tableListadoMinivans.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
 				new String[] {
 					"Matricula", "Marca", "Modelo", "Cant. Asientos", "Paseos Asig."
 				}
 			));
-			scrollPane.setViewportView(table);
+			scrollPaneLisMin.setViewportView(tableListadoMinivans);
 			
 		}
 		public void setVisible(boolean visible) {
