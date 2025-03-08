@@ -166,7 +166,7 @@ public class VentanaPrincipal extends JFrame {
         contentPane.setLayout(null);
 
         // Cargar la imagen usando ImageIcon
-        ImageIcon icono = new ImageIcon("C:\\Users\\mateo\\Documents\\Taller II\\Taller2-20250217T021949Z-001\\TallerII\\Paseos del sol.png");
+        ImageIcon icono = new ImageIcon("Paseos del sol.png");
 
         // Escalar la imagen para que sea más pequeña
         Image imagenEscalada = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);

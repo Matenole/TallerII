@@ -96,13 +96,6 @@ public class VentanaLisPaseosPorDestino extends JFrame {
 			tableListadoPaseos.setEnabled(false);
 			tableListadoPaseos.setModel(new DefaultTableModel(
 				new Object[][] {
-					{"11", "11", "11", "11", "11", "11", null},
-					{null, null, null, null, null, null, null},
-					{null, null, null, null, null, null, null},
-					{null, null, null, null, null, null, null},
-					{null, null, null, null, null, null, null},
-					{null, null, null, null, null, null, null},
-					{null, null, null, null, null, null, null},
 				},
 				new String[] {
 					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Paseos Asignados"

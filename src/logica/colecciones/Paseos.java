@@ -19,7 +19,7 @@ public class Paseos implements Serializable{
 	public ArrayList<VOpaseolistado> listadoPaseos() {										
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 		System.out.println("1");
-	    AVL_Paseos.forEach((key,pas) ->	{
+	    AVL_Paseos.forEach((key,pas) ->	{							//NO ENTRA  --- VER CON ARIEL ---
 	    								System.out.println("2");
 	    								VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio());
 	    								recorrido.add(vo);

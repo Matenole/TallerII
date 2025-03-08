@@ -25,7 +25,7 @@ public class Persistencia{
 		
 			VOPersistencia vo = (VOPersistencia) o.readObject();
 			o.close();
-		f.close();
+			f.close();
 		 	return vo;
 		}	
 		catch (IOException | ClassNotFoundException e)
