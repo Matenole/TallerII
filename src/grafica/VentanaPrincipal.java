@@ -289,17 +289,8 @@ public class VentanaPrincipal extends JFrame {
 		    }
 		});
 		
-		JButton btnLisPasBol = new JButton("Listar Paseo por Boletos");
-		btnLisPasBol.setBounds(257, 228, 233, 23);
-		contentPane.add(btnLisPasBol);
-		btnLisPasBol.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		    	VentanaLisBoletosVendidosPorPaseo ventana = new VentanaLisBoletosVendidosPorPaseo();
-		        ventana.setVisible(true);
-		    }
-		});
-	    JButton btnLisDisBol = new JButton("Listar Paseo por Disponibilidad");
-	    btnLisDisBol.setBounds(257, 262, 233, 23);
+		JButton btnLisDisBol = new JButton("Listar Paseo por Disponibilidad");
+	    btnLisDisBol.setBounds(257, 228, 233, 23);
 	    contentPane.add(btnLisDisBol);
 	    btnLisDisBol.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
@@ -307,12 +298,10 @@ public class VentanaPrincipal extends JFrame {
 			        ventana.setVisible(true);
 	        	}
 	        });
-	        
-	        
-		
-		
-		
-        txtenQuePodemos = new JTextPane();
+	    
+	      
+			
+		txtenQuePodemos = new JTextPane();
         txtenQuePodemos.setEditable(false);
         txtenQuePodemos.setText("¿En que podemos ayudarte?");
         txtenQuePodemos.setFont(new Font("Trebuchet MS", Font.BOLD, 25));
@@ -333,7 +322,7 @@ public class VentanaPrincipal extends JFrame {
         txtpnNicolasCarreras.setFont(new Font("Times New Roman", Font.PLAIN, 10));
         txtpnNicolasCarreras.setEditable(false);
         txtpnNicolasCarreras.setBackground(SystemColor.activeCaption);
-        txtpnNicolasCarreras.setBounds(0, 359, 72, 25);
+        txtpnNicolasCarreras.setBounds(0, 371, 72, 25);
         contentPane.add(txtpnNicolasCarreras);
         
         JTextPane txtpnMateoMendiondo = new JTextPane();
@@ -349,7 +338,7 @@ public class VentanaPrincipal extends JFrame {
         txtpnFabricioMedero.setFont(new Font("Times New Roman", Font.PLAIN, 10));
         txtpnFabricioMedero.setEditable(false);
         txtpnFabricioMedero.setBackground(SystemColor.activeCaption);
-        txtpnFabricioMedero.setBounds(0, 385, 94, 25);
+        txtpnFabricioMedero.setBounds(0, 395, 94, 25);
         contentPane.add(txtpnFabricioMedero);
         
       
