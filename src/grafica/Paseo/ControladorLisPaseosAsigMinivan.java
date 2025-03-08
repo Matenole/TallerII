@@ -14,6 +14,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import logica.colecciones.Paseos;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -65,8 +66,9 @@ public class ControladorLisPaseosAsigMinivan {
 				VLPAM.mostrarMensaje("No hay ningun Paseo registrado");
 			} else {
 				for (int i = 0; i < Paseo.size(); i++) {
+					
 					dm.addRow(new Object[] { Paseo.get(i).getCodigo(), Paseo.get(i).getDestino(), Paseo.get(i).getHorasalida(), 
-							Paseo.get(i).getHorallegada(), Paseo.get(i).getPrecio(), Paseo.get(i).getMaxboletos(), Paseo.get(i).cantBoletosDisponibles(i)});
+							Paseo.get(i).getHorallegada(), Paseo.get(i).getPrecio(), Paseo.get(i).getMaxboletos(), Paseo.get(i).cantBoletosDisponibles()});
 				}
 			}
 		} catch (RemoteException e) {

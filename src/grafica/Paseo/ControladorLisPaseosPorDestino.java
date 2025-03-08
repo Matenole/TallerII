@@ -69,7 +69,7 @@ public class ControladorLisPaseosPorDestino {
 			} else {
 				for (int i = 0; i < Paseo.size(); i++) {
 					dm.addRow(new Object[] { Paseo.get(i).getCodigo(), Paseo.get(i).getDestino(), Paseo.get(i).getHorasalida(), 
-							Paseo.get(i).getHorallegada(), Paseo.get(i).getPrecio(), Paseo.get(i).getMaxboletos(), Paseo.get(i).cantBoletosDisponibles(i)});
+							Paseo.get(i).getHorallegada(), Paseo.get(i).getPrecio(), Paseo.get(i).getMaxboletos(), Paseo.get(i).cantBoletosDisponibles()});
 				}
 			}
 		} catch (RemoteException e) {

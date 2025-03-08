@@ -21,7 +21,7 @@ public class Paseos implements Serializable{
 		System.out.println("1");
 	    AVL_Paseos.forEach((key,pas) ->	{							//NO ENTRA  --- VER CON ARIEL ---
 	    								System.out.println("2");
-	    								VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio());
+	    								VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(), pas.getMaxboletos(), pas.cantBoletosDisponibles());
 	    								recorrido.add(vo);
 	    								}
 	    				  );
@@ -31,7 +31,7 @@ public class Paseos implements Serializable{
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
 	    								if (pas.getDestino().equals(dest)) {
-	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio());
+	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(), pas.getMaxboletos(), pas.cantBoletosDisponibles());
 	    									recorrido.add(vo);
 	    									}
 	    								}
@@ -43,7 +43,7 @@ public class Paseos implements Serializable{
     	ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
 	    								if (pas.getMaxboletos() >= cant_Bol) {
-	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio());
+	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(), pas.getMaxboletos(), pas.cantBoletosDisponibles());
 	    									recorrido.add(vo);
 	    									}
 	    								}

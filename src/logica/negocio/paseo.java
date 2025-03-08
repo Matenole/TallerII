@@ -33,14 +33,14 @@ public class paseo implements Serializable{
 		
 		//private Paseos ListaPaseos;
 		///Constructor
-		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxBoletos) {
+		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos) {
 			super();
 			Codigo = codigo;
 			Destino = destino;
 			Horasalida = horasalida;
 			Horallegada = horallegada;
 			this.precio = precio;
-			this.maxboletos = maxBoletos;
+			this.maxboletos = maxboletos;
 			this.boletosVendidos = new Boletos();
 		}
 		/// Getters y Setters
@@ -138,6 +138,10 @@ public class paseo implements Serializable{
 
 	        return listado;
 	    }
+		
+		public int cantBoletosDisponibles() {
+			return maxboletos - boletosVendidos.size();
+		}
 }
 
 		
