@@ -106,7 +106,7 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 					{null, null, null, null, null, null, null},
 				},
 				new String[] {
-					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Paseos Asignados"
+					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Boletos Dis."
 				}
 			));
 			scrollPanePaseos.setViewportView(tableListadoPaseos);

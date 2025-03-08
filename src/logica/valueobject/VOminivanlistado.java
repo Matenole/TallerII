@@ -9,7 +9,6 @@ public class VOminivanlistado extends VOminivan implements Serializable{
 	public VOminivanlistado(String matricula, String marca, String modelo, int cantasientos,int cantpaseosasignados) {
 		super(matricula, marca, modelo, cantasientos);
 		this.cantpaseosasignados = cantpaseosasignados;
-		// TODO Auto-generated constructor stub
 	}
 	///Getter y Setter
 	public int getCantpaseosasignados() {

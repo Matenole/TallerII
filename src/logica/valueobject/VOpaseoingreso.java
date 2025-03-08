@@ -14,7 +14,6 @@ public class VOpaseoingreso implements Serializable{
 	
 	private float precio;
 	
-	private int maxboletos;
 	///Constructor
 	public VOpaseoingreso(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio) {
 		super();
@@ -23,7 +22,6 @@ public class VOpaseoingreso implements Serializable{
 		Horasalida = horasalida;
 		Horallegada = horallegada;
 		this.precio = precio;
-		//this.maxboletos = maxboletos;
 	}
 	///Getter y Setters
 	public String getCodigo() {
@@ -65,14 +63,4 @@ public class VOpaseoingreso implements Serializable{
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
-
-	public int getMaxboletos() {
-		return maxboletos;
-	}
-
-	public void setMaxboletos(int maxboletos) {
-		this.maxboletos = maxboletos;
-	}
-
-	
 }

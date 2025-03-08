@@ -98,7 +98,7 @@ public class VentanaLisPaseosPorDestino extends JFrame {
 				new Object[][] {
 				},
 				new String[] {
-					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Paseos Asignados"
+					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Boletos Dis."
 				}
 			));
 			scrollPanePaseos.setViewportView(tableListadoPaseos);

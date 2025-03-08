@@ -52,7 +52,6 @@ public class ControladorLisPaseosPorDestino {
 	public void ListarPaseos() {
 		try {
 			String destino = VLPD.getDes();
-			System.out.println(destino);
 	        if (destino.isEmpty()) {
 	            VLPD.mostrarMensaje("Ingrese un Destino para listar paseos.");
 	            return;
@@ -69,7 +68,7 @@ public class ControladorLisPaseosPorDestino {
 			} else {
 				for (int i = 0; i < Paseo.size(); i++) {
 					dm.addRow(new Object[] { Paseo.get(i).getCodigo(), Paseo.get(i).getDestino(), Paseo.get(i).getHorasalida(), 
-							Paseo.get(i).getHorallegada(), Paseo.get(i).getPrecio(), Paseo.get(i).getMaxboletos(), Paseo.get(i).cantBoletosDisponibles()});
+							Paseo.get(i).getHorallegada(), Paseo.get(i).getPrecio(), Paseo.get(i).getMaxBol(), Paseo.get(i).getBolDis()});
 				}
 			}
 		} catch (RemoteException e) {

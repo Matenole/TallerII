@@ -31,6 +31,8 @@ public class Paseos implements Serializable{
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
 	    								if (pas.getDestino().equals(dest)) {
+	    									System.out.println(pas.cantBoletosDisponibles());
+	    									System.out.println(pas.getMaxboletos());
 	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(), pas.getMaxboletos(), pas.cantBoletosDisponibles());
 	    									recorrido.add(vo);
 	    									}

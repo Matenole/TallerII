@@ -103,7 +103,10 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 						}else {
 							m.comienzoEscritura();
 							int maxBoletos = Locomocion.MiniDis(HP, HL).getCantasientos();
+							System.out.println(maxBoletos);
 							paseo p = new paseo(cod, des, HP, HL, Prec, maxBoletos);
+							System.out.println(p.cantBoletosDisponibles());
+							System.out.println(p.getMaxboletos());
 							Viaje.insert(p);
 							m.terminoEscritura();
 		}

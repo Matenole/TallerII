@@ -5,11 +5,13 @@ import java.time.*;
 public class VOpaseolistado extends VOpaseoingreso implements Serializable{
 		///Atributo
 		private float monto;
-		private int maxbol;
+		private int maxBol;
 		private int bolDis;
 		///Constructor
-		public VOpaseolistado(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxbol, int bolDis) {
+		public VOpaseolistado(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxbol, int boldis) {
 			super(codigo, destino, horasalida, horallegada, precio);
+			maxBol = maxbol;
+			bolDis = boldis;
 		}
 		///Getter y Setter
 		public float getMonto() {
@@ -20,11 +22,16 @@ public class VOpaseolistado extends VOpaseoingreso implements Serializable{
 			this.monto = monto;
 		}
 		///Metodos
-		public int cantMaxBoletos() {
-			return maxbol;
+		public int getMaxBol() {
+			return maxBol;
 		}
-		
-		public int cantBoletosDisponibles() {
+		public void setMaxBol(int maxBol) {
+			this.maxBol = maxBol;
+		}
+		public int getBolDis() {
 			return bolDis;
+		}
+		public void setBolDis(int bolDis) {
+			this.bolDis = bolDis;
 		}
 }
