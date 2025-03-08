@@ -35,9 +35,7 @@ public class Minivans implements Serializable{
 	    }
 	    public ArrayList<VOpaseolistado> listadoporasignacionpaseos(String mat){
 	    	minivan m = AVL_Minivans.get(mat);
-	    	Paseos po = m.getDicPaseos();
-	    	return po.listadoPaseos();
-	    		 
+	    	return m.listarPaseo();
 	    }
 	//Metodo para insertar una minivan en el AVL
 	public void insert(minivan m) throws RegistroException {

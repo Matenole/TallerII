@@ -16,15 +16,14 @@ public class VOpaseoingreso implements Serializable{
 	
 	private int maxboletos;
 	///Constructor
-	public VOpaseoingreso(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio,
-			int maxboletos) {
+	public VOpaseoingreso(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio) {
 		super();
 		Codigo = codigo;
 		Destino = destino;
 		Horasalida = horasalida;
 		Horallegada = horallegada;
 		this.precio = precio;
-		this.maxboletos = maxboletos;
+		//this.maxboletos = maxboletos;
 	}
 	///Getter y Setters
 	public String getCodigo() {

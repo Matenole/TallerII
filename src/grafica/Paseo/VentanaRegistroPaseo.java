@@ -29,8 +29,6 @@ public class VentanaRegistroPaseo extends JFrame {
 	private JTextField txtHoraLlegada;
 	private JLabel lblPrecio;
 	private JTextField txtPrecio;
-	private JLabel lblMaxBoletos;
-	private JTextField txtMaxBoletos;
 	private ControladorRegistroPaseo controlador;
 
 	/**
@@ -112,24 +110,14 @@ public class VentanaRegistroPaseo extends JFrame {
 		txtPrecio.setBounds(84, 120, 96, 19);
 		contentPane.add(txtPrecio);
 		
-		lblMaxBoletos = new JLabel("MaxBoletos:");
-		lblMaxBoletos.setBounds(10, 149, 61, 13);
-		contentPane.add(lblMaxBoletos);
-		
-		txtMaxBoletos = new JTextField();
-		txtMaxBoletos.setColumns(10);
-		txtMaxBoletos.setBounds(84, 146, 96, 19);
-		contentPane.add(txtMaxBoletos);
-		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					controlador.VentaBoleto(txtCodigo.getText(), txtDestino.getText(), txtHoraPartida.getText(), txtHoraLlegada.getText(), txtPrecio.getText(), txtMaxBoletos.getText());
+					controlador.VentaBoleto(txtCodigo.getText(), txtDestino.getText(), txtHoraPartida.getText(), txtHoraLlegada.getText(), txtPrecio.getText());
 				} catch (RegistroExceptionII e1) {
 					e1.printStackTrace();
 				} catch (DestinoException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

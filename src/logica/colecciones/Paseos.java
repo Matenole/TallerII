@@ -18,19 +18,20 @@ public class Paseos implements Serializable{
 	}
 	public ArrayList<VOpaseolistado> listadoPaseos() {										
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
+		System.out.println("1");
 	    AVL_Paseos.forEach((key,pas) ->	{
-	    								VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(),pas.getMaxboletos(),pas.montoRecaudado());
+	    								System.out.println("2");
+	    								VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio());
 	    								recorrido.add(vo);
 	    								}
 	    				  );
 	    return recorrido;
 	}
 	public ArrayList<VOpaseolistado> listadoPaseosPorDestino(String dest) {				
-		
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
-	    								if (pas.getDestino() == dest) {
-	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(),pas.getMaxboletos(),pas.montoRecaudado());
+	    								if (pas.getDestino().equals(dest)) {
+	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio());
 	    									recorrido.add(vo);
 	    									}
 	    								}
@@ -42,7 +43,7 @@ public class Paseos implements Serializable{
     	ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
 	    								if (pas.getMaxboletos() >= cant_Bol) {
-	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(),pas.getMaxboletos(),pas.montoRecaudado());
+	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio());
 	    									recorrido.add(vo);
 	    									}
 	    								}

@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
@@ -86,7 +87,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					try {
 						controlador.ListarBoletos(txtCodigo.getText());
-					} catch (LogicaException e1) {
+					} catch (LogicaException | RemoteException e1) {
 						e1.printStackTrace();
 					}
 				}

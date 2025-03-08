@@ -142,7 +142,8 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
         }
 	}
 	
-	public ArrayList<VOboletolistado> LisBolVen(String cod) throws RemoteException,LogicaException {
+	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb) throws RemoteException,LogicaException {
+		//Revisar
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
 		ArrayList<VOboletolistado> bo = p.listarBoletos();
@@ -206,18 +207,5 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			m.terminoEscritura();
 			throw new PersistenciaException(e.getMessage());
 		}
-	}
-
-	@Override
-	public void RegisPas(String cod, String des, LocalTime HP, LocalTime HL, float Prec, int MaxBol)
-			throws RemoteException, LogicaException, RegistroExceptionII, DestinoException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

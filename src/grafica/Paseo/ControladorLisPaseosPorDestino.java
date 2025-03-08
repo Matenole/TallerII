@@ -52,15 +52,24 @@ public class ControladorLisPaseosPorDestino {
 	public void ListarPaseos() {
 		try {
 			String destino = VLPD.getDes();
+			System.out.println(destino);
 	        if (destino.isEmpty()) {
 	            VLPD.mostrarMensaje("Ingrese un Destino para listar paseos.");
 	            return;
 	        }
 			DefaultTableModel dm = (DefaultTableModel) VLPD.tableListadoPaseos.getModel();
-			while (VLPD.tableListadoPaseos.getRowCount() != 0)
+			while (VLPD.tableListadoPaseos.getRowCount() != 0) {
 				dm.removeRow(VLPD.tableListadoPaseos.getRowCount() - 1);
+			}
+			
 			ArrayList<VOpaseolistado> Paseo = f.LisPasDes(destino);
+			
 			if (Paseo.isEmpty()) {
+				System.out.println(Paseo.size());
+				for (int i = 0; i < Paseo.size(); i++) {
+					dm.addRow(new Object[] { Paseo.get(i).getCodigo(), Paseo.get(i).getDestino(), Paseo.get(i).getHorasalida(), 
+							Paseo.get(i).getHorallegada(), Paseo.get(i).getPrecio(), Paseo.get(i).getMaxboletos(), Paseo.get(i).cantBoletosDisponibles(i)});
+				}
 				VLPD.mostrarMensaje("No hay ningun Paseo registrado");
 			} else {
 				for (int i = 0; i < Paseo.size(); i++) {

@@ -6,9 +6,8 @@ public class VOpaseolistado extends VOpaseoingreso implements Serializable{
 		///Atributo
 		private float monto;
 		///Constructor
-		public VOpaseolistado(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos, float monto) {
-			super(codigo, destino, horasalida, horallegada, precio, maxboletos);
-			this.monto = monto;
+		public VOpaseolistado(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio) {
+			super(codigo, destino, horasalida, horallegada, precio);
 		}
 		///Getter y Setter
 		public float getMonto() {

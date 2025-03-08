@@ -48,10 +48,8 @@ public class ControladorRegistroPaseo {
 		}
 	}
 	
-	public void VentaBoleto(String cod, String des, String HP, String HL, String Prec, String MaxBol) throws RegistroExceptionII, DestinoException{
+	public void VentaBoleto(String cod, String des, String HP, String HL, String Prec) throws RegistroExceptionII, DestinoException{
 		try {
-			
-			int maxb = Integer.parseInt(MaxBol);
 			float pre = Float.parseFloat(Prec);
 			
 			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
@@ -59,7 +57,7 @@ public class ControladorRegistroPaseo {
 	        LocalTime partida = LocalTime.parse(HP, dateTimeFormatter);
 	        LocalTime llegada = LocalTime.parse(HL, dateTimeFormatter);
 			
-			f.RegisPas(cod, des, partida, llegada, pre, maxb);
+			f.RegisPas(cod, des, partida, llegada, pre);
 			v.MostrarMensaje("Paseo ingresado correctamente");
 		} catch (LogicaException | RemoteException e) {
 			v.MostrarMensaje(e.getMessage());

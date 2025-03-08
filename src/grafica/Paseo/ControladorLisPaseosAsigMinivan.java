@@ -57,8 +57,9 @@ public class ControladorLisPaseosAsigMinivan {
 	            return;
 	        }
 			DefaultTableModel dm = (DefaultTableModel) VLPAM.tableListadoPaseos.getModel();
-			while (VLPAM.tableListadoPaseos.getRowCount() != 0)
+			while (VLPAM.tableListadoPaseos.getRowCount() != 0) {
 				dm.removeRow(VLPAM.tableListadoPaseos.getRowCount() - 1);
+			}
 			ArrayList<VOpaseolistado> Paseo = f.LisPasAsMin(matricula);
 			if (Paseo.isEmpty()) {
 				VLPAM.mostrarMensaje("No hay ningun Paseo registrado");
