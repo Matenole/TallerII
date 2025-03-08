@@ -59,11 +59,11 @@ public class VentanaIngresoMinivan extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblMatricula = new JLabel("Matricula:");
-		lblMatricula.setBounds(13, 8, 54, 20);
+		lblMatricula.setBounds(13, 8, 64, 20);
 		contentPane.add(lblMatricula);
 		
 		txtMatricula = new JTextField();
-		txtMatricula.setBounds(77, 8, 86, 20);
+		txtMatricula.setBounds(107, 8, 86, 20);
 		contentPane.add(txtMatricula);
 		txtMatricula.setColumns(10);
 		
@@ -73,7 +73,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		
 		txtMarca = new JTextField();
 		txtMarca.setColumns(10);
-		txtMarca.setBounds(77, 36, 86, 20);
+		txtMarca.setBounds(107, 39, 86, 20);
 		contentPane.add(txtMarca);
 		
 		JLabel lblModelo = new JLabel("Modelo:");
@@ -82,16 +82,16 @@ public class VentanaIngresoMinivan extends JFrame {
 		
 		txtModelo = new JTextField();
 		txtModelo.setColumns(10);
-		txtModelo.setBounds(77, 64, 86, 20);
+		txtModelo.setBounds(107, 64, 86, 20);
 		contentPane.add(txtModelo);
 		
 		JLabel lblCapacidad = new JLabel("Capacidad:");
-		lblCapacidad.setBounds(13, 95, 54, 14);
+		lblCapacidad.setBounds(13, 95, 84, 17);
 		contentPane.add(lblCapacidad);
 		
 		txtCapacidad = new JTextField();
 		txtCapacidad.setColumns(10);
-		txtCapacidad.setBounds(77, 92, 86, 20);
+		txtCapacidad.setBounds(107, 92, 86, 20);
 		contentPane.add(txtCapacidad);
 		
 		JButton btnAceptar = new JButton("Aceptar");
