@@ -60,7 +60,7 @@ public class ControladorLisMinivans {
 				}
 			}
 		} catch (RemoteException e) {
-			VLM.mostrarMensaje("Error");
+			VLM.mostrarMensaje("Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());
 		}
 
 	}

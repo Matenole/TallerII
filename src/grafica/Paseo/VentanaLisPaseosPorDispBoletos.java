@@ -59,16 +59,16 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 			frmListadoPaseos.getContentPane().setFont(new Font("Arial", Font.PLAIN, 11));
 			frmListadoPaseos.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoPaseos.setBackground(SystemColor.inactiveCaption);
-			frmListadoPaseos.setTitle("Listado de Paseos");
+			frmListadoPaseos.setTitle("Listar Paseo por Disponibilidad");
 			frmListadoPaseos.setBounds(100, 100, 602, 391);
 			frmListadoPaseos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frmListadoPaseos.getContentPane().setLayout(null);
 
-			JLabel lblLisPaseos = new JLabel("Listado de Paseos");
+			JLabel lblLisPaseos = new JLabel("Listado de Paseos por Disponibilidad");
 			lblLisPaseos.setHorizontalAlignment(SwingConstants.CENTER);
 			lblLisPaseos.setForeground(SystemColor.text);
 			lblLisPaseos.setFont(new Font("Arial", Font.BOLD, 20));
-			lblLisPaseos.setBounds(24, 23, 499, 24);
+			lblLisPaseos.setBounds(43, 23, 499, 24);
 			frmListadoPaseos.getContentPane().add(lblLisPaseos);
 
 			JButton btnVolver = new JButton("Volver");
@@ -77,7 +77,7 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 					frmListadoPaseos.dispose();
 				}
 			});
-			btnVolver.setBounds(242, 301, 85, 32);
+			btnVolver.setBounds(250, 301, 85, 32);
 			frmListadoPaseos.getContentPane().add(btnVolver);
 
 			JButton btnListar = new JButton("Listar");
@@ -91,19 +91,18 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 					}
 				}
 			});
-			btnListar.setBounds(242, 58, 85, 32);
+			btnListar.setBounds(250, 58, 85, 32);
 			frmListadoPaseos.getContentPane().add(btnListar);
 
 			JScrollPane scrollPanePaseos = new JScrollPane();
 			scrollPanePaseos.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPanePaseos.setBounds(24, 101, 525, 189);
+			scrollPanePaseos.setBounds(30, 101, 525, 189);
 			frmListadoPaseos.getContentPane().add(scrollPanePaseos);
 
 			tableListadoPaseos = new JTable();
 			tableListadoPaseos.setEnabled(false);
 			tableListadoPaseos.setModel(new DefaultTableModel(
 				new Object[][] {
-					{null, null, null, null, null, null, null},
 				},
 				new String[] {
 					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Boletos Dis."
@@ -114,11 +113,11 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 			JLabel lblBoletosDisponibles = new JLabel("Boletos Disponibles");
 			lblBoletosDisponibles.setFont(new Font("Arial", Font.BOLD, 12));
 			lblBoletosDisponibles.setForeground(UIManager.getColor("Button.highlight"));
-			lblBoletosDisponibles.setBounds(24, 67, 117, 14);
+			lblBoletosDisponibles.setBounds(30, 67, 117, 14);
 			frmListadoPaseos.getContentPane().add(lblBoletosDisponibles);
 			
 			txtCantBoletosDisponibles = new JTextField();
-			txtCantBoletosDisponibles.setBounds(151, 64, 66, 20);
+			txtCantBoletosDisponibles.setBounds(152, 64, 66, 20);
 			frmListadoPaseos.getContentPane().add(txtCantBoletosDisponibles);
 			txtCantBoletosDisponibles.setColumns(10);
 				}

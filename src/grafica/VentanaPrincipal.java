@@ -192,7 +192,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnLisBol = new JButton("Listar Boletos");
-		btnLisBol.setBounds(597, 126, 125, 23);
+		btnLisBol.setBounds(576, 126, 150, 23);
 		contentPane.add(btnLisBol);
 		
 		btnLisBol.addActionListener(new ActionListener() {
@@ -203,7 +203,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnVentBol = new JButton("Vender Boleto");
-		btnVentBol.setBounds(597, 92, 125, 23);
+		btnVentBol.setBounds(576, 92, 150, 23);
 		contentPane.add(btnVentBol);
 		
 		btnVentBol.addActionListener(new ActionListener() {
@@ -214,7 +214,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnIngMin = new JButton("Ingresar Minivan");
-		btnIngMin.setBounds(10, 92, 125, 23);
+		btnIngMin.setBounds(10, 92, 150, 23);
 		contentPane.add(btnIngMin);
 		
 		btnIngMin.addActionListener(new ActionListener() {
@@ -226,7 +226,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		
 		JButton btnListMin = new JButton("Listar Minivans");
-		btnListMin.setBounds(10, 126, 125, 23);
+		btnListMin.setBounds(10, 126, 150, 23);
 		contentPane.add(btnListMin);
 		
 		btnListMin.addActionListener(new ActionListener() {
@@ -237,7 +237,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnIngPas = new JButton("Ingresar Paseo");
-		btnIngPas.setBounds(311, 92, 125, 23);
+		btnIngPas.setBounds(293, 92, 150, 23);
 		contentPane.add(btnIngPas);
 		
 		btnIngPas.addActionListener(new ActionListener() {
@@ -248,7 +248,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnMonRec = new JButton("Monto Recaudado");
-		btnMonRec.setBounds(311, 126, 125, 23);
+		btnMonRec.setBounds(293, 126, 150, 23);
 		contentPane.add(btnMonRec);
 		
 		btnMonRec.addActionListener(new ActionListener() {
@@ -259,7 +259,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnLisPasMin = new JButton("Listar Paseo por Minivan");
-		btnLisPasMin.setBounds(257, 160, 233, 23);
+		btnLisPasMin.setBounds(251, 160, 233, 23);
 		contentPane.add(btnLisPasMin);
 		
 		btnLisPasMin.addActionListener(new ActionListener() {
@@ -270,7 +270,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnLisPasDes = new JButton("Listar Paseo por Destino");
-		btnLisPasDes.setBounds(257, 194, 233, 23);
+		btnLisPasDes.setBounds(251, 194, 233, 23);
 		contentPane.add(btnLisPasDes);
 		
 		btnLisPasDes.addActionListener(new ActionListener() {
@@ -281,7 +281,7 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JButton btnLisDisBol = new JButton("Listar Paseo por Disponibilidad");
-	    btnLisDisBol.setBounds(257, 228, 233, 23);
+	    btnLisDisBol.setBounds(251, 228, 233, 23);
 	    contentPane.add(btnLisDisBol);
 	    btnLisDisBol.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {

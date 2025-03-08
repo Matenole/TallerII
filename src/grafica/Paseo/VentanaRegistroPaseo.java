@@ -18,6 +18,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import java.awt.Font;
 
 public class VentanaRegistroPaseo extends JFrame {
 
@@ -30,6 +31,7 @@ public class VentanaRegistroPaseo extends JFrame {
 	private JLabel lblPrecio;
 	private JTextField txtPrecio;
 	private ControladorRegistroPaseo controlador;
+	private JLabel lblIngresarPaseo;
 
 	/**
 	 * Launch the application.
@@ -51,6 +53,7 @@ public class VentanaRegistroPaseo extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaRegistroPaseo() {
+		setTitle("Ingresar Paseo");
 		
 		controlador = new ControladorRegistroPaseo(this);
 		
@@ -64,50 +67,50 @@ public class VentanaRegistroPaseo extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCodigo = new JLabel("Codigo:");
-		lblCodigo.setBounds(10, 10, 45, 13);
+		lblCodigo.setBounds(10, 58, 45, 13);
 		contentPane.add(lblCodigo);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(84, 7, 96, 19);
+		txtCodigo.setBounds(84, 55, 96, 19);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		txtDestino = new JTextField();
 		txtDestino.setColumns(10);
-		txtDestino.setBounds(84, 36, 96, 19);
+		txtDestino.setBounds(84, 84, 96, 19);
 		contentPane.add(txtDestino);
 		
 		JLabel lblDestino = new JLabel("Destino:");
-		lblDestino.setBounds(10, 39, 45, 13);
+		lblDestino.setBounds(10, 87, 45, 13);
 		contentPane.add(lblDestino);
 		
 		txtHoraPartida = new JTextField();
 		txtHoraPartida.setText("hh:mm");
 		txtHoraPartida.setColumns(10);
-		txtHoraPartida.setBounds(84, 65, 96, 19);
+		txtHoraPartida.setBounds(84, 113, 96, 19);
 		contentPane.add(txtHoraPartida);
 		
 		JLabel lblHoraPartida = new JLabel("Hora Partida:");
-		lblHoraPartida.setBounds(10, 68, 61, 13);
+		lblHoraPartida.setBounds(10, 116, 61, 13);
 		contentPane.add(lblHoraPartida);
 		
 		lblHoraLlegada = new JLabel("Hora Llegada:");
-		lblHoraLlegada.setBounds(10, 97, 64, 13);
+		lblHoraLlegada.setBounds(10, 145, 64, 13);
 		contentPane.add(lblHoraLlegada);
 		
 		txtHoraLlegada = new JTextField();
 		txtHoraLlegada.setText("hh:mm");
 		txtHoraLlegada.setColumns(10);
-		txtHoraLlegada.setBounds(84, 94, 96, 19);
+		txtHoraLlegada.setBounds(84, 142, 96, 19);
 		contentPane.add(txtHoraLlegada);
 		
 		lblPrecio = new JLabel("Precio:");
-		lblPrecio.setBounds(10, 123, 45, 13);
+		lblPrecio.setBounds(10, 171, 45, 13);
 		contentPane.add(lblPrecio);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setColumns(10);
-		txtPrecio.setBounds(84, 120, 96, 19);
+		txtPrecio.setBounds(84, 168, 96, 19);
 		contentPane.add(txtPrecio);
 		
 		JButton btnAceptar = new JButton("Aceptar");
@@ -122,7 +125,7 @@ public class VentanaRegistroPaseo extends JFrame {
 				}
 			}
 		});
-		btnAceptar.setBounds(10, 218, 85, 21);
+		btnAceptar.setBounds(10, 228, 85, 21);
 		contentPane.add(btnAceptar);
 		
 		JButton btnVolver = new JButton("Volver");
@@ -131,8 +134,14 @@ public class VentanaRegistroPaseo extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(188, 217, 86, 23);
+		btnVolver.setBounds(188, 227, 86, 23);
 		contentPane.add(btnVolver);
+		
+		lblIngresarPaseo = new JLabel("Ingresar Paseo");
+		lblIngresarPaseo.setForeground(new Color(255, 255, 255));
+		lblIngresarPaseo.setFont(new Font("Arial", Font.BOLD, 20));
+		lblIngresarPaseo.setBounds(70, 20, 144, 24);
+		contentPane.add(lblIngresarPaseo);
 	}
 	
 	public void MostrarMensaje(String mensaje) {

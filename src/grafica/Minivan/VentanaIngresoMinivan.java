@@ -12,6 +12,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import java.awt.Color;
 public class VentanaIngresoMinivan extends JFrame {
 
 	/**
@@ -45,6 +46,7 @@ public class VentanaIngresoMinivan extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaIngresoMinivan() {
+		setTitle("Ingresar Minivan");
 		controlador = new ControladorIngresoMinivan(this);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,39 +58,39 @@ public class VentanaIngresoMinivan extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblMatricula = new JLabel("Matricula:");
-		lblMatricula.setBounds(13, 8, 64, 20);
+		lblMatricula.setBounds(10, 45, 64, 20);
 		contentPane.add(lblMatricula);
 		
 		txtMatricula = new JTextField();
-		txtMatricula.setBounds(107, 8, 86, 20);
+		txtMatricula.setBounds(104, 45, 86, 20);
 		contentPane.add(txtMatricula);
 		txtMatricula.setColumns(10);
 		
 		JLabel lblMarca = new JLabel("Marca:");
-		lblMarca.setBounds(13, 36, 64, 20);
+		lblMarca.setBounds(10, 73, 64, 20);
 		contentPane.add(lblMarca);
 		
 		txtMarca = new JTextField();
 		txtMarca.setColumns(10);
-		txtMarca.setBounds(107, 39, 86, 20);
+		txtMarca.setBounds(104, 73, 86, 20);
 		contentPane.add(txtMarca);
 		
 		JLabel lblModelo = new JLabel("Modelo:");
-		lblModelo.setBounds(13, 67, 54, 14);
+		lblModelo.setBounds(10, 104, 54, 14);
 		contentPane.add(lblModelo);
 		
 		txtModelo = new JTextField();
 		txtModelo.setColumns(10);
-		txtModelo.setBounds(107, 64, 86, 20);
+		txtModelo.setBounds(104, 101, 86, 20);
 		contentPane.add(txtModelo);
 		
 		JLabel lblCapacidad = new JLabel("Capacidad:");
-		lblCapacidad.setBounds(13, 95, 84, 17);
+		lblCapacidad.setBounds(10, 132, 84, 17);
 		contentPane.add(lblCapacidad);
 		
 		txtCapacidad = new JTextField();
 		txtCapacidad.setColumns(10);
-		txtCapacidad.setBounds(107, 92, 86, 20);
+		txtCapacidad.setBounds(104, 129, 86, 20);
 		contentPane.add(txtCapacidad);
 		
 		JButton btnAceptar = new JButton("Aceptar");
@@ -117,6 +119,12 @@ public class VentanaIngresoMinivan extends JFrame {
 		});
 		btnVolver.setBounds(165, 175, 86, 23);
 		contentPane.add(btnVolver);
+		
+		JLabel lblIngresarMinivan = new JLabel("Ingresar Minivan");
+		lblIngresarMinivan.setForeground(new Color(255, 255, 255));
+		lblIngresarMinivan.setFont(new Font("Arial", Font.BOLD, 20));
+		lblIngresarMinivan.setBounds(52, 11, 157, 23);
+		contentPane.add(lblIngresarMinivan);
 	
 	}
 

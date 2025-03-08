@@ -53,11 +53,11 @@ public class ControladorLisBoletosVendidosPorPaseo {
 		    VLBV.mostrarMensaje("Ingrese un codigo para listar paseos.");
 		    return;
 		}
-		String TipoBoleto = VLBV.getTipoBoleto();
+		/*String TipoBoleto = VLBV.getTipoBoleto();
 		if (TipoBoleto.isEmpty()) {
 		    VLBV.mostrarMensaje("Ingrese un Tipo de Boleto para listar paseos.");
 		    return;
-		}
+		}*/
 		DefaultTableModel dm = (DefaultTableModel) VLBV.tableListadoBoletos.getModel();
 		while (VLBV.tableListadoBoletos.getRowCount() != 0)
 			dm.removeRow(VLBV.tableListadoBoletos.getRowCount() - 1);

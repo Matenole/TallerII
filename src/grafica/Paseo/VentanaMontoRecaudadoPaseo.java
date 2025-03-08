@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import java.awt.Font;
 
 public class VentanaMontoRecaudadoPaseo extends JFrame {
 
@@ -40,11 +41,12 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaMontoRecaudadoPaseo() {
+		setTitle("Monto Recaudado");
 		
 		controlador = new ControladorMontoRecaudadoPaseo(this);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 300, 300);
+		setBounds(100, 100, 300, 250);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,11 +55,11 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCodigo = new JLabel("Codigo");
-		lblCodigo.setBounds(45, 114, 45, 13);
+		lblCodigo.setBounds(56, 82, 45, 17);
 		contentPane.add(lblCodigo);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(105, 110, 96, 19);
+		txtCodigo.setBounds(132, 80, 96, 19);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
@@ -67,7 +69,7 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 				controlador.Monto(txtCodigo.getText());
 			}
 		});
-		btnAceptar.setBounds(10, 218, 85, 21);
+		btnAceptar.setBounds(10, 179, 85, 21);
 		contentPane.add(btnAceptar);
 		
 		JButton btnVolver = new JButton("Volver");
@@ -76,8 +78,20 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(188, 217, 86, 23);
+		btnVolver.setBounds(188, 178, 86, 23);
 		contentPane.add(btnVolver);
+		
+		JLabel lblMontoRecaudado = new JLabel("Monto Recaudado");
+		lblMontoRecaudado.setForeground(new Color(255, 255, 255));
+		lblMontoRecaudado.setFont(new Font("Arial", Font.BOLD, 20));
+		lblMontoRecaudado.setBounds(56, 27, 172, 19);
+		contentPane.add(lblMontoRecaudado);
+		
+		JLabel lblResultado = new JLabel("");
+		lblResultado.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblResultado.setForeground(new Color(255, 255, 255));
+		lblResultado.setBounds(64, 121, 156, 28);
+		contentPane.add(lblResultado);
 	}
 
 	public void MostrarMensaje(String mensaje) {

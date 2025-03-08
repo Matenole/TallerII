@@ -18,6 +18,7 @@ import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 import logica.excepciones.LogicaException;
+import javax.swing.JCheckBox;
 
 public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 	
@@ -29,7 +30,6 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 	private ControladorLisBoletosVendidosPorPaseo controlador;
 	public JTable tableListadoBoletos;
 	private JTextField txtCodigo;
-	private JTextField txtTipoBoleto;
 
 	/**
 	 * Launch the application.
@@ -60,7 +60,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			frmListadoBoletos.getContentPane().setFont(new Font("Arial", Font.PLAIN, 11));
 			frmListadoBoletos.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoBoletos.setBackground(SystemColor.inactiveCaption);
-			frmListadoBoletos.setTitle("Listado de Boletos");
+			frmListadoBoletos.setTitle("Listar Boletos");
 			frmListadoBoletos.setBounds(100, 100, 507, 391);
 			frmListadoBoletos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frmListadoBoletos.getContentPane().setLayout(null);
@@ -69,7 +69,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			lblLisBoletos.setHorizontalAlignment(SwingConstants.CENTER);
 			lblLisBoletos.setForeground(SystemColor.text);
 			lblLisBoletos.setFont(new Font("Arial", Font.BOLD, 20));
-			lblLisBoletos.setBounds(0, 11, 499, 24);
+			lblLisBoletos.setBounds(-4, 11, 499, 24);
 			frmListadoBoletos.getContentPane().add(lblLisBoletos);
 
 			JButton btnVolver = new JButton("Volver");
@@ -78,7 +78,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 					frmListadoBoletos.dispose();
 				}
 			});
-			btnVolver.setBounds(210, 301, 85, 32);
+			btnVolver.setBounds(203, 301, 85, 32);
 			frmListadoBoletos.getContentPane().add(btnVolver);
 
 			JButton btnListar = new JButton("Listar");
@@ -91,12 +91,12 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 					}
 				}
 			});
-			btnListar.setBounds(210, 58, 85, 32);
+			btnListar.setBounds(203, 58, 85, 32);
 			frmListadoBoletos.getContentPane().add(btnListar);
 
 			JScrollPane scrollPaneBoletos = new JScrollPane();
 			scrollPaneBoletos.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPaneBoletos.setBounds(99, 101, 301, 189);
+			scrollPaneBoletos.setBounds(95, 101, 301, 189);
 			frmListadoBoletos.getContentPane().add(scrollPaneBoletos);
 
 			tableListadoBoletos = new JTable();
@@ -113,31 +113,25 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			JLabel lblCodigo = new JLabel("Codigo");
 			lblCodigo.setFont(new Font("Arial", Font.BOLD, 12));
 			lblCodigo.setForeground(UIManager.getColor("Button.highlight"));
-			lblCodigo.setBounds(10, 40, 117, 14);
+			lblCodigo.setBounds(20, 49, 117, 14);
 			frmListadoBoletos.getContentPane().add(lblCodigo);
 			
 			txtCodigo = new JTextField();
-			txtCodigo.setBounds(82, 37, 66, 20);
+			txtCodigo.setBounds(95, 46, 66, 20);
 			frmListadoBoletos.getContentPane().add(txtCodigo);
 			txtCodigo.setColumns(10);
 			
-			JLabel lblTipoBoleto = new JLabel("Tipo Boleto");
-			lblTipoBoleto.setFont(new Font("Arial", Font.BOLD, 12));
-			lblTipoBoleto.setForeground(UIManager.getColor("Button.highlight"));
-			lblTipoBoleto.setBounds(10, 76, 117, 14);
-			frmListadoBoletos.getContentPane().add(lblTipoBoleto);
-			
-			txtTipoBoleto = new JTextField();
-			txtTipoBoleto.setBounds(82, 70, 66, 20);
-			frmListadoBoletos.getContentPane().add(txtTipoBoleto);
-			txtTipoBoleto.setColumns(10);
+			JCheckBox chckbxNewCheckBox = new JCheckBox("Boleto Especial");
+			chckbxNewCheckBox.setHorizontalAlignment(SwingConstants.LEFT);
+			chckbxNewCheckBox.setBounds(20, 71, 141, 23);
+			frmListadoBoletos.getContentPane().add(chckbxNewCheckBox);
 		}
 		public String getCod() {
 		    return txtCodigo.getText();
 		}
-		public String getTipoBoleto() {
+		/*public String getTipoBoleto() {
 		    return txtTipoBoleto.getText();
-		}
+		}*/
 		public void setVisible(boolean visible) {
 			frmListadoBoletos.setVisible(visible);
 		}
@@ -145,5 +139,4 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 		public void mostrarMensaje (String Mensaje) {
 			JOptionPane.showMessageDialog(frmListadoBoletos, Mensaje);
 		}
-
 	}

@@ -70,7 +70,7 @@ public class ControladorLisPaseosPorDispBoletos {
 				}
 			}
 		} catch (RemoteException e) {
-			VLPDB.mostrarMensaje("Error");
+			VLPDB.mostrarMensaje("Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());
 		}
 
 	}

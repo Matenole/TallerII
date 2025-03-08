@@ -60,7 +60,7 @@ public class ControladorRegistroPaseo {
 			f.RegisPas(cod, des, partida, llegada, pre);
 			v.MostrarMensaje("Paseo ingresado correctamente");
 		} catch (LogicaException | RemoteException e) {
-			v.MostrarMensaje(e.getMessage());
+			v.MostrarMensaje("Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());
 		}
 	}
 }

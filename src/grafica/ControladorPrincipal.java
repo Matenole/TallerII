@@ -35,7 +35,7 @@ public class ControladorPrincipal {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion");
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion");
+			JOptionPane.showMessageDialog(null, "Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());
 			e.printStackTrace();
 		} catch (NotBoundException e) {
 			JOptionPane.showMessageDialog(null, "No se pudo establecer conexion");

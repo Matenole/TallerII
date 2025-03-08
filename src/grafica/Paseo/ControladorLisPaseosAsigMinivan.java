@@ -72,7 +72,7 @@ public class ControladorLisPaseosAsigMinivan {
 				}
 			}
 		} catch (RemoteException e) {
-			VLPAM.mostrarMensaje("Error");
+			VLPAM.mostrarMensaje("Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());
 		}
 
 	}
