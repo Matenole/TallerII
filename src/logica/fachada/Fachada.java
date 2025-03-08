@@ -31,7 +31,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	
 	///Metodos
-	public void VentaBol(String codigo,boleto b) throws RemoteException,LogicaException {
+	public void VentaBol(String codigo,@SuppressWarnings("exports") boleto b) throws RemoteException,LogicaException {
 		m.comienzoEscritura();
         paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
         Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
@@ -55,7 +55,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		m.terminoEscritura();
 	}
 	
-	public void RegisMin(VOminivan mini) throws RemoteException, RegistroException{
+	public void RegisMin(@SuppressWarnings("exports") VOminivan mini) throws RemoteException, RegistroException{
 		if(Locomocion.member(mini.getMatricula())) {
 			m.terminoEscritura();
 			throw new RegistroException("La matricula ya existe en el sistema");
@@ -68,6 +68,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		}
 	}
 	
+	@SuppressWarnings("exports")
 	public List<VOminivanlistado> LisMin()  throws RemoteException{
 		m.comienzoLectura();
 		List<VOminivanlistado> list = Locomocion.listarMinivan();
@@ -114,6 +115,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	}
 	
+	@SuppressWarnings("exports")
 	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat) throws RemoteException{
 		m.comienzoLectura();
 		ArrayList<VOpaseolistado> array = Locomocion.listadoporasignacionpaseos(mat);
@@ -121,6 +123,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		return array;
 	}
 	
+	@SuppressWarnings("exports")
 	public ArrayList<VOpaseolistado> LisPasDes(String des) throws RemoteException{
 		m.comienzoLectura();
 		ArrayList<VOpaseolistado> array = Viaje.listadoPaseosPorDestino(des);
@@ -128,6 +131,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		return array;
 	}
 			
+	@SuppressWarnings("exports")
 	public ArrayList<VOpaseolistado> LisDisBol(int maxb) throws RemoteException,DisponibilidadException {
 		m.comienzoLectura();
 		String asesoramientoPaseos = Viaje.keyfinder();
@@ -145,6 +149,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
         }
 	}
 	
+	@SuppressWarnings("exports")
 	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb) throws RemoteException,LogicaException {
 		//Revisar
 		m.comienzoLectura();

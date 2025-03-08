@@ -1,10 +1,6 @@
 package grafica;
 import java.rmi.RemoteException;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
-
-import logica.colecciones.*;
 import logica.excepciones.DescuentoException;
 import logica.excepciones.DestinoException;
 import logica.excepciones.LogicaException;

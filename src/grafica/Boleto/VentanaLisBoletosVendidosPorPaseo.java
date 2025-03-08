@@ -13,19 +13,18 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-
 import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
-
-import grafica.Boleto.ControladorLisBoletosVendidosPorPaseo;
 import logica.excepciones.LogicaException;
-
-import java.awt.Color;
 
 public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame frmListadoBoletos;
 	private ControladorLisBoletosVendidosPorPaseo controlador;
 	public JTable tableListadoBoletos;

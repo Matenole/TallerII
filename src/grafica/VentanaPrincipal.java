@@ -116,11 +116,8 @@
 //	}
 //}
 package grafica;
-
 import java.awt.EventQueue;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
 import grafica.Boleto.VentanaLisBoletosVendidosPorPaseo;
 import grafica.Boleto.VentanaVentaBoleto;
 import grafica.Minivan.VentanaIngresoMinivan;
@@ -139,7 +136,11 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 
 public class VentanaPrincipal extends JFrame {
-    private JPanel contentPane;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
     private JTextPane txtenQuePodemos;
 
     public static void main(String[] args) {

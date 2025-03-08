@@ -13,16 +13,16 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
-import grafica.Paseo.ControladorLisPaseosPorDestino;
-import java.awt.Color;
-
 public class VentanaLisPaseosPorDestino extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame frmListadoPaseos;
 	private ControladorLisPaseosPorDestino controlador;
 	public JTable tableListadoPaseos;

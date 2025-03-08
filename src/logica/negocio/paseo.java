@@ -132,10 +132,7 @@ public class paseo implements Serializable{
 	                listado.add(vo);
 	            }
 	        }
-
-	        // Ordenamos la lista por número de boleto
 	        Collections.sort(listado, Comparator.comparingInt(VOboletolistado::getNumero));
-
 	        return listado;
 	    }
 		

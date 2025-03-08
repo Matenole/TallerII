@@ -10,18 +10,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
-
-import grafica.Paseo.ControladorLisPaseosAsigMinivan;
-import java.awt.Color;
 import javax.swing.UIManager;
 
 public class VentanaLisPaseosAsigMinivan extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame frmListadoPaseos;
 	private ControladorLisPaseosAsigMinivan controlador;
 	public JTable tableListadoPaseos;
@@ -124,5 +124,13 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 
 		public void mostrarMensaje (String Mensaje) {
 			JOptionPane.showMessageDialog(frmListadoPaseos, Mensaje);
+		}
+
+		public JTextField getTxtCod() {
+			return txtCod;
+		}
+
+		public void setTxtCod(JTextField txtCod) {
+			this.txtCod = txtCod;
 		}
 	}

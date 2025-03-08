@@ -29,6 +29,7 @@ public class VentanaVentaBoleto extends JFrame {
 	private JTextField txtEdad;
 	private JTextField txtCelular;
 	private ControladorVentaBoleto controlador;
+	private JTextField txtDesc;
 
 	/**
 	 * Launch the application.
@@ -62,7 +63,7 @@ public class VentanaVentaBoleto extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblCodigo = new JLabel("Codigo");
+		JLabel lblCodigo = new JLabel("Codigo :");
 		lblCodigo.setBounds(10, 10, 45, 13);
 		contentPane.add(lblCodigo);
 		
@@ -76,7 +77,7 @@ public class VentanaVentaBoleto extends JFrame {
 		txtNumero.setBounds(100, 33, 96, 19);
 		contentPane.add(txtNumero);
 		
-		JLabel lblNumero = new JLabel("Numero");
+		JLabel lblNumero = new JLabel("Numero :");
 		lblNumero.setBounds(10, 36, 45, 13);
 		contentPane.add(lblNumero);
 		
@@ -85,7 +86,7 @@ public class VentanaVentaBoleto extends JFrame {
 		txtNombre.setBounds(100, 62, 96, 19);
 		contentPane.add(txtNombre);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		JLabel lblNombre = new JLabel("Nombre :");
 		lblNombre.setBounds(10, 65, 45, 13);
 		contentPane.add(lblNombre);
 		
@@ -94,7 +95,7 @@ public class VentanaVentaBoleto extends JFrame {
 		txtEdad.setBounds(100, 91, 96, 19);
 		contentPane.add(txtEdad);
 		
-		JLabel lblEdad = new JLabel("Edad");
+		JLabel lblEdad = new JLabel("Edad :");
 		lblEdad.setBounds(10, 94, 45, 13);
 		contentPane.add(lblEdad);
 		
@@ -103,15 +104,26 @@ public class VentanaVentaBoleto extends JFrame {
 		txtCelular.setBounds(100, 120, 96, 19);
 		contentPane.add(txtCelular);
 		
-		JLabel lblCelular = new JLabel("Celular");
+		JLabel lblCelular = new JLabel("Celular :");
 		lblCelular.setBounds(10, 123, 45, 13);
 		contentPane.add(lblCelular);
+		
+		
+		txtDesc = new JTextField();
+		txtDesc.setColumns(10);
+		txtDesc.setBounds(100, 150, 96, 19);
+		contentPane.add(txtDesc);
+		
+		JLabel lbldescuento = new JLabel("¿Descuento? :");
+		lbldescuento.setBounds(10, 153, 85, 13);
+		contentPane.add(lbldescuento);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					controlador.VentaBoleto(txtCodigo.getText(), txtNumero.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText());
+					txtDesc.getText();
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 				} catch (LogicaException e1) {
@@ -130,10 +142,10 @@ public class VentanaVentaBoleto extends JFrame {
 		});
 		btnVolver.setBounds(188, 217, 86, 23);
 		contentPane.add(btnVolver);
+
 	}
 
 	public void MostrarMensaje(String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
-
 }

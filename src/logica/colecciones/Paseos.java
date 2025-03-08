@@ -2,13 +2,14 @@ package logica.colecciones;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.*;
-
-import logica.negocio.minivan;
 import logica.negocio.paseo;
-import logica.valueobject.VOminivan;
 import logica.valueobject.VOpaseolistado;
 public class Paseos implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TreeMap <String, paseo> AVL_Paseos;
 	public Paseos() {
         AVL_Paseos = new TreeMap<>();

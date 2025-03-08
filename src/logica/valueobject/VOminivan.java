@@ -3,6 +3,10 @@ package logica.valueobject;
 import java.io.Serializable;
 
 public class VOminivan implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	///Atributos
 	private String Matricula;
 	private String Marca;

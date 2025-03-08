@@ -9,17 +9,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
-import grafica.Minivan.ControladorLisMinivans;
-import java.awt.Color;
-
 public class VentanaLisMinivans extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public JTable tableListadoMinivans;
 	private JFrame frmListadoMinivans;
 	private ControladorLisMinivans controlador;

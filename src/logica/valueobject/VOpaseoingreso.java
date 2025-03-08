@@ -3,6 +3,11 @@ import java.io.Serializable;
 import java.time.*;
 
 public class VOpaseoingreso implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	///Atributos
 	private String Codigo;
 	
