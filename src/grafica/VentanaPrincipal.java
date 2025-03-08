@@ -142,6 +142,7 @@ public class VentanaPrincipal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
     private JTextPane txtenQuePodemos;
+    private ControladorPrincipal controlador;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -158,6 +159,7 @@ public class VentanaPrincipal extends JFrame {
      * Create the frame.
      */
     public VentanaPrincipal() {
+    	controlador = new ControladorPrincipal(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 752, 482);
         contentPane = new JPanel();
@@ -185,21 +187,9 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(btnGuardar);
 		btnGuardar.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
-		    	Fachada fachada = null;
-				try {
-					fachada = new Fachada();
-				} catch (RemoteException e1) {
-					e1.printStackTrace();
-				}
-				try {
-					fachada.respaldardatos();
-				} catch (RemoteException | PersistenciaException e1) {
-					((Throwable) e1).printStackTrace();
-				}
-			}
-
+		    	controlador.Respaldar();
 		    }
-		);
+		});
 		
 		JButton btnLisBol = new JButton("Listar Boletos");
 		btnLisBol.setBounds(597, 126, 125, 23);

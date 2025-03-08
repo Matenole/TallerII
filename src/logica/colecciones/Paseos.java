@@ -4,12 +4,9 @@ import java.time.LocalTime;
 import java.util.*;
 import logica.negocio.paseo;
 import logica.valueobject.VOpaseolistado;
+
 public class Paseos implements Serializable{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private TreeMap <String, paseo> AVL_Paseos;
 	public Paseos() {
         AVL_Paseos = new TreeMap<>();
@@ -19,7 +16,7 @@ public class Paseos implements Serializable{
 	}
 	public ArrayList<VOpaseolistado> listadoPaseos() {										
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
-		System.out.println("1");
+		System.out.println(AVL_Paseos.size());
 	    AVL_Paseos.forEach((key,pas) ->	{							//NO ENTRA  --- VER CON ARIEL ---
 	    								System.out.println("2");
 	    								VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(), pas.getMaxboletos(), pas.cantBoletosDisponibles());

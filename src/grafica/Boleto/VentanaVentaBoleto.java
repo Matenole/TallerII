@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import javax.swing.JCheckBox;
 
 public class VentanaVentaBoleto extends JFrame {
 
@@ -111,11 +112,11 @@ public class VentanaVentaBoleto extends JFrame {
 		
 		txtDesc = new JTextField();
 		txtDesc.setColumns(10);
-		txtDesc.setBounds(100, 150, 96, 19);
+		txtDesc.setBounds(100, 176, 96, 19);
 		contentPane.add(txtDesc);
 		
 		JLabel lbldescuento = new JLabel("¿Descuento? :");
-		lbldescuento.setBounds(10, 153, 85, 13);
+		lbldescuento.setBounds(10, 179, 85, 13);
 		contentPane.add(lbldescuento);
 		
 		JButton btnAceptar = new JButton("Aceptar");
@@ -142,6 +143,10 @@ public class VentanaVentaBoleto extends JFrame {
 		});
 		btnVolver.setBounds(188, 217, 86, 23);
 		contentPane.add(btnVolver);
+		
+		JCheckBox chcDescuento = new JCheckBox("Tiene descuento");
+		chcDescuento.setBounds(10, 146, 186, 23);
+		contentPane.add(chcDescuento);
 
 	}
 

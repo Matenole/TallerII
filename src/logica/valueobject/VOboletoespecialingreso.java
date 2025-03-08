@@ -2,43 +2,25 @@ package logica.valueobject;
 
 import java.io.Serializable;
 
-public class VOboletoespecialingreso implements Serializable{
+public class VOboletoespecialingreso extends VOboletoingreso implements Serializable{
 	///Atributos
-	private String nombrepasajero;
+	private float Descuento;
 	
-	private int edad;
-	
-	private String celular;
 	///Constructor
-	public VOboletoespecialingreso(String nombrepasajero, int edad, String celular) {
-		super();
-		this.nombrepasajero = nombrepasajero;
-		this.edad = edad;
-		this.celular = celular;
+	public VOboletoespecialingreso(String nombrepasajero, int edad, String celular, float descuento) {
+		super(nombrepasajero, edad, celular);
+		Descuento = descuento;
+		
 	}
 	///Getters y Setters
-	public String getNombrepasajero() {
-		return nombrepasajero;
+
+	public float getDescuento() {
+		return Descuento;
 	}
 
-	public void setNombrepasajero(String nombrepasajero) {
-		this.nombrepasajero = nombrepasajero;
+	public void setDescuento(float descuento) {
+		Descuento = descuento;
 	}
 
-	public int getEdad() {
-		return edad;
-	}
-
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-
-	public String getCelular() {
-		return celular;
-	}
-
-	public void setCelular(String celular) {
-		this.celular = celular;
-	}
 
 }

@@ -62,19 +62,19 @@ public class Minivans implements Serializable{
         return AVL_Minivans.get(mat);
     }
     
-    public VOminivan MiniDis (LocalTime HP,LocalTime HL) {
+    public minivan MiniDis (LocalTime HP,LocalTime HL) {
     	boolean Registramos = false;
-    	VOminivan minivanDesignada = null;
     	minivan aux = null;
     	
     	aux = AVL_Minivans.values().iterator().next();
     	while(!Registramos) {
     		if(aux.chequearHorarios(HP, HL)) {
-				minivanDesignada = new VOminivan(aux.getMatricula(), aux.getMarca(), aux.getModelo(), aux.getCantasientos());
 				Registramos = true;
     		}
-    		aux = AVL_Minivans.values().iterator().next();
+    		if(!Registramos) {
+    			aux = AVL_Minivans.values().iterator().next();
+    		}
     	}
-		return minivanDesignada;
+		return aux;
 		}
 }

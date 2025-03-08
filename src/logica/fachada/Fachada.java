@@ -31,7 +31,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	
 	///Metodos
-	public void VentaBol(String codigo,@SuppressWarnings("exports") boleto b) throws RemoteException,LogicaException {
+	public void VentaBol(String codigo, VOboletoingreso vo) throws RemoteException,LogicaException {
 		m.comienzoEscritura();
         paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
         Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
@@ -39,19 +39,25 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			m.terminoEscritura();
 			throw new LogicaException("Ya se vendieron todos los boletos rey, haber estado mas atento");
 		}
-		if(b.getEdad() <= 0) {
+		if(vo.getEdad() <= 0) {
 			m.terminoEscritura();
 			throw new LogicaException("La edad es menor o igual que 0");
 		}
-		if(b.getCelular() == "0") {
+		if(vo.getCelular() == "0") {
 			m.terminoEscritura();
 			throw new LogicaException("El celular es 0");
 		}
-		if(b.getCelular().contains("-")) {
+		if(vo.getCelular().contains("-")) {
 			m.terminoEscritura();
 			throw new LogicaException("El celular es negativo");
 		}
-		controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
+		if(vo instanceof VOboletoespecialingreso) {
+			especial b = new especial(bo.kesimo(0));
+			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
+		}else {
+			boleto b =  new boleto();
+			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
+		}
 		m.terminoEscritura();
 	}
 	
@@ -103,12 +109,14 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 							throw new RegistroExceptionII("No hay ninguna minivan disponible para ese horario");
 						}else {
 							m.comienzoEscritura();
-							int maxBoletos = Locomocion.MiniDis(HP, HL).getCantasientos();
+							minivan mini = Locomocion.MiniDis(HP, HL);
+							int maxBoletos = mini.getCantasientos();
 							System.out.println(maxBoletos);
 							paseo p = new paseo(cod, des, HP, HL, Prec, maxBoletos);
 							System.out.println(p.cantBoletosDisponibles());
 							System.out.println(p.getMaxboletos());
 							Viaje.insert(p);
+							mini.insertarPaseo(p);							
 							m.terminoEscritura();
 		}
 	}
