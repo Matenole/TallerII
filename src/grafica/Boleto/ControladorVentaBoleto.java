@@ -14,8 +14,9 @@ import logica.excepciones.DescuentoException;
 import logica.excepciones.LogicaException;
 import logica.fachada.IFachada;
 import logica.negocio.boleto;
+import logica.valueobject.VOboletoingreso;
 
-public class ControladorVentaBoleto<VOboletoingreso> {
+public class ControladorVentaBoleto {
 	private IFachada f;
 	private VentanaVentaBoleto v;
 	
@@ -47,11 +48,10 @@ public class ControladorVentaBoleto<VOboletoingreso> {
 
 	}
 	
-	public void VentaBoleto(String codigo,VOboletoingreso vo) throws RemoteException, LogicaException, DescuentoException{
-			int num = Integer.parseInt(vo.g);
-			int age = Integer.parseInt(edad);
-			VOboletoingreso vobl = new VOboletoingreso(num, nombrepasajero, age, celular);
-			f.VentaBol(codigo,(logica.valueobject.VOboletoingreso) vobl);
+	public void VentaBoleto(String codigo,String Nombre, String Edad, String Celular, float desc) throws RemoteException, LogicaException, DescuentoException{
+			int edad = Integer.parseInt(Edad);
+			VOboletoingreso vobl = new VOboletoingreso(Nombre, edad, Celular);
+			f.VentaBol(codigo, vobl, desc);
 			v.MostrarMensaje("Boleto ingresado correctamente");
 	}
 	

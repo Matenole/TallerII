@@ -2,6 +2,7 @@ package grafica.Boleto;
 
 import logica.excepciones.LogicaException;
 import logica.fachada.IFachada;
+import logica.valueobject.VOboletoespeciallistado;
 import logica.valueobject.VOboletolistado;
 import java.util.ArrayList;
 import java.rmi.RemoteException;
@@ -53,21 +54,31 @@ public class ControladorLisBoletosVendidosPorPaseo {
 		if (cod.isEmpty()) {
 		    VLBV.mostrarMensaje("Ingrese un codigo para listar paseos.");
 		}
-		
-		Boolean TipoBoleto = VLBV.getTipoBoleto();
 		DefaultTableModel dm = (DefaultTableModel) VLBV.tableListadoBoletos.getModel();
 		while (VLBV.tableListadoBoletos.getRowCount() != 0)
 			dm.removeRow(VLBV.tableListadoBoletos.getRowCount() - 1);
-		ArrayList<VOboletolistado> Boleto = f.LisBolVen(cod, TipoBoleto);
-		if (Boleto.isEmpty()) {
-			VLBV.mostrarMensaje("No hay ningun Boleto registrado");
-		} else {
-			for (int i = 0; i < Boleto.size(); i++) {
-				dm.addRow(new Object[] { Boleto.get(i).getNumero(), Boleto.get(i).getNombrepasajero(),
-						Boleto.get(i).getEdad(), Boleto.get(i).getCelular(), Boleto.get(i).getDescuento()});
+		
+		if (VLBV.getTipoBoleto()) {
+			ArrayList<VOboletoespeciallistado> Boleto = f.LisBolVenEsp(cod);
+			if (Boleto.isEmpty()) {
+				VLBV.mostrarMensaje("No hay ningun Boleto registrado");
+			} else {
+				for (int i = 0; i < Boleto.size(); i++) {
+					dm.addRow(new Object[] { Boleto.get(i).getDescuento(), Boleto.get(i).getNombrepasajero(),
+							Boleto.get(i).getEdad(), Boleto.get(i).getCelular(), Boleto.get(i).getDescuento()});
+				}
+			}			
+		}else {
+			ArrayList<VOboletolistado> Boleto = f.LisBolVen(cod);
+			if (Boleto.isEmpty()) {
+				VLBV.mostrarMensaje("No hay ningun Boleto registrado");
+			} else {
+				for (int i = 0; i < Boleto.size(); i++) {
+					dm.addRow(new Object[] { Boleto.get(i).getNumero(), Boleto.get(i).getNombrepasajero(),
+							Boleto.get(i).getEdad(), Boleto.get(i).getCelular(), "0"});
+				}
 			}
 		}
-
 	}
 
 }

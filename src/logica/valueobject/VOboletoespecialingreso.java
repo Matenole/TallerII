@@ -7,10 +7,9 @@ public class VOboletoespecialingreso extends VOboletoingreso implements Serializ
 	private float Descuento;
 	
 	///Constructor
-	public VOboletoespecialingreso(String nombrepasajero, int edad, String celular, float descuento) {
+	public VOboletoespecialingreso(int numero, String nombrepasajero, int edad, String celular, float descuento) {
 		super(nombrepasajero, edad, celular);
 		Descuento = descuento;
-		
 	}
 	///Getters y Setters
 

@@ -12,6 +12,7 @@ import logica.excepciones.LogicaException;
 import logica.excepciones.PersistenciaException;
 import logica.excepciones.RegistroException;
 import logica.excepciones.RegistroExceptionII;
+import logica.valueobject.VOboletoespeciallistado;
 import logica.valueobject.VOboletoingreso;
 import logica.valueobject.VOboletolistado;
 import logica.valueobject.VOminivan;
@@ -22,7 +23,7 @@ public interface IFachada extends Remote {
 	///Metodos
 	
 	public void RegisMin(@SuppressWarnings("exports") VOminivan mini) throws RemoteException, RegistroException;
-	public void VentaBol(String codigo,VOboletoingreso vo) throws RemoteException,LogicaException, DescuentoException;
+	public void VentaBol(String codigo, VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException;
 	@SuppressWarnings("exports")
 	public List<VOminivanlistado> LisMin()  throws RemoteException;
 	@SuppressWarnings("exports")
@@ -33,7 +34,9 @@ public interface IFachada extends Remote {
 	@SuppressWarnings("exports")
 	public ArrayList<VOpaseolistado> LisDisBol(int maxb) throws RemoteException, DisponibilidadException;
 	@SuppressWarnings("exports")
-	public ArrayList<VOboletolistado> LisBolVen(String cod, Boolean tb) throws RemoteException,LogicaException;
+	public ArrayList<VOboletoespeciallistado> LisBolVenEsp(String cod) throws RemoteException,LogicaException;
+	@SuppressWarnings("exports")
+	public ArrayList<VOboletolistado> LisBolVen(String cod) throws RemoteException,LogicaException;
 	public float MonRec(String cod) throws RemoteException;
 	public void respaldardatos() throws RemoteException, PersistenciaException;
 	public void recuperardatos() throws RemoteException, PersistenciaException;

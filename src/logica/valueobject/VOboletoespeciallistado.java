@@ -3,31 +3,8 @@ package logica.valueobject;
 import java.io.Serializable;
 
 public class VOboletoespeciallistado extends VOboletoespecialingreso implements Serializable{
-	///Atributos
-	private int numero;
-	
-	private float monto;
 	///Constructor
-	public VOboletoespeciallistado(int numero, String nombrepasajero, int edad, String celular, float monto) {
-		super(nombrepasajero, edad, celular);
-		this.numero = numero;
-		this.monto = monto;
+	public VOboletoespeciallistado(int numero, String nombrepasajero, int edad, String celular, float descuento) {
+		super(numero, nombrepasajero, edad, celular, descuento);
 	}
-	///Getters y Setters
-	public int getNumero() {
-		return numero;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	public float getMonto() {
-		return monto;
-	}
-
-	public void setMonto(float monto) {
-		this.monto = monto;
-	}
-				
 }

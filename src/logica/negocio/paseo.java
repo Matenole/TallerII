@@ -132,7 +132,7 @@ public class paseo implements Serializable{
 	                listado.add(vo);
 	            }
 	        }
-	        Collections.sort(listado, Comparator.comparingInt(VOboletolistado::getNumero));
+	        //Collections.sort(listado, Comparator.comparingInt(VOboletolistado::getNumero));
 	        return listado;
 	    }
 		
@@ -151,7 +151,6 @@ public class paseo implements Serializable{
 	                listado.add(vo);
 	            }
 	        }
-	        Collections.sort(listado, Comparator.comparingInt(VOboletoespeciallistado::getNumero));
 	        return listado;
 	    }
 		

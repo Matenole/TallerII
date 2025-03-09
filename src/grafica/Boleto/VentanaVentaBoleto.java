@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import grafica.Paseo.ControladorRegistroPaseo;
+import logica.excepciones.DescuentoException;
 import logica.excepciones.LogicaException;
 import logica.excepciones.RegistroExceptionII;
 
@@ -26,12 +27,12 @@ public class VentanaVentaBoleto extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtCodigo;
-	private JTextField txtNumero;
 	private JTextField txtNombre;
 	private JTextField txtEdad;
 	private JTextField txtCelular;
 	private ControladorVentaBoleto controlador;
 	private JTextField txtDesc;
+	private JCheckBox chcDescuento;
 
 	/**
 	 * Launch the application.
@@ -75,58 +76,54 @@ public class VentanaVentaBoleto extends JFrame {
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
-		txtNumero = new JTextField();
-		txtNumero.setColumns(10);
-		txtNumero.setBounds(106, 106, 96, 19);
-		contentPane.add(txtNumero);
-		
-		JLabel lblNumero = new JLabel("Numero :");
-		lblNumero.setBounds(10, 110, 62, 13);
-		contentPane.add(lblNumero);
-		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(106, 135, 96, 19);
+		txtNombre.setBounds(106, 108, 96, 19);
 		contentPane.add(txtNombre);
 		
 		JLabel lblNombre = new JLabel("Nombre :");
-		lblNombre.setBounds(10, 139, 62, 13);
+		lblNombre.setBounds(10, 112, 62, 13);
 		contentPane.add(lblNombre);
 		
 		txtEdad = new JTextField();
 		txtEdad.setColumns(10);
-		txtEdad.setBounds(106, 164, 96, 19);
+		txtEdad.setBounds(106, 137, 96, 19);
 		contentPane.add(txtEdad);
 		
 		JLabel lblEdad = new JLabel("Edad :");
-		lblEdad.setBounds(10, 168, 62, 13);
+		lblEdad.setBounds(10, 141, 62, 13);
 		contentPane.add(lblEdad);
 		
 		txtCelular = new JTextField();
 		txtCelular.setColumns(10);
-		txtCelular.setBounds(106, 193, 96, 19);
+		txtCelular.setBounds(106, 166, 96, 19);
 		contentPane.add(txtCelular);
 		
 		JLabel lblCelular = new JLabel("Celular :");
-		lblCelular.setBounds(10, 197, 62, 13);
+		lblCelular.setBounds(10, 170, 62, 13);
 		contentPane.add(lblCelular);
 		
 		
 		txtDesc = new JTextField();
 		txtDesc.setColumns(10);
-		txtDesc.setBounds(106, 249, 96, 19);
+		txtDesc.setBounds(106, 222, 96, 19);
 		contentPane.add(txtDesc);
 		
 		JLabel lbldescuento = new JLabel("¿Descuento? :");
-		lbldescuento.setBounds(10, 253, 85, 13);
+		lbldescuento.setBounds(10, 226, 85, 13);
 		contentPane.add(lbldescuento);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					controlador.VentaBoleto(txtCodigo.getText(), txtNumero.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText());
-					txtDesc.getText();
+					float desc = 0.0f;
+					if (chcDescuento.isSelected()) {
+						desc = Float.parseFloat(txtDesc.getText());
+					}
+					controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(), desc);
+				} catch (DescuentoException e1) {
+					e1.printStackTrace();
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 				} catch (LogicaException e1) {
@@ -146,8 +143,8 @@ public class VentanaVentaBoleto extends JFrame {
 		btnVolver.setBounds(188, 328, 86, 23);
 		contentPane.add(btnVolver);
 		
-		JCheckBox chcDescuento = new JCheckBox("Tiene descuento");
-		chcDescuento.setBounds(10, 222, 192, 19);
+		chcDescuento = new JCheckBox("Tiene descuento");
+		chcDescuento.setBounds(10, 195, 192, 19);
 		contentPane.add(chcDescuento);
 		
 		JLabel lblNewLabel = new JLabel("Venta Boleto");

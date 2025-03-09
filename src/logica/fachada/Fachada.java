@@ -31,7 +31,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	
 	///Metodos
-	public void VentaBol(String codigo, VOboletoingreso vo) throws RemoteException,LogicaException, DescuentoException {
+	public void VentaBol(String codigo, VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException {
 		m.comienzoEscritura();
         paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
         Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
@@ -52,10 +52,10 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			throw new LogicaException("El celular es negativo");
 		}
 		if(vo instanceof VOboletoespecialingreso) {
-			e = new especial(bo.kesimo(bo.size() + 1).getNumero().getNombrepasajero(),vo.getEdad(),vo.getCelular(),desc);
+			especial e = new especial(bo.size()+1 , vo.getNombrepasajero(),vo.getEdad(),vo.getCelular(),desc );
 			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(e);
 		}else {
-			boleto b =  new boleto(vo.getCodigo(),vo.getNombrepasajero(),vo.getEdad(),vo.getCelular());
+			boleto b =  new boleto(bo.size()+1,vo.getNombrepasajero(),vo.getEdad(),vo.getCelular());
 			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
 		}
 		m.terminoEscritura();
@@ -156,18 +156,20 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	
 	@SuppressWarnings("exports")
-	public ArrayList<VOboletolistado> LisBolVen(String cod, Boolean tb) throws RemoteException,LogicaException {
-		//Revisar
+	public ArrayList<VOboletolistado> LisBolVen(String cod) throws RemoteException,LogicaException {
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
-		if (tb) {
-		    ArrayList<VOboletoespeciallistado> bo = p.listarBoletosEspecial();
-		    m.terminoLectura();
-		}    
-		else {
-			ArrayList<VOboletolistado> bo = p.listarBoletos();
-		    m.terminoLectura();
-		}
+		ArrayList<VOboletolistado> bo = p.listarBoletos();
+		m.terminoLectura();
+		return bo;
+	}
+
+	@SuppressWarnings("exports")
+	public ArrayList<VOboletoespeciallistado> LisBolVenEsp(String cod) throws RemoteException,LogicaException {
+		m.comienzoLectura();
+		paseo p = Viaje.find(cod);
+		ArrayList<VOboletoespeciallistado> bo = p.listarBoletosEspecial();
+		m.terminoLectura();
 		return bo;
 	}
 	
