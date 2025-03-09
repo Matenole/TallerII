@@ -67,50 +67,50 @@ public class VentanaRegistroPaseo extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCodigo = new JLabel("Codigo:");
-		lblCodigo.setBounds(10, 58, 45, 13);
+		lblCodigo.setBounds(10, 58, 56, 13);
 		contentPane.add(lblCodigo);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(84, 55, 96, 19);
+		txtCodigo.setBounds(118, 52, 96, 19);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		txtDestino = new JTextField();
 		txtDestino.setColumns(10);
-		txtDestino.setBounds(84, 84, 96, 19);
+		txtDestino.setBounds(118, 81, 96, 19);
 		contentPane.add(txtDestino);
 		
 		JLabel lblDestino = new JLabel("Destino:");
-		lblDestino.setBounds(10, 87, 45, 13);
+		lblDestino.setBounds(10, 87, 56, 13);
 		contentPane.add(lblDestino);
 		
 		txtHoraPartida = new JTextField();
 		txtHoraPartida.setText("hh:mm");
 		txtHoraPartida.setColumns(10);
-		txtHoraPartida.setBounds(84, 113, 96, 19);
+		txtHoraPartida.setBounds(118, 110, 96, 19);
 		contentPane.add(txtHoraPartida);
 		
 		JLabel lblHoraPartida = new JLabel("Hora Partida:");
-		lblHoraPartida.setBounds(10, 116, 61, 13);
+		lblHoraPartida.setBounds(10, 116, 85, 13);
 		contentPane.add(lblHoraPartida);
 		
 		lblHoraLlegada = new JLabel("Hora Llegada:");
-		lblHoraLlegada.setBounds(10, 145, 64, 13);
+		lblHoraLlegada.setBounds(10, 145, 85, 13);
 		contentPane.add(lblHoraLlegada);
 		
 		txtHoraLlegada = new JTextField();
 		txtHoraLlegada.setText("hh:mm");
 		txtHoraLlegada.setColumns(10);
-		txtHoraLlegada.setBounds(84, 142, 96, 19);
+		txtHoraLlegada.setBounds(118, 139, 96, 19);
 		contentPane.add(txtHoraLlegada);
 		
 		lblPrecio = new JLabel("Precio:");
-		lblPrecio.setBounds(10, 171, 45, 13);
+		lblPrecio.setBounds(10, 171, 56, 13);
 		contentPane.add(lblPrecio);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setColumns(10);
-		txtPrecio.setBounds(84, 168, 96, 19);
+		txtPrecio.setBounds(118, 165, 96, 19);
 		contentPane.add(txtPrecio);
 		
 		JButton btnAceptar = new JButton("Aceptar");
