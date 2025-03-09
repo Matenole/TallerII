@@ -18,12 +18,11 @@ import logica.valueobject.VOboletolistado;
 import logica.valueobject.VOminivan;
 import logica.valueobject.VOminivanlistado;
 import logica.valueobject.VOpaseolistado;
-import logica.negocio.boleto;
 public interface IFachada extends Remote {
 	///Metodos
 	
 	public void RegisMin(@SuppressWarnings("exports") VOminivan mini) throws RemoteException, RegistroException;
-	public void VentaBol(String codigo, VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException;
+	public void VentaBol(String codigo, @SuppressWarnings("exports") VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException;
 	@SuppressWarnings("exports")
 	public List<VOminivanlistado> LisMin()  throws RemoteException;
 	@SuppressWarnings("exports")

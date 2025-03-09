@@ -111,7 +111,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 							m.comienzoEscritura();
 							minivan mini = Locomocion.MiniDis(HP, HL);
 							int maxBoletos = mini.getCantasientos();
-							paseo p = new paseo(cod, des, HP, HL, Prec, maxBoletos);
+							paseo p = new paseo(cod, des.toLowerCase(), HP, HL, Prec, maxBoletos);
 							Viaje.insert(p);
 							mini.insertarPaseo(p);
 							m.terminoEscritura();
