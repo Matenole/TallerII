@@ -152,18 +152,24 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
         else
         {
         	ArrayList<VOpaseolistado> arr = Viaje.listadoPorDisponibilidad(maxb);
-		m.terminoLectura();
+		    m.terminoLectura();
 		return arr;
         }
 	}
 	
 	@SuppressWarnings("exports")
-	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb) throws RemoteException,LogicaException {
+	public ArrayList<VOboletolistado> LisBolVen(String cod, Boolean tb) throws RemoteException,LogicaException {
 		//Revisar
 		m.comienzoLectura();
 		paseo p = Viaje.find(cod);
-		ArrayList<VOboletolistado> bo = p.listarBoletos();
-		m.terminoLectura();
+		if (tb) {
+		    ArrayList<VOboletoespeciallistado> bo = p.listarBoletosEspecial();
+		    m.terminoLectura();
+		}    
+		else {
+			ArrayList<VOboletolistado> bo = p.listarBoletos();
+		    m.terminoLectura();
+		}
 		return bo;
 	}
 	

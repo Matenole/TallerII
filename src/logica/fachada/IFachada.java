@@ -33,7 +33,7 @@ public interface IFachada extends Remote {
 	@SuppressWarnings("exports")
 	public ArrayList<VOpaseolistado> LisDisBol(int maxb) throws RemoteException, DisponibilidadException;
 	@SuppressWarnings("exports")
-	public ArrayList<VOboletolistado> LisBolVen(String cod, Object tb) throws RemoteException,LogicaException;
+	public ArrayList<VOboletolistado> LisBolVen(String cod, Boolean tb) throws RemoteException,LogicaException;
 	public float MonRec(String cod) throws RemoteException;
 	public void respaldardatos() throws RemoteException, PersistenciaException;
 	public void recuperardatos() throws RemoteException, PersistenciaException;

@@ -64,7 +64,7 @@ public class boleto implements Serializable{
 				resu =  ((resu + precio) * 0.75f);//Le ponemos el precio mas el descuento indicado por la letra
 			return resu;
 		}
-		public static especial convertirAEspecial(boleto boletoComun, float descuento) throws DescuentoException {
+		/*public static especial convertirAEspecial(boleto boletoComun, float descuento) throws DescuentoException {
 		        return new especial(
 		                boletoComun.getNumero(),
 		                boletoComun.getNombrepasajero(),
@@ -72,5 +72,5 @@ public class boleto implements Serializable{
 		                boletoComun.getCelular(),
 		                descuento
 		        );
-		}
+		}*/
 }

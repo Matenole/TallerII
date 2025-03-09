@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import logica.valueobject.VOboletolistado;
+import logica.valueobject.VOboletoespeciallistado;
 import logica.colecciones.*;
 
 public class paseo implements Serializable{
@@ -132,6 +133,25 @@ public class paseo implements Serializable{
 	            }
 	        }
 	        Collections.sort(listado, Comparator.comparingInt(VOboletolistado::getNumero));
+	        return listado;
+	    }
+		
+		public ArrayList<VOboletoespeciallistado> listarBoletosEspecial() {
+			ArrayList<VOboletoespeciallistado> listado = new ArrayList<>();
+			for (int i = 0; i < boletosVendidos.size(); i++) {
+	            especial b = boletosVendidos.kesimo(i);
+	            if (listado != null) {
+	                VOboletoespeciallistado vo = new VOboletoespeciallistado(
+	                	b.getNumero(),
+	                	b.getNombrepasajero(),
+	                    b.getEdad(),
+	                    b.getCelular(),
+	                    b.getDescuento()
+	                );
+	                listado.add(vo);
+	            }
+	        }
+	        Collections.sort(listado, Comparator.comparingInt(VOboletoespeciallistado::getNumero));
 	        return listado;
 	    }
 		

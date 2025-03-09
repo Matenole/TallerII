@@ -8,7 +8,7 @@ public class VOboletoespeciallistado extends VOboletoespecialingreso implements 
 	
 	private float monto;
 	///Constructor
-	public VOboletoespeciallistado(String nombrepasajero, int edad, String celular, int numero, float monto) {
+	public VOboletoespeciallistado(int numero, String nombrepasajero, int edad, String celular, float monto) {
 		super(nombrepasajero, edad, celular);
 		this.numero = numero;
 		this.monto = monto;

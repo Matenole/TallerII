@@ -30,7 +30,8 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 	private ControladorLisBoletosVendidosPorPaseo controlador;
 	public JTable tableListadoBoletos;
 	private JTextField txtCodigo;
-
+	private JCheckBox chcTipoBoleto;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -95,8 +96,9 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			frmListadoBoletos.getContentPane().add(btnListar);
 
 			JScrollPane scrollPaneBoletos = new JScrollPane();
+			scrollPaneBoletos.setEnabled(false);
 			scrollPaneBoletos.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPaneBoletos.setBounds(95, 101, 301, 189);
+			scrollPaneBoletos.setBounds(53, 101, 385, 189);
 			frmListadoBoletos.getContentPane().add(scrollPaneBoletos);
 
 			tableListadoBoletos = new JTable();
@@ -105,7 +107,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 				new Object[][] {
 				},
 				new String[] {
-					"Numero", "Nombre Pasajero", "Edad", "Celular"
+					"Numero", "Nombre Pasajero", "Edad", "Celular", "Descuento"
 				}
 			));
 			scrollPaneBoletos.setViewportView(tableListadoBoletos);
@@ -121,17 +123,18 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			frmListadoBoletos.getContentPane().add(txtCodigo);
 			txtCodigo.setColumns(10);
 			
-			JCheckBox chckbxNewCheckBox = new JCheckBox("Boleto Especial");
-			chckbxNewCheckBox.setHorizontalAlignment(SwingConstants.LEFT);
-			chckbxNewCheckBox.setBounds(20, 71, 141, 23);
-			frmListadoBoletos.getContentPane().add(chckbxNewCheckBox);
+			chcTipoBoleto = new JCheckBox("Boleto Especial");
+			chcTipoBoleto.setHorizontalAlignment(SwingConstants.LEFT);
+			chcTipoBoleto.setBounds(20, 71, 141, 23);
+			frmListadoBoletos.getContentPane().add(chcTipoBoleto);
 		}
 		public String getCod() {
 		    return txtCodigo.getText();
 		}
-		/*public String getTipoBoleto() {
-		    return txtTipoBoleto.getText();
-		}*/
+		public boolean getTipoBoleto () {
+			return chcTipoBoleto.isSelected();
+		}
+				
 		public void setVisible(boolean visible) {
 			frmListadoBoletos.setVisible(visible);
 		}

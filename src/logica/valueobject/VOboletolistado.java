@@ -13,7 +13,7 @@ public class VOboletolistado extends VOboletoingreso implements Serializable{
 		
 		///Constructor
 		public VOboletolistado(int numero, String nombrepasajero, int edad, String celular) {
-			super(nombrepasajero, edad, celular);
+			super(numero,nombrepasajero, edad, celular);
 			this.numero = numero;
 			this.celular = celular;
 		}
