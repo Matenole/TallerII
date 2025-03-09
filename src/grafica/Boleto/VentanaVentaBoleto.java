@@ -5,11 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import grafica.Paseo.ControladorRegistroPaseo;
 import logica.excepciones.DescuentoException;
 import logica.excepciones.LogicaException;
-import logica.excepciones.RegistroExceptionII;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,6 +20,7 @@ import java.awt.SystemColor;
 import javax.swing.JCheckBox;
 import java.awt.Font;
 
+@SuppressWarnings("serial")
 public class VentanaVentaBoleto extends JFrame {
 
 	private JPanel contentPane;
@@ -105,14 +103,18 @@ public class VentanaVentaBoleto extends JFrame {
 		
 		
 		txtDesc = new JTextField();
+		txtDesc.setEnabled(false);
 		txtDesc.setColumns(10);
 		txtDesc.setBounds(106, 222, 96, 19);
 		contentPane.add(txtDesc);
+		txtDesc.setVisible(false);
 		
 		JLabel lbldescuento = new JLabel("¿Descuento? :");
+		lbldescuento.setEnabled(false);
 		lbldescuento.setBounds(10, 226, 85, 13);
 		contentPane.add(lbldescuento);
-		
+		lbldescuento.setVisible(false);
+			
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,9 +146,27 @@ public class VentanaVentaBoleto extends JFrame {
 		contentPane.add(btnVolver);
 		
 		chcDescuento = new JCheckBox("Tiene descuento");
+		chcDescuento.setBackground(SystemColor.activeCaption);
 		chcDescuento.setBounds(10, 195, 192, 19);
 		contentPane.add(chcDescuento);
-		
+		chcDescuento.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               if(chcDescuento.isSelected()) {
+        		lbldescuento.setVisible(true);
+        		txtDesc.setVisible(true);
+        		lbldescuento.setEnabled(true);
+        		txtDesc.setEnabled(true);
+               }else {
+            	    lbldescuento.setVisible(false);
+           			txtDesc.setVisible(false);
+           			lbldescuento.setEnabled(false);
+           			txtDesc.setEnabled(false);
+               }
+            	   
+            }
+        });
+
 		JLabel lblNewLabel = new JLabel("Venta Boleto");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 20));
