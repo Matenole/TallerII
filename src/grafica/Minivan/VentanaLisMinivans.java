@@ -54,7 +54,7 @@ public class VentanaLisMinivans extends JFrame {
 			frmListadoMinivans.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoMinivans.setBackground(SystemColor.inactiveCaption);
 			frmListadoMinivans.setTitle("Listado de Minivans");
-			frmListadoMinivans.setBounds(100, 100, 507, 391);
+			frmListadoMinivans.setBounds(100, 100, 545, 391);
 			frmListadoMinivans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frmListadoMinivans.getContentPane().setLayout(null);
 
@@ -84,7 +84,7 @@ public class VentanaLisMinivans extends JFrame {
 			frmListadoMinivans.getContentPane().add(btnListar);
 			
 			JScrollPane scrollPaneLisMin = new JScrollPane();
-			scrollPaneLisMin.setBounds(60, 101, 371, 189);
+			scrollPaneLisMin.setBounds(10, 101, 509, 189);
 			frmListadoMinivans.getContentPane().add(scrollPaneLisMin);
 			
 			tableListadoMinivans = new JTable();

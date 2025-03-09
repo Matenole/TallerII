@@ -52,9 +52,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			throw new LogicaException("El celular es negativo");
 		}
 		if(vo instanceof VOboletoespecialingreso) {
-			float desc = 10.5f;
-			especial e;
-			e = new especial(vo.getCodigo(), vo.getNombrepasajero(),vo.getEdad(),vo.getCelular(),desc);
+			e = new especial(bo.kesimo(bo.size() + 1).getNumero().getNombrepasajero(),vo.getEdad(),vo.getCelular(),desc);
 			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(e);
 		}else {
 			boleto b =  new boleto(vo.getCodigo(),vo.getNombrepasajero(),vo.getEdad(),vo.getCelular());

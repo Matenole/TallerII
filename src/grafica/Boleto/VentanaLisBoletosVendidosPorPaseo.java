@@ -98,7 +98,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			JScrollPane scrollPaneBoletos = new JScrollPane();
 			scrollPaneBoletos.setEnabled(false);
 			scrollPaneBoletos.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPaneBoletos.setBounds(53, 101, 385, 189);
+			scrollPaneBoletos.setBounds(20, 101, 461, 189);
 			frmListadoBoletos.getContentPane().add(scrollPaneBoletos);
 
 			tableListadoBoletos = new JTable();

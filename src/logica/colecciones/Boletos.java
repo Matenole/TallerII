@@ -30,12 +30,4 @@ public class Boletos implements Serializable{
             throw new IndexOutOfBoundsException("Índice fuera de rango: " + x);
         }
     }
-    
-    public especial kesimoespecial(int x) {
-        if (x >= 0 && x <= Array_Boletos.size()) {
-            return Array_Boletos.get(x); // Devuelve el boleto en la posición x
-        } else {
-            throw new IndexOutOfBoundsException("Índice fuera de rango: " + x);
-        }
-    }
 }
