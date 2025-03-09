@@ -14,11 +14,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class VentanaMontoRecaudadoPaseo extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtCodigo;
+	private JLabel lblResultado;
 	private ControladorMontoRecaudadoPaseo controlador;
 
 	/**
@@ -87,7 +89,8 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 		lblMontoRecaudado.setBounds(56, 27, 172, 19);
 		contentPane.add(lblMontoRecaudado);
 		
-		JLabel lblResultado = new JLabel("");
+		lblResultado = new JLabel("");
+		lblResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResultado.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblResultado.setForeground(new Color(255, 255, 255));
 		lblResultado.setBounds(64, 121, 156, 28);
@@ -98,4 +101,7 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
 	
+	public void MostrarResu (String m) {
+		lblResultado.setText(m);
+	}
 }

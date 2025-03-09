@@ -48,7 +48,7 @@ public class ControladorRegistroPaseo {
 		}
 	}
 	
-	public void VentaBoleto(String cod, String des, String HP, String HL, String Prec) throws RegistroExceptionII, DestinoException{
+	public void RegistroPaseo(String cod, String des, String HP, String HL, String Prec) throws RegistroExceptionII, DestinoException{
 		try {
 			float pre = Float.parseFloat(Prec);
 			

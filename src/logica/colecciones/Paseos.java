@@ -16,9 +16,7 @@ public class Paseos implements Serializable{
 	}
 	public ArrayList<VOpaseolistado> listadoPaseos() {										
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
-		System.out.println(AVL_Paseos.size());
-	    AVL_Paseos.forEach((key,pas) ->	{							//NO ENTRA  --- VER CON ARIEL ---
-	    								System.out.println("2");
+	    AVL_Paseos.forEach((key,pas) ->	{
 	    								VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(), pas.getMaxboletos(), pas.cantBoletosDisponibles());
 	    								recorrido.add(vo);
 	    								}
@@ -29,8 +27,6 @@ public class Paseos implements Serializable{
 		ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
 	    								if (pas.getDestino().equals(dest)) {
-	    									System.out.println(pas.cantBoletosDisponibles());
-	    									System.out.println(pas.getMaxboletos());
 	    									VOpaseolistado vo = new VOpaseolistado(pas.getCodigo(),pas.getDestino(),pas.getHorasalida(), pas.getHorallegada(),pas.getPrecio(), pas.getMaxboletos(), pas.cantBoletosDisponibles());
 	    									recorrido.add(vo);
 	    									}
@@ -89,6 +85,21 @@ public class Paseos implements Serializable{
 			}
 				}
 				);
+		
+		/*boolean bool = true;
+		if(!AVL_Paseos.isEmpty()) {
+			paseo aux = AVL_Paseos.values().iterator().next();
+			while(bool) {
+	    		if(!(HP.compareTo(aux.getHorallegada())>=0) || (HL.compareTo(aux.getHorasalida())<=0)) {
+	    			bool = false;
+	    		}
+	    		aux = AVL_Paseos.values().iterator().next();
+	    	}
+	    	
+		}else {
+			bool = false;
+		}
+		return bool; */
 		
 		return bool;
 	}

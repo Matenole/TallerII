@@ -6,19 +6,19 @@ public class DestinosUruguay {
 
     static {
         destinosMap.put("Canelones", Arrays.asList(
-            "Costa de Oro", "Reserva Natural de Cangrejos del Arroyo Solís Chico", "Paseo de Esculturas en La Floresta",
-            "Centro Isha en Costa Azul", "Parque Natural del Arroyo El Bagre", "Casa Museo de Artigas en Sauce",
-            "Parque General Artigas en Sauce", "Quinta Capurro en Santa Lucía", "Parque Roosevelt", "Bodega Juanicó"
+            "costa de oro", "reserva natural de cangrejos del arroyo solís chico", "paseo de esculturas en la floresta",
+            "centro isha en costa azul", "parque natural del arroyo el bagre", "casa museo de artigas en sauce",
+            "parque general artigas en sauce", "quinta capurro en santa lucía", "parque roosevelt", "bodega juanicó"
         ));
 
         destinosMap.put("Maldonado", Arrays.asList(
-            "Punta del Este", "La Barra", "José Ignacio", "Piriápolis", "Cerro Pan de Azúcar", "Arboretum Lussich",
-            "Museo Ralli", "Isla Gorriti", "Casapueblo", "Laguna del Sauce"
+        		"punta del este", "la barra", "josé ignacio", "piriápolis", "cerro pan de azúcar", "arboretum lussich",
+                "museo ralli", "isla gorriti", "casapueblo", "laguna del sauce"
         ));
 
         destinosMap.put("Rocha", Arrays.asList(
-            "Cabo Polonio", "La Paloma", "La Pedrera", "Laguna de Rocha", "Santa Teresa", "Valizas", "Laguna Garzón",
-            "Punta del Diablo", "Bosque de Ombúes", "Fortaleza de Santa Teresa", "Castillos", "Estancia Guardia del Monte"
+        		"cabo polonio", "la paloma", "la pedrera", "laguna de rocha", "santa teresa", "valizas", "laguna garzón",
+                "punta del diablo", "bosque de ombúes", "fortaleza de santa teresa", "castillos", "estancia guardia del monte"
         ));
     }
 

@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 import logica.colecciones.Paseos;
+import logica.excepciones.RegistroExceptionII;
 import logica.valueobject.VOpaseolistado;
 
 public class minivan implements Serializable{
@@ -79,7 +80,7 @@ public class minivan implements Serializable{
 		    return Dic_Paseos.listadoPaseos();
 		}
 		
-		public boolean chequearHorarios(LocalTime HP,LocalTime HL) {
+		public boolean chequearHorarios(LocalTime HP,LocalTime HL){
 			boolean resu = Dic_Paseos.chequearHorarios (HP, HL);
 			return resu;
 			

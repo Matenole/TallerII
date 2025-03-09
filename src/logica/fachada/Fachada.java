@@ -99,8 +99,8 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 					m.terminoEscritura();
 					throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
 				}
-				else
-					if (!(DestinosUruguay.esDestinoValido(des))) {
+				else {
+					if (!(DestinosUruguay.esDestinoValido(des.toLowerCase()))) {
 							m.terminoEscritura();
 							throw new DestinoException("El destino ingresado no es correcto");
 			        }
@@ -111,16 +111,14 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 							m.comienzoEscritura();
 							minivan mini = Locomocion.MiniDis(HP, HL);
 							int maxBoletos = mini.getCantasientos();
-							System.out.println(maxBoletos);
 							paseo p = new paseo(cod, des, HP, HL, Prec, maxBoletos);
-							System.out.println(p.cantBoletosDisponibles());
-							System.out.println(p.getMaxboletos());
 							Viaje.insert(p);
-							mini.insertarPaseo(p);							
+							mini.insertarPaseo(p);
 							m.terminoEscritura();
-		}
-	}
-	}
+							}
+					}
+				}
+			}
 	}
 	
 	@SuppressWarnings("exports")
@@ -134,7 +132,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	@SuppressWarnings("exports")
 	public ArrayList<VOpaseolistado> LisPasDes(String des) throws RemoteException{
 		m.comienzoLectura();
-		ArrayList<VOpaseolistado> array = Viaje.listadoPaseosPorDestino(des);
+		ArrayList<VOpaseolistado> array = Viaje.listadoPaseosPorDestino(des.toLowerCase());
 		m.terminoLectura();
 		return array;
 	}

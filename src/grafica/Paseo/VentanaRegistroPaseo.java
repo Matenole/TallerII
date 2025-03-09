@@ -117,7 +117,7 @@ public class VentanaRegistroPaseo extends JFrame {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					controlador.VentaBoleto(txtCodigo.getText(), txtDestino.getText(), txtHoraPartida.getText(), txtHoraLlegada.getText(), txtPrecio.getText());
+					controlador.RegistroPaseo(txtCodigo.getText(), txtDestino.getText(), txtHoraPartida.getText(), txtHoraLlegada.getText(), txtPrecio.getText());
 				} catch (RegistroExceptionII e1) {
 					e1.printStackTrace();
 				} catch (DestinoException e1) {
