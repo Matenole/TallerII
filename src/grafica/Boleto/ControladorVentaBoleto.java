@@ -9,11 +9,13 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.Properties;
 import javax.swing.JOptionPane;
+
+import logica.excepciones.DescuentoException;
 import logica.excepciones.LogicaException;
 import logica.fachada.IFachada;
 import logica.negocio.boleto;
 
-public class ControladorVentaBoleto {
+public class ControladorVentaBoleto<VOboletoingreso> {
 	private IFachada f;
 	private VentanaVentaBoleto v;
 	
@@ -45,11 +47,11 @@ public class ControladorVentaBoleto {
 
 	}
 	
-	public void VentaBoleto(String codigo, String numero, String nombrepasajero, String edad, String celular) throws RemoteException, LogicaException{
-			int num = Integer.parseInt(numero);
+	public void VentaBoleto(String codigo,VOboletoingreso vo) throws RemoteException, LogicaException, DescuentoException{
+			int num = Integer.parseInt(vo.g);
 			int age = Integer.parseInt(edad);
-			boleto boleto = new boleto(num, nombrepasajero, age, celular);
-			f.VentaBol(codigo, boleto);
+			VOboletoingreso vobl = new VOboletoingreso(num, nombrepasajero, age, celular);
+			f.VentaBol(codigo,(logica.valueobject.VOboletoingreso) vobl);
 			v.MostrarMensaje("Boleto ingresado correctamente");
 	}
 	

@@ -105,7 +105,6 @@ public class paseo implements Serializable{
 		public void ventaBoleto(boleto B) {
 			boletosVendidos.insert(B);
 		}
-		
 		public float montoRecaudado() {
 		    float mo = 0;
 		    int i = boletosVendidos.size(); // Obtener el tamaño real del ArrayList

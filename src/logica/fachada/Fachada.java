@@ -31,7 +31,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	
 	///Metodos
-	public void VentaBol(String codigo, VOboletoingreso vo) throws RemoteException,LogicaException {
+	public void VentaBol(String codigo, VOboletoingreso vo) throws RemoteException,LogicaException, DescuentoException {
 		m.comienzoEscritura();
         paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
         Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
@@ -52,10 +52,12 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			throw new LogicaException("El celular es negativo");
 		}
 		if(vo instanceof VOboletoespecialingreso) {
-			especial b = new especial(bo.kesimo(0));
-			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
+			float desc = 10.5f;
+			especial e;
+			e = new especial(vo.getCodigo(), vo.getNombrepasajero(),vo.getEdad(),vo.getCelular(),desc);
+			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(e);
 		}else {
-			boleto b =  new boleto();
+			boleto b =  new boleto(vo.getCodigo(),vo.getNombrepasajero(),vo.getEdad(),vo.getCelular());
 			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
 		}
 		m.terminoEscritura();

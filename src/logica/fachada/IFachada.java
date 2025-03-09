@@ -4,12 +4,15 @@ import java.rmi.RemoteException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import logica.excepciones.DescuentoException;
 import logica.excepciones.DestinoException;
 import logica.excepciones.DisponibilidadException;
 import logica.excepciones.LogicaException;
 import logica.excepciones.PersistenciaException;
 import logica.excepciones.RegistroException;
 import logica.excepciones.RegistroExceptionII;
+import logica.valueobject.VOboletoingreso;
 import logica.valueobject.VOboletolistado;
 import logica.valueobject.VOminivan;
 import logica.valueobject.VOminivanlistado;
@@ -19,7 +22,7 @@ public interface IFachada extends Remote {
 	///Metodos
 	
 	public void RegisMin(@SuppressWarnings("exports") VOminivan mini) throws RemoteException, RegistroException;
-	public void VentaBol(String codigo,@SuppressWarnings("exports") boleto b) throws RemoteException,LogicaException;
+	public void VentaBol(String codigo,VOboletoingreso vo) throws RemoteException,LogicaException, DescuentoException;
 	@SuppressWarnings("exports")
 	public List<VOminivanlistado> LisMin()  throws RemoteException;
 	@SuppressWarnings("exports")
