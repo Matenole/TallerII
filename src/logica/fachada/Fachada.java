@@ -93,6 +93,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		}
 		else
 			if(Prec <= 0){
+				m.terminoEscritura();
 				throw new RegistroExceptionII("El paseo posee un precio invalido");
 			}else {
 				if(!cod.matches("[a-zA-Z0-9]+")) {
@@ -106,6 +107,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			        }
 					else {
 						if (Locomocion.MiniDis(HP, HL) == null) {
+							m.terminoEscritura();
 							throw new RegistroExceptionII("No hay ninguna minivan disponible para ese horario");
 						}else {
 							m.comienzoEscritura();
