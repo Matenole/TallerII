@@ -158,6 +158,10 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	@SuppressWarnings("exports")
 	public ArrayList<VOboletolistado> LisBolVen(String cod) throws RemoteException,LogicaException {
 		m.comienzoLectura();
+		if (!Viaje.member(cod)) {
+			m.terminoLectura();
+			throw new LogicaException("No existe un paseo con ese codigo");
+		}
 		paseo p = Viaje.find(cod);
 		ArrayList<VOboletolistado> bo = p.listarBoletos();
 		m.terminoLectura();
@@ -167,6 +171,10 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	@SuppressWarnings("exports")
 	public ArrayList<VOboletoespeciallistado> LisBolVenEsp(String cod) throws RemoteException,LogicaException {
 		m.comienzoLectura();
+		if (!Viaje.member(cod)) {
+			m.terminoLectura();
+			throw new LogicaException("No existe un paseo con ese codigo");
+		}
 		paseo p = Viaje.find(cod);
 		ArrayList<VOboletoespeciallistado> bo = p.listarBoletosEspecial();
 		m.terminoLectura();

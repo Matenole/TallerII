@@ -68,38 +68,14 @@ public class Paseos implements Serializable{
 	public boolean chequearHorarios(LocalTime HP,LocalTime HL) {
 		boolean bool = true;
 		
-		/*
 		paseo aux = null;
-		aux = AVL_Paseos.values().iterator().next();
-    	while(!bool) {
+		Iterator <paseo> iter = AVL_Paseos.values().iterator();
+    	while(iter.hasNext() && bool) {
+    		aux = iter.next();
     		if((HP.compareTo(aux.getHorallegada())>=0) || (HL.compareTo(aux.getHorasalida())<=0)) {
-    			bool = true;
+    			bool = false;
     		}
-    		aux = AVL_Paseos.values().iterator().next();
     	}
-    	*/	
-		
-		AVL_Paseos.forEach((key,pas) ->	{
-			if((HP.compareTo(pas.getHorallegada())>=0) || (HL.compareTo(pas.getHorasalida())<=0)) {
-				//bool = false;
-			}
-				}
-				);
-		
-		/*boolean bool = true;
-		if(!AVL_Paseos.isEmpty()) {
-			paseo aux = AVL_Paseos.values().iterator().next();
-			while(bool) {
-	    		if(!(HP.compareTo(aux.getHorallegada())>=0) || (HL.compareTo(aux.getHorasalida())<=0)) {
-	    			bool = false;
-	    		}
-	    		aux = AVL_Paseos.values().iterator().next();
-	    	}
-	    	
-		}else {
-			bool = false;
-		}
-		return bool; */
 		
 		return bool;
 	}

@@ -65,17 +65,16 @@ public class Minivans implements Serializable{
     public minivan MiniDis (LocalTime HP,LocalTime HL) {
     	boolean Registramos = false;
     	minivan aux = null;
-    	//minivan asignada = null;
     	
-    	aux = AVL_Minivans.values().iterator().next();
-    	while(!Registramos) {
+    	Iterator <minivan> iter = AVL_Minivans.values().iterator();
+    	while(iter.hasNext() && !Registramos) {
+    		aux = iter.next();
     		if(aux.chequearHorarios(HP, HL)) {
-    			//asignada = aux;
 				Registramos = true;
     		}
-    		if(!Registramos) {
-    			aux = AVL_Minivans.values().iterator().next();
-    		}
+    	}
+    	if (!Registramos) {
+    		aux = null;
     	}
 		return aux;
 	}

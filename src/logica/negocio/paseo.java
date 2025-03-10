@@ -122,7 +122,7 @@ public class paseo implements Serializable{
 			ArrayList<VOboletolistado> listado = new ArrayList<>();
 			for (int i = 0; i < boletosVendidos.size(); i++) {
 	            boleto b = boletosVendidos.kesimo(i);
-	            if (listado != null) {
+	            if (!(b instanceof especial)) {
 	                VOboletolistado vo = new VOboletolistado(
 	                	b.getNumero(),
 	                    b.getNombrepasajero(),
@@ -139,8 +139,9 @@ public class paseo implements Serializable{
 		public ArrayList<VOboletoespeciallistado> listarBoletosEspecial() {
 			ArrayList<VOboletoespeciallistado> listado = new ArrayList<>();
 			for (int i = 0; i < boletosVendidos.size(); i++) {
-	            especial b = (especial) boletosVendidos.kesimo(i);
-	            if (listado != null) {
+	            boleto b1 = boletosVendidos.kesimo(i);
+	            if (b1 instanceof especial) {
+	            	especial b = (especial) b1;
 	                VOboletoespeciallistado vo = new VOboletoespeciallistado(
 	                	b.getNumero(),
 	                	b.getNombrepasajero(),
