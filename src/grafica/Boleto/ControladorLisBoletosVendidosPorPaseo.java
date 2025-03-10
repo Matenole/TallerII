@@ -64,7 +64,7 @@ public class ControladorLisBoletosVendidosPorPaseo {
 				VLBV.mostrarMensaje("No hay ningun Boleto registrado");
 			} else {
 				for (int i = 0; i < Boleto.size(); i++) {
-					dm.addRow(new Object[] { Boleto.get(i).getDescuento(), Boleto.get(i).getNombrepasajero(),
+					dm.addRow(new Object[] { Boleto.get(i).getNumero(), Boleto.get(i).getNombrepasajero(),
 							Boleto.get(i).getEdad(), Boleto.get(i).getCelular(), Boleto.get(i).getDescuento()});
 				}
 			}			

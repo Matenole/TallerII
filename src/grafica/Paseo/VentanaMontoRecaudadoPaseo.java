@@ -93,7 +93,7 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 		lblResultado.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResultado.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblResultado.setForeground(new Color(255, 255, 255));
-		lblResultado.setBounds(64, 121, 156, 28);
+		lblResultado.setBounds(10, 121, 264, 28);
 		contentPane.add(lblResultado);
 	}
 

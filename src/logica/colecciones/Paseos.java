@@ -72,7 +72,10 @@ public class Paseos implements Serializable{
 		Iterator <paseo> iter = AVL_Paseos.values().iterator();
     	while(iter.hasNext() && bool) {
     		aux = iter.next();
-    		if((HP.compareTo(aux.getHorallegada())>=0) || (HL.compareTo(aux.getHorasalida())<=0)) {
+    		//HP.isAfter(HL);
+    		//HP.isBefore(HL);
+    		
+    		if(!(HP.isAfter(aux.getHorallegada()) || HL.isBefore(aux.getHorasalida()))) {
     			bool = false;
     		}
     	}

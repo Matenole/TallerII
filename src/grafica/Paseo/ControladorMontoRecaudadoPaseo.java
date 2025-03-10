@@ -45,7 +45,6 @@ public class ControladorMontoRecaudadoPaseo {
 	public void Monto(String codigo){
 		try {
 			String monto = Float.toString(f.MonRec(codigo));
-			//v.MostrarMensaje("Monto recaudado: " + monto);
 			v.MostrarResu("Monto recaudado: " + monto);
 		} catch (RemoteException e) {
 			v.MostrarMensaje("Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());

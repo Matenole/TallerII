@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import logica.excepciones.DescuentoException;
 import logica.excepciones.LogicaException;
 import logica.fachada.IFachada;
+import logica.valueobject.VOboletoespecialingreso;
 import logica.valueobject.VOboletoingreso;
 
 public class ControladorVentaBoleto {
@@ -47,10 +48,15 @@ public class ControladorVentaBoleto {
 
 	}
 	
-	public void VentaBoleto(String codigo,String Nombre, String Edad, String Celular,float desc) throws RemoteException, LogicaException, DescuentoException{
+	public void VentaBoleto(String codigo,String Nombre, String Edad, String Celular,boolean tienedesc, float desc) throws RemoteException, LogicaException, DescuentoException{
 			int edad = Integer.parseInt(Edad);
-			VOboletoingreso vobl = new VOboletoingreso(Nombre, edad, Celular);
-			f.VentaBol(codigo, vobl, desc);
+			if (tienedesc) {
+				VOboletoespecialingreso vo = new VOboletoespecialingreso(Nombre, edad, Celular, desc);
+				f.VentaBol(codigo, vo, desc);
+			}else {
+				VOboletoingreso vo = new VOboletoingreso(Nombre, edad, Celular);
+				f.VentaBol(codigo, vo, desc);
+			}
 			v.MostrarMensaje("Boleto ingresado correctamente");
 	}
 	
