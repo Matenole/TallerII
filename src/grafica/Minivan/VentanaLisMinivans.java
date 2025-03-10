@@ -54,7 +54,7 @@ public class VentanaLisMinivans extends JFrame {
 			frmListadoMinivans.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoMinivans.setBackground(SystemColor.inactiveCaption);
 			frmListadoMinivans.setTitle("Listado de Minivans");
-			frmListadoMinivans.setBounds(100, 100, 545, 391);
+			frmListadoMinivans.setBounds(100, 100, 624, 391);
 			frmListadoMinivans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frmListadoMinivans.getContentPane().setLayout(null);
 
@@ -62,7 +62,7 @@ public class VentanaLisMinivans extends JFrame {
 			lblLisMinivans.setHorizontalAlignment(SwingConstants.CENTER);
 			lblLisMinivans.setForeground(SystemColor.text);
 			lblLisMinivans.setFont(new Font("Arial", Font.BOLD, 20));
-			lblLisMinivans.setBounds(0, 22, 499, 24);
+			lblLisMinivans.setBounds(54, 22, 499, 24);
 			frmListadoMinivans.getContentPane().add(lblLisMinivans);
 
 			JButton btnVolver = new JButton("Volver");
@@ -71,7 +71,7 @@ public class VentanaLisMinivans extends JFrame {
 					frmListadoMinivans.dispose();
 				}
 			});
-			btnVolver.setBounds(210, 301, 85, 32);
+			btnVolver.setBounds(261, 301, 85, 32);
 			frmListadoMinivans.getContentPane().add(btnVolver);
 
 			JButton btnListar = new JButton("Listar");
@@ -80,11 +80,11 @@ public class VentanaLisMinivans extends JFrame {
 					controlador.ListarMinivans();
 				}
 			});
-			btnListar.setBounds(210, 58, 85, 32);
+			btnListar.setBounds(261, 58, 85, 32);
 			frmListadoMinivans.getContentPane().add(btnListar);
 			
 			JScrollPane scrollPaneLisMin = new JScrollPane();
-			scrollPaneLisMin.setBounds(10, 101, 509, 189);
+			scrollPaneLisMin.setBounds(10, 101, 588, 189);
 			frmListadoMinivans.getContentPane().add(scrollPaneLisMin);
 			
 			tableListadoMinivans = new JTable();

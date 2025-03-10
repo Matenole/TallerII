@@ -58,7 +58,7 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 			frmListadoPaseos.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoPaseos.setBackground(SystemColor.inactiveCaption);
 			frmListadoPaseos.setTitle("Listar Paseo por Minivan");
-			frmListadoPaseos.setBounds(100, 100, 602, 391);
+			frmListadoPaseos.setBounds(100, 100, 693, 391);
 			frmListadoPaseos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frmListadoPaseos.getContentPane().setLayout(null);
 
@@ -66,7 +66,7 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 			lblLisPaseos.setHorizontalAlignment(SwingConstants.CENTER);
 			lblLisPaseos.setForeground(SystemColor.text);
 			lblLisPaseos.setFont(new Font("Arial", Font.BOLD, 20));
-			lblLisPaseos.setBounds(61, 23, 464, 24);
+			lblLisPaseos.setBounds(106, 23, 464, 24);
 			frmListadoPaseos.getContentPane().add(lblLisPaseos);
 			
 			JButton btnVolver = new JButton("Volver");
@@ -75,7 +75,7 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 					frmListadoPaseos.dispose();
 				}
 			});
-			btnVolver.setBounds(250, 301, 85, 32);
+			btnVolver.setBounds(296, 301, 85, 32);
 			frmListadoPaseos.getContentPane().add(btnVolver);
 
 			JButton btnListar = new JButton("Listar");
@@ -84,11 +84,11 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 					controlador.ListarPaseos();
 				}
 			});
-			btnListar.setBounds(250, 58, 85, 32);
+			btnListar.setBounds(296, 58, 85, 32);
 			frmListadoPaseos.getContentPane().add(btnListar);
 
 			JScrollPane scrollPanePaseos = new JScrollPane();
-			scrollPanePaseos.setBounds(61, 101, 464, 189);
+			scrollPanePaseos.setBounds(10, 101, 657, 189);
 			frmListadoPaseos.getContentPane().add(scrollPanePaseos);
 			
 			tableListadoPaseos = new JTable();
@@ -105,11 +105,11 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 			JLabel lblMatricula = new JLabel("Matricula");
 			lblMatricula.setFont(new Font("Arial", Font.BOLD, 12));
 			lblMatricula.setForeground(UIManager.getColor("Button.highlight"));
-			lblMatricula.setBounds(61, 67, 68, 14);
+			lblMatricula.setBounds(10, 67, 68, 14);
 			frmListadoPaseos.getContentPane().add(lblMatricula);
 			
 			txtMatricula = new JTextField();
-			txtMatricula.setBounds(134, 64, 86, 20);
+			txtMatricula.setBounds(77, 64, 86, 20);
 			frmListadoPaseos.getContentPane().add(txtMatricula);
 			txtMatricula.setColumns(10);
 				}

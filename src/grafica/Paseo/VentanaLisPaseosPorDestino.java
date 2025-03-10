@@ -89,7 +89,7 @@ public class VentanaLisPaseosPorDestino extends JFrame {
 
 			JScrollPane scrollPanePaseos = new JScrollPane();
 			scrollPanePaseos.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPanePaseos.setBounds(30, 101, 525, 189);
+			scrollPanePaseos.setBounds(10, 101, 566, 189);
 			frmListadoPaseos.getContentPane().add(scrollPanePaseos);
 
 			tableListadoPaseos = new JTable();
@@ -106,11 +106,11 @@ public class VentanaLisPaseosPorDestino extends JFrame {
 			JLabel lblDestino = new JLabel("Destino");
 			lblDestino.setFont(new Font("Arial", Font.BOLD, 12));
 			lblDestino.setForeground(UIManager.getColor("Button.highlight"));
-			lblDestino.setBounds(30, 67, 68, 14);
+			lblDestino.setBounds(10, 67, 68, 14);
 			frmListadoPaseos.getContentPane().add(lblDestino);
 			
 			txtDestino = new JTextField();
-			txtDestino.setBounds(98, 64, 86, 20);
+			txtDestino.setBounds(64, 64, 86, 20);
 			frmListadoPaseos.getContentPane().add(txtDestino);
 			txtDestino.setColumns(10);
 				}

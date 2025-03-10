@@ -62,7 +62,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			frmListadoBoletos.getContentPane().setBackground(SystemColor.activeCaption);
 			frmListadoBoletos.setBackground(SystemColor.inactiveCaption);
 			frmListadoBoletos.setTitle("Listar Boletos");
-			frmListadoBoletos.setBounds(100, 100, 507, 391);
+			frmListadoBoletos.setBounds(100, 100, 569, 391);
 			frmListadoBoletos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			frmListadoBoletos.getContentPane().setLayout(null);
 
@@ -70,7 +70,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			lblLisBoletos.setHorizontalAlignment(SwingConstants.CENTER);
 			lblLisBoletos.setForeground(SystemColor.text);
 			lblLisBoletos.setFont(new Font("Arial", Font.BOLD, 20));
-			lblLisBoletos.setBounds(-4, 11, 499, 24);
+			lblLisBoletos.setBounds(27, 11, 499, 24);
 			frmListadoBoletos.getContentPane().add(lblLisBoletos);
 
 			JButton btnVolver = new JButton("Volver");
@@ -79,7 +79,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 					frmListadoBoletos.dispose();
 				}
 			});
-			btnVolver.setBounds(203, 301, 85, 32);
+			btnVolver.setBounds(234, 301, 85, 32);
 			frmListadoBoletos.getContentPane().add(btnVolver);
 
 			JButton btnListar = new JButton("Listar");
@@ -92,13 +92,13 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 					}
 				}
 			});
-			btnListar.setBounds(203, 58, 85, 32);
+			btnListar.setBounds(234, 58, 85, 32);
 			frmListadoBoletos.getContentPane().add(btnListar);
 
 			JScrollPane scrollPaneBoletos = new JScrollPane();
 			scrollPaneBoletos.setEnabled(false);
 			scrollPaneBoletos.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			scrollPaneBoletos.setBounds(20, 101, 461, 189);
+			scrollPaneBoletos.setBounds(20, 101, 523, 189);
 			frmListadoBoletos.getContentPane().add(scrollPaneBoletos);
 
 			tableListadoBoletos = new JTable();

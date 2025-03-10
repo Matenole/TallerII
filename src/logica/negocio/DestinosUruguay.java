@@ -6,19 +6,19 @@ public class DestinosUruguay {
 
     static {
         destinosMap.put("Canelones", Arrays.asList(
-            "costa de oro", "reserva natural de cangrejos del arroyo solís chico", "paseo de esculturas en la floresta",
+            "costa de oro", "reserva natural de cangrejos del arroyo solis chico", "paseo de esculturas en la floresta",
             "centro isha en costa azul", "parque natural del arroyo el bagre", "casa museo de artigas en sauce",
-            "parque general artigas en sauce", "quinta capurro en santa lucía", "parque roosevelt", "bodega juanicó"
+            "parque general artigas en sauce", "quinta capurro en santa lucia", "parque roosevelt", "bodega juanico"
         ));
 
         destinosMap.put("Maldonado", Arrays.asList(
-        		"punta del este", "la barra", "josé ignacio", "piriápolis", "cerro pan de azúcar", "arboretum lussich",
+        		"punta del este", "la barra", "jose ignacio", "piriapolis", "cerro pan de azucar", "arboretum lussich",
                 "museo ralli", "isla gorriti", "casapueblo", "laguna del sauce"
         ));
 
         destinosMap.put("Rocha", Arrays.asList(
-        		"cabo polonio", "la paloma", "la pedrera", "laguna de rocha", "santa teresa", "valizas", "laguna garzón",
-                "punta del diablo", "bosque de ombúes", "fortaleza de santa teresa", "castillos", "estancia guardia del monte"
+        		"cabo polonio", "la paloma", "la pedrera", "laguna de rocha", "santa teresa", "valizas", "laguna garzon",
+                "punta del diablo", "bosque de ombues", "fortaleza de santa teresa", "castillos", "estancia guardia del monte"
         ));
     }
 

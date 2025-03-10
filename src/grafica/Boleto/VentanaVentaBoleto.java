@@ -103,6 +103,7 @@ public class VentanaVentaBoleto extends JFrame {
 		
 		
 		txtDesc = new JTextField();
+		txtDesc.setEditable(false);
 		txtDesc.setEnabled(false);
 		txtDesc.setColumns(10);
 		txtDesc.setBounds(106, 222, 96, 19);
@@ -119,11 +120,14 @@ public class VentanaVentaBoleto extends JFrame {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					float desc = 0.0f;
 					if (chcDescuento.isSelected()) {
-						desc = Float.parseFloat(txtDesc.getText());
+						float desc = Float.parseFloat(txtDesc.getText());
+						controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(), desc);
 					}
-					controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(), desc);
+					else
+					{
+						controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(),0);
+					}
 				} catch (DescuentoException e1) {
 					e1.printStackTrace();
 				} catch (RemoteException e1) {
@@ -157,11 +161,13 @@ public class VentanaVentaBoleto extends JFrame {
         		txtDesc.setVisible(true);
         		lbldescuento.setEnabled(true);
         		txtDesc.setEnabled(true);
+        		txtDesc.setEditable(true);
                }else {
             	    lbldescuento.setVisible(false);
            			txtDesc.setVisible(false);
            			lbldescuento.setEnabled(false);
            			txtDesc.setEnabled(false);
+           			txtDesc.setEditable(false);
                }
             	   
             }
