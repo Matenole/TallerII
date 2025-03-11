@@ -87,14 +87,12 @@ public class VentanaIngresoMinivan extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String matricula = txtMatricula.getText();
-				String marca = txtMarca.getText();
-				String modelo = txtModelo.getText();
-				int asientos = Integer.valueOf(txtCapacidad.getText());
 				try {
-					if (txtMatricula.getText().isEmpty() || txtMarca.getText().isEmpty() || txtModelo.getText().isEmpty() || txtCapacidad.getText().isEmpty())
-			                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
-					controlador.IngresarMinivan(matricula, marca, modelo, asientos);
+					if (txtMatricula.getText().isEmpty() || txtMarca.getText().isEmpty() || txtModelo.getText().isEmpty() || txtCapacidad.getText().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+					}else{			                
+						controlador.IngresarMinivan(txtMatricula.getText(), txtMarca.getText(), txtModelo.getText(), Integer.valueOf(txtCapacidad.getText()));
+					}
 				} catch (RegistroException e1) {
 					e1.printStackTrace();
 					JOptionPane.showMessageDialog(null, "La Matricula ya existe en el sistema", "Error", JOptionPane.ERROR_MESSAGE);
