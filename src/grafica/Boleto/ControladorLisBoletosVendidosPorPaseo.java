@@ -50,8 +50,7 @@ public class ControladorLisBoletosVendidosPorPaseo {
 		
 	public void ListarBoletos(String codigo) throws LogicaException, RemoteException {
 		
-		String cod = VLBV.getCod();
-		if (cod.isEmpty()) {
+		if (codigo.isEmpty()) {
 		    VLBV.mostrarMensaje("Ingrese un codigo para listar paseos.");
 		}
 		DefaultTableModel dm = (DefaultTableModel) VLBV.tableListadoBoletos.getModel();
@@ -59,7 +58,7 @@ public class ControladorLisBoletosVendidosPorPaseo {
 			dm.removeRow(VLBV.tableListadoBoletos.getRowCount() - 1);
 		
 		if (VLBV.getTipoBoleto()) {
-			ArrayList<VOboletoespeciallistado> Boleto = f.LisBolVenEsp(cod);
+			ArrayList<VOboletoespeciallistado> Boleto = f.LisBolVenEsp(codigo);
 			if (Boleto.isEmpty()) {
 				VLBV.mostrarMensaje("No hay ningun Boleto registrado");
 			} else {
@@ -69,7 +68,7 @@ public class ControladorLisBoletosVendidosPorPaseo {
 				}
 			}			
 		}else {
-			ArrayList<VOboletolistado> Boleto = f.LisBolVen(cod);
+			ArrayList<VOboletolistado> Boleto = f.LisBolVen(codigo);
 			if (Boleto.isEmpty()) {
 				VLBV.mostrarMensaje("No hay ningun Boleto registrado");
 			} else {

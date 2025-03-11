@@ -122,9 +122,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			chcTipoBoleto.setBounds(20, 71, 141, 23);
 			frmListadoBoletos.getContentPane().add(chcTipoBoleto);
 		}
-		public String getCod() {
-		    return txtCodigo.getText();
-		}
+	
 		public boolean getTipoBoleto () {
 			return chcTipoBoleto.isSelected();
 		}

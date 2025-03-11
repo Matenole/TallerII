@@ -47,7 +47,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			m.terminoEscritura();
 			throw new EdadException("La Edad ha sido ingresada incorrectamente");
 		}
-		if(vo.getCelular().equals("0") || vo.getCelular().contains("-") || vo.getCelular().length() > 13) {
+		if(vo.getCelular().equals("0") || vo.getCelular().contains("-") || !vo.getCelular().matches("^\\+?[0-9]{1,13}$")) {
 			m.terminoEscritura();
 			throw new CelularException("El Celular ha sido ingresado incorrectamente");
 		}
