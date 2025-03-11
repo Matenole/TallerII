@@ -33,9 +33,9 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	///Metodos
 	public void VentaBol(String codigo, VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException {
 		m.comienzoEscritura();
-        paseo controladorsubcutaneodecantidadmaximadeboletos = Viaje.find(codigo);
-        Boletos bo = controladorsubcutaneodecantidadmaximadeboletos.getBoletosVendidos();
-		if(bo.size() == controladorsubcutaneodecantidadmaximadeboletos.getMaxboletos()) {
+        paseo p = Viaje.find(codigo);
+        Boletos bo = p.getBoletosVendidos();
+		if(bo.size() == p.getMaxboletos()) {
 			m.terminoEscritura();
 			throw new LogicaException("Ya se vendieron todos los boletos rey, haber estado mas atento");
 		}
@@ -52,11 +52,21 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			throw new LogicaException("El celular es negativo");
 		}
 		if(vo instanceof VOboletoespecialingreso) {
-			especial e = new especial(bo.size()+1 , vo.getNombrepasajero(),vo.getEdad(),vo.getCelular(),desc );
-			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(e);
+			if(desc >= (p.getPrecio()*0.75) && vo.getEdad() < 18) {
+				m.terminoEscritura();
+				throw new DescuentoException("El descuento no puede ser mayor que el precio del Paseo (En este caso el 75% del precio)");
+			}else {
+				if(desc >= p.getPrecio() && vo.getEdad() >= 18) {
+					m.terminoEscritura();
+					throw new DescuentoException("El descuento no puede ser mayor que el precio del Paseo");
+				}else {
+					especial e = new especial(bo.size()+1 , vo.getNombrepasajero(),vo.getEdad(),vo.getCelular(),desc );
+					p.ventaBoleto(e);
+			}
+			}
 		}else {
 			boleto b =  new boleto(bo.size()+1,vo.getNombrepasajero(),vo.getEdad(),vo.getCelular());
-			controladorsubcutaneodecantidadmaximadeboletos.ventaBoleto(b);
+			p.ventaBoleto(b);
 		}
 		m.terminoEscritura();
 	}
