@@ -64,6 +64,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 			frmListadoBoletos.setTitle("Listar Boletos");
 			frmListadoBoletos.setBounds(100, 100, 569, 391);
 			frmListadoBoletos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			frmListadoBoletos.setResizable(false);
 			frmListadoBoletos.getContentPane().setLayout(null);
 
 			JLabel lblLisBoletos = new JLabel("Listado de Boletos");

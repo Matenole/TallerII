@@ -62,6 +62,7 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 			frmListadoPaseos.setTitle("Listar Paseo por Disponibilidad");
 			frmListadoPaseos.setBounds(100, 100, 731, 391);
 			frmListadoPaseos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			frmListadoPaseos.setResizable(false);
 			frmListadoPaseos.getContentPane().setLayout(null);
 
 			JLabel lblLisPaseos = new JLabel("Listado de Paseos por Disponibilidad");

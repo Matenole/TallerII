@@ -39,13 +39,17 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			m.terminoEscritura();
 			throw new LogicaException("Ya se vendieron todos los boletos rey, haber estado mas atento");
 		}
-		if(vo.getEdad() <= 0) {
+		if(vo.getNombrepasajero() == null || !vo.getNombrepasajero().matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$") {
 			m.terminoEscritura();
-			throw new EdadException("La edad es menor o igual que 0");
+			throw new LogicaException("El Nombre ha sido ingresado incorrectamente (solo se permiten letras y espacios)");
 		}
-		if(vo.getCelular().equals("0")) {
+		if(vo.getEdad() <= 0 || vo.getEdad() > 120) {
 			m.terminoEscritura();
-			throw new CelularException("El celular es 0");
+			throw new EdadException("La Edad ha sido ingresada incorrectamente");
+		}
+		if(vo.getCelular().equals("0") || vo.getCelular().contains("-") || vo.getCelular().length() > 13) {
+			m.terminoEscritura();
+			throw new CelularException("El Celular ha sido ingresado incorrectamente");
 		}
 		if(vo.getCelular().contains("-")) {
 			m.terminoEscritura();
@@ -76,11 +80,17 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			m.terminoEscritura();
 			throw new RegistroException("La matricula ya existe en el sistema");
 		}
-		else {
-		m.comienzoEscritura();
-		minivan mi = new minivan(mini.getMatricula(), mini.getMarca(), mini.getModelo(), mini.getCantasientos());
-		Locomocion.insert(mi);
-		m.terminoEscritura();
+			int cantasientos = mini.getCantasientos();
+			String cantasientosStr = String.valueOf(cantasientos);
+			if(cantasientosStr.equals("0") || cantasientosStr.contains("-") || cantasientosStr.length() > 3) {
+		    m.terminoEscritura();
+		    throw new RegistroException("La Capacidad ha sido ingresada incorrectamente");
+			}
+			else {
+				m.comienzoEscritura();
+				minivan mi = new minivan(mini.getMatricula(), mini.getMarca(), mini.getModelo(), mini.getCantasientos());
+				Locomocion.insert(mi);
+				m.terminoEscritura();
 		}
 	}
 	

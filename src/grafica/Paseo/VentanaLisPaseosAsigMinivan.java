@@ -60,6 +60,7 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 			frmListadoPaseos.setTitle("Listar Paseo por Minivan");
 			frmListadoPaseos.setBounds(100, 100, 693, 391);
 			frmListadoPaseos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			frmListadoPaseos.setResizable(false);
 			frmListadoPaseos.getContentPane().setLayout(null);
 
 			JLabel lblLisPaseos = new JLabel("Listado de Paseos por Minivan");

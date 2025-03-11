@@ -56,6 +56,7 @@ public class VentanaLisMinivans extends JFrame {
 			frmListadoMinivans.setTitle("Listado de Minivans");
 			frmListadoMinivans.setBounds(100, 100, 624, 391);
 			frmListadoMinivans.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			frmListadoMinivans.setResizable(false);
 			frmListadoMinivans.getContentPane().setLayout(null);
 
 			JLabel lblLisMinivans = new JLabel("Listado de Minivans");

@@ -49,6 +49,7 @@ public class ControladorPrincipal {
 	public void Respaldar() {
 		try {
 			f.respaldardatos();
+			JOptionPane.showMessageDialog(null, "Se ha guardado correctamente");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} catch (PersistenciaException e) {
