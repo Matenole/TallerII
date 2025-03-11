@@ -46,13 +46,15 @@ public class ControladorIngresoMinivan implements Serializable{
 		}
 	}
 	
-	public void IngresarMinivan(String matricula, String marca, String modelo, int asientos) throws RegistroException{
+	public void IngresarMinivan(String matricula, String marca, String modelo, int asientos){
 		try {
 			VOminivan mini = new VOminivan(matricula, marca, modelo, asientos);
 			f.RegisMin(mini);
 			v.MostrarMensaje("Minivan ingresada correctamente");
 		} catch (RemoteException e) {
 			v.MostrarMensaje("Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());
+		} catch (RegistroException e) {
+			v.MostrarMensaje("La Capacidad ha sido ingresada incorrectamente");
 		}
 	}
 }

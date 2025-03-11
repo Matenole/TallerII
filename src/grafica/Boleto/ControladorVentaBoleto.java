@@ -50,16 +50,32 @@ public class ControladorVentaBoleto {
 
 	}
 	
-	public void VentaBoleto(String codigo,String Nombre, String Edad, String Celular,boolean tienedesc, float desc) throws RemoteException, LogicaException, DescuentoException, CelularException, EdadException{
+	public void VentaBoleto(String codigo,String Nombre, String Edad, String Celular,boolean tienedesc, float desc){
 			int edad = Integer.parseInt(Edad);
-			if (tienedesc) {
-				VOboletoespecialingreso vo = new VOboletoespecialingreso(Nombre, edad, Celular, desc);
-				f.VentaBol(codigo, vo, desc);
-			}else {
-				VOboletoingreso vo = new VOboletoingreso(Nombre, edad, Celular);
-				f.VentaBol(codigo, vo, desc);
+			try {
+				if (tienedesc) {
+					VOboletoespecialingreso vo = new VOboletoespecialingreso(Nombre, edad, Celular, desc);
+					f.VentaBol(codigo, vo, desc);
+				}else {
+					VOboletoingreso vo = new VOboletoingreso(Nombre, edad, Celular);
+					f.VentaBol(codigo, vo, desc);
+				}
+				v.MostrarMensaje("Boleto ingresado correctamente");
+			} catch (RemoteException e) {
+				JOptionPane.showMessageDialog(null, "Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());
+				e.printStackTrace();
+			} catch (LogicaException e) {
+				JOptionPane.showMessageDialog(null, "No hay mas boletos diponibles a la venta en este paseo","Error", JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			} catch (DescuentoException e) {
+				JOptionPane.showMessageDialog(null, "Por favor, coloque un Descuento valido", "Error al ingresar un Descuento", JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			} catch (CelularException e) {
+				JOptionPane.showMessageDialog(null, "El celular no es valido","Error", JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			} catch (EdadException e) {
+				JOptionPane.showMessageDialog(null, "La edad no puede ser menor o igual a 0; Ni mayor a 120.","Error", JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
 			}
-			v.MostrarMensaje("Boleto ingresado correctamente");
 	}
-	
 }

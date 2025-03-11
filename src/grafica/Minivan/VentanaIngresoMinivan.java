@@ -87,15 +87,10 @@ public class VentanaIngresoMinivan extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					if (txtMatricula.getText().isEmpty() || txtMarca.getText().isEmpty() || txtModelo.getText().isEmpty() || txtCapacidad.getText().isEmpty()) {
-						JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
-					}else{			                
-						controlador.IngresarMinivan(txtMatricula.getText(), txtMarca.getText(), txtModelo.getText(), Integer.valueOf(txtCapacidad.getText()));
-					}
-				} catch (RegistroException e1) {
-					e1.printStackTrace();
-					JOptionPane.showMessageDialog(null, "La Matricula ya existe en el sistema", "Error", JOptionPane.ERROR_MESSAGE);
+				if (txtMatricula.getText().isEmpty() || txtMarca.getText().isEmpty() || txtModelo.getText().isEmpty() || txtCapacidad.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+				}else{			                
+					controlador.IngresarMinivan(txtMatricula.getText(), txtMarca.getText(), txtModelo.getText(), Integer.valueOf(txtCapacidad.getText()));
 				}
 			}
 		});
