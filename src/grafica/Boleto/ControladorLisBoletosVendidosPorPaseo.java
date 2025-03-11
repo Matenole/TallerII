@@ -51,7 +51,7 @@ public class ControladorLisBoletosVendidosPorPaseo {
 	public void ListarBoletos(String codigo) throws LogicaException, RemoteException {
 		
 		if (codigo.isEmpty()) {
-		    VLBV.mostrarMensaje("Ingrese un codigo para listar paseos.");
+		    VLBV.mostrarMensaje("Ingrese un codigo para listar paseos");
 		}
 		DefaultTableModel dm = (DefaultTableModel) VLBV.tableListadoBoletos.getModel();
 		while (VLBV.tableListadoBoletos.getRowCount() != 0)
