@@ -76,7 +76,6 @@ public class minivan implements Serializable{
 		
 		///Metodos
 		public ArrayList<VOpaseolistado> listarPaseo() {
-		    // Llamar al método listadoPaseos de la clase Paseos
 		    return Dic_Paseos.listadoPaseos();
 		}
 		

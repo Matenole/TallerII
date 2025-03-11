@@ -39,7 +39,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			m.terminoEscritura();
 			throw new LogicaException("Ya se vendieron todos los boletos rey, haber estado mas atento");
 		}
-		if(vo.getNombrepasajero() == null || !vo.getNombrepasajero().matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$") {
+		if(vo.getNombrepasajero() == null || !vo.getNombrepasajero().matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$")) {
 			m.terminoEscritura();
 			throw new LogicaException("El Nombre ha sido ingresado incorrectamente (solo se permiten letras y espacios)");
 		}
@@ -50,10 +50,6 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		if(vo.getCelular().equals("0") || vo.getCelular().contains("-") || vo.getCelular().length() > 13) {
 			m.terminoEscritura();
 			throw new CelularException("El Celular ha sido ingresado incorrectamente");
-		}
-		if(vo.getCelular().contains("-")) {
-			m.terminoEscritura();
-			throw new CelularException("El celular es negativo");
 		}
 		if(vo instanceof VOboletoespecialingreso) {
 			if(desc > (p.getPrecio()*0.75) && vo.getEdad() < 18) {

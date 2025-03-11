@@ -5,9 +5,7 @@ import java.io.Serializable;
 import logica.excepciones.DescuentoException;
 
 public class boleto implements Serializable{
-		/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 		///Atributos
 		private int numero;
@@ -57,20 +55,11 @@ public class boleto implements Serializable{
 		}
 		///Metodos
 		public float calcularMonto(float precio) {
-			float resu = 0;//Paseo recibe el float q es creado en el calcularmonto de la clase paseo
-			if(getEdad() > 18)//Verificamos q la edad sea mayor q 18
-				resu = resu + precio;//Le ponemos el precio normal
+			float resu = 0;
+			if(getEdad() > 18)
+				resu = resu + precio;
 			else
-				resu =  ((resu + precio) * 0.75f);//Le ponemos el precio mas el descuento indicado por la letra
+				resu =  ((resu + precio) * 0.75f);
 			return resu;
 		}
-		/*public static especial convertirAEspecial(boleto boletoComun, float descuento) throws DescuentoException {
-		        return new especial(
-		                boletoComun.getNumero(),
-		                boletoComun.getNombrepasajero(),
-		                boletoComun.getEdad(),
-		                boletoComun.getCelular(),
-		                descuento
-		        );
-		}*/
 }

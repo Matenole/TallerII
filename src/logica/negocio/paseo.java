@@ -10,9 +10,7 @@ import logica.valueobject.VOboletoespeciallistado;
 import logica.colecciones.*;
 
 public class paseo implements Serializable{
-		/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 		///Atributos
@@ -32,7 +30,6 @@ public class paseo implements Serializable{
 
 		private Boletos boletosVendidos;
 		
-		//private Paseos ListaPaseos;
 		///Constructor
 		public paseo(String codigo, String destino, LocalTime horasalida, LocalTime horallegada, float precio, int maxboletos) {
 			super();
@@ -108,12 +105,12 @@ public class paseo implements Serializable{
 		}
 		public float montoRecaudado() {
 		    float mo = 0;
-		    int i = boletosVendidos.size(); // Obtener el tamaño real del ArrayList
+		    int i = boletosVendidos.size();
 		    
 		    while (i != 0) {
-		        i--; // Decrementar antes de acceder al elemento
-		        boleto b = boletosVendidos.kesimo(i); // Obtener el boleto en la posición i
-		        mo = mo + b.calcularMonto(precio); // Calcular el monto para este boleto
+		        i--; 
+		        boleto b = boletosVendidos.kesimo(i);
+		        mo = mo + b.calcularMonto(precio);
 		    }
 		    return mo;
 		}
@@ -132,7 +129,6 @@ public class paseo implements Serializable{
 	                listado.add(vo);
 	            }
 	        }
-	        //Collections.sort(listado, Comparator.comparingInt(VOboletolistado::getNumero));
 	        return listado;
 	    }
 		

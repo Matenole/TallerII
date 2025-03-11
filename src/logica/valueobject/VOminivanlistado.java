@@ -3,9 +3,7 @@ package logica.valueobject;
 import java.io.Serializable;
 
 public class VOminivanlistado extends VOminivan implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	///Atributo
 	private int cantpaseosasignados;

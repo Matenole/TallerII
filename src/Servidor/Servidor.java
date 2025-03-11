@@ -16,10 +16,8 @@ public class Servidor {
 	}
 
 	public static void main(String[] args) {
-		try
-		{ // Inicializo rmiregistry
+		try{
 			LocateRegistry.createRegistry(1099);
-			// instancio un objeto remoto y lo publico
 			IFachada fachada = new Fachada();
 			try {
 				fachada.recuperardatos();

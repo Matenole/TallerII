@@ -19,9 +19,7 @@ import java.awt.event.ActionListener;
 import java.rmi.RemoteException;
 
 public class VentanaPrincipal extends JFrame {
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
     private JTextPane txtenQuePodemos;
@@ -38,9 +36,6 @@ public class VentanaPrincipal extends JFrame {
         });
     }
 
-    /**
-     * Create the frame.
-     */
     public VentanaPrincipal() {
     	controlador = new ControladorPrincipal(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,18 +48,14 @@ public class VentanaPrincipal extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        // Cargar la imagen usando ImageIcon
         ImageIcon icono = new ImageIcon("Paseos del sol.png");
 
-        // Escalar la imagen para que sea más pequeña
         Image imagenEscalada = icono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon iconoEscalado = new ImageIcon(imagenEscalada);
 
-        // Crear un JLabel con la imagen escalada
         JLabel etiquetaImagen = new JLabel(iconoEscalado);
-        etiquetaImagen.setBounds(597, 312, 150, 141); // Posición en la esquina inferior derecha
+        etiquetaImagen.setBounds(597, 312, 150, 141);
 
-        // Agregar el JLabel al contentPane
         contentPane.add(etiquetaImagen);
 
         JButton btnGuardar = new JButton("Guardar");

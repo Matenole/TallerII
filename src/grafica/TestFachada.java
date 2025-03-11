@@ -13,7 +13,6 @@ import logica.valueobject.*;
 public class TestFachada {
 
 	public static void main(String[] args) throws LogicaException, RegistroException, RemoteException, RegistroExceptionII, PersistenciaException, DescuentoException, DestinoException {
-		// TODO Auto-generated method stub
 		///Inicio Prueba fachada
 		Fachada f = new Fachada();
 		///Prueba 1: venta boleto(testing positivo)
@@ -107,7 +106,7 @@ public class TestFachada {
 		*/
 		///Acierto: is se ingresa una matricula con digistos no alfanumericos efectivamente salta error. bien ahi pa.
 		///Prueba 4:Listado de una minivan(Testing positivo)
-		
+		/*
 		minivan m1= new minivan("GAB7654","Toyota","Prius",30);
 		VOminivan vom = new VOminivan(m1.getMatricula(),m1.getMarca(),m1.getModelo(),m1.getCantasientos());
 		minivan m2= new minivan("LOA4522","Toyota","Prius",30);
@@ -129,7 +128,7 @@ public class TestFachada {
             System.out.println("Cantidad de Asientos: " + minivan.getCantasientos());
             System.out.println("-----------------------------");
         }
-        
+        */
 		///Acierto:lista funciona correctamente.
 		///Prueba 5: listar una minivan que no tiene asignado ningun paseo:(Testing negativo)
 		/*

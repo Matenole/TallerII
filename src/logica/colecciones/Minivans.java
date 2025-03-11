@@ -10,9 +10,7 @@ import logica.valueobject.VOminivanlistado;
 import logica.valueobject.VOpaseolistado;
 
 public class Minivans implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	///Atributos
 	private TreeMap <String, minivan> AVL_Minivans;
@@ -23,7 +21,6 @@ public class Minivans implements Serializable{
 	}
 	 
 	///Metodos
-	 // Método para listar la primera minivan
 	    public List<VOminivanlistado> listarMinivan() {
 	    	ArrayList<VOminivanlistado> minivans = new ArrayList<VOminivanlistado>();
 		    AVL_Minivans.forEach((key,min) ->	{
@@ -37,7 +34,6 @@ public class Minivans implements Serializable{
 	    	minivan m = AVL_Minivans.get(mat);
 	    	return m.listarPaseo();
 	    }
-	//Metodo para insertar una minivan en el AVL
 	public void insert(minivan m) throws RegistroException {
 		if(m.getMatricula().matches("[a-zA-Z0-9]+")) {
 			AVL_Minivans.put(m.getMatricula(), m);
@@ -52,9 +48,9 @@ public class Minivans implements Serializable{
       else 
     	  return false;
     }
-    // Método para buscar una minivan por matrícula
+
     public minivan find(String mat) {
-        // Verificar si la matrícula existe en el TreeMap
+
         if (!(member(mat))) {
             throw new NoSuchElementException("La minivan con matrícula " + mat + " no existe");
         }

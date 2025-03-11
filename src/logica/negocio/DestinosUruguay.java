@@ -6,7 +6,7 @@ public class DestinosUruguay {
 
     static {
         destinosMap.put("Canelones", Arrays.asList(
-            "costa de oro", "reserva natural de cangrejos del arroyo solis chico", "paseo de esculturas en la floresta",
+            "atlantida", "costa de oro", "reserva natural de cangrejos del arroyo solis chico", "paseo de esculturas en la floresta",
             "centro isha en costa azul", "parque natural del arroyo el bagre", "casa museo de artigas en sauce",
             "parque general artigas en sauce", "quinta capurro en santa lucia", "parque roosevelt", "bodega juanico"
         ));

@@ -34,7 +34,7 @@ public class Paseos implements Serializable{
 	    				  );
 	    return recorrido;
 	}
-	 // Método para listar paseos según la cantidad de boletos disponibles
+
     public ArrayList<VOpaseolistado> listadoPorDisponibilidad(int cant_Bol) {
     	ArrayList<VOpaseolistado> recorrido = new ArrayList<VOpaseolistado>();
 	    AVL_Paseos.forEach((key,pas) ->	{
@@ -57,7 +57,6 @@ public class Paseos implements Serializable{
 	public paseo find(String cod) {
 		if(!member(cod))
 			throw new NoSuchElementException("El paseo con codigo " + cod + " no existe");
-		//Obtenemos paseo asociado al codigo
 		return AVL_Paseos.get(cod);
 	}
 	

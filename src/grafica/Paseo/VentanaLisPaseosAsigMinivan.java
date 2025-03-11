@@ -18,9 +18,6 @@ import javax.swing.UIManager;
 
 public class VentanaLisPaseosAsigMinivan extends JFrame {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JFrame frmListadoPaseos;
 	private ControladorLisPaseosAsigMinivan controlador;
@@ -28,9 +25,6 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 	private JTextField txtMatricula;
 	private JTextField txtCod;
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,9 +38,6 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaLisPaseosAsigMinivan() {
 		initialize();
 		  controlador = new ControladorLisPaseosAsigMinivan(this);

@@ -30,9 +30,6 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 	public JTable tableListadoPaseos;
 	private JTextField txtCantBoletosDisponibles;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,9 +43,6 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaLisPaseosPorDispBoletos() {
 		initialize();
 		  controlador = new ControladorLisPaseosPorDispBoletos(this);
@@ -87,7 +81,6 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 					try {
 						controlador.ListarPaseos();
 					} catch (DisponibilidadException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}

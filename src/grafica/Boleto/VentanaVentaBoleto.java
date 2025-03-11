@@ -35,9 +35,6 @@ public class VentanaVentaBoleto extends JFrame {
 	private JTextField txtDesc;
 	private JCheckBox chcDescuento;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,9 +47,7 @@ public class VentanaVentaBoleto extends JFrame {
 			}
 		});
 	}
-	/**
-	 * Create the frame.
-	 */
+
 	public VentanaVentaBoleto() {
 		setTitle("Vender Boleto");
 		

@@ -1,5 +1,4 @@
 package grafica.Minivan;
-//public void recuperardatos() throws RemoteException, PersistenciaException;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,9 +14,6 @@ import java.awt.SystemColor;
 import java.awt.Color;
 public class VentanaIngresoMinivan extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtMatricula;
@@ -26,9 +22,6 @@ public class VentanaIngresoMinivan extends JFrame {
 	private JTextField txtCapacidad;
 	private ControladorIngresoMinivan controlador;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,9 +35,6 @@ public class VentanaIngresoMinivan extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaIngresoMinivan() {
 		setTitle("Ingresar Minivan");
 		controlador = new ControladorIngresoMinivan(this);

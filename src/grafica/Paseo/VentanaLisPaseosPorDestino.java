@@ -19,18 +19,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class VentanaLisPaseosPorDestino extends JFrame {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JFrame frmListadoPaseos;
 	private ControladorLisPaseosPorDestino controlador;
 	public JTable tableListadoPaseos;
 	private JTextField txtDestino;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,9 +38,6 @@ public class VentanaLisPaseosPorDestino extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaLisPaseosPorDestino() {
 		initialize();
 		  controlador = new ControladorLisPaseosPorDestino(this);

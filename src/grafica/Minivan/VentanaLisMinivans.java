@@ -15,18 +15,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
 public class VentanaLisMinivans extends JFrame {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public JTable tableListadoMinivans;
 	private JFrame frmListadoMinivans;
 	private ControladorLisMinivans controlador;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,9 +34,6 @@ public class VentanaLisMinivans extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaLisMinivans() {
 		initialize();
 		  controlador = new ControladorLisMinivans(this);

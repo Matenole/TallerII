@@ -21,10 +21,7 @@ import logica.excepciones.LogicaException;
 import javax.swing.JCheckBox;
 
 public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private JFrame frmListadoBoletos;
 	private ControladorLisBoletosVendidosPorPaseo controlador;
@@ -32,9 +29,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 	private JTextField txtCodigo;
 	private JCheckBox chcTipoBoleto;
 	
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,9 +43,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public VentanaLisBoletosVendidosPorPaseo() {
 		initialize();
 		  controlador = new ControladorLisBoletosVendidosPorPaseo(this);

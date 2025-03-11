@@ -3,9 +3,7 @@ package logica.negocio;
 import logica.excepciones.DescuentoException;
 
 public class especial extends boleto{
-		/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 		///Atributo
 		private float Descuento;
@@ -26,11 +24,11 @@ public class especial extends boleto{
 		}
 		///Metodo
 		public float calcularMonto(float precio) {
-			float resu = 0;//Paseo recibe el float q es creado en el calcularmonto de la clase paseo
-			if(getEdad() > 18)//Verificamos q la edad sea mayor q 18
-				resu = resu + precio;//Le ponemos el precio normal
+			float resu = 0;
+			if(getEdad() > 18)
+				resu = resu + precio;
 			else
-				resu = (float) ((resu + precio) * 0.75);//Le ponemos el precio mas el descuento indicado por la letra
+				resu = (float) ((resu + precio) * 0.75);
 			resu = resu - Descuento;
 			return resu;
 		}

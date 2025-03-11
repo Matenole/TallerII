@@ -36,9 +36,6 @@ public class VentanaRegistroPaseo extends JFrame {
 	private ControladorRegistroPaseo controlador;
 	private JLabel lblIngresarPaseo;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,9 +49,6 @@ public class VentanaRegistroPaseo extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaRegistroPaseo() {
 		setTitle("Ingresar Paseo");
 		

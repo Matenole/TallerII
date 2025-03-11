@@ -23,9 +23,6 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 	private JLabel lblResultado;
 	private ControladorMontoRecaudadoPaseo controlador;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,9 +36,6 @@ public class VentanaMontoRecaudadoPaseo extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaMontoRecaudadoPaseo() {
 		setTitle("Monto Recaudado");
 		
