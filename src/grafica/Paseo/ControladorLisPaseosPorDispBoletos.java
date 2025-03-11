@@ -57,6 +57,10 @@ public class ControladorLisPaseosPorDispBoletos {
 	            VLPDB.mostrarMensaje("Ingrese una cantidad de Boletos Disponibles para listar paseos.");
 	            return;
 	        }
+	        if (Integer.parseInt(BolDisp)<0) {
+	            VLPDB.mostrarMensaje("La cantidad de Boletos Disponibles no puede ser negativa");
+	            return;
+	        }
 	        DefaultTableModel dm = (DefaultTableModel) VLPDB.tableListadoPaseos.getModel();
 			while (VLPDB.tableListadoPaseos.getRowCount() != 0)
 				dm.removeRow(VLPDB.tableListadoPaseos.getRowCount() - 1);
