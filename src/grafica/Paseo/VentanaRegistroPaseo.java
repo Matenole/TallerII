@@ -6,7 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import logica.excepciones.AlfaNumericException;
 import logica.excepciones.DestinoException;
+import logica.excepciones.HorarioException;
+import logica.excepciones.PrecioException;
 import logica.excepciones.RegistroExceptionII;
 
 import javax.swing.JLabel;
@@ -117,11 +120,24 @@ public class VentanaRegistroPaseo extends JFrame {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					 if (txtCodigo.getText().isEmpty() || txtDestino.getText().isEmpty() || txtHoraLlegada.getText().isEmpty() || txtHoraPartida.getText().isEmpty() ||txtPrecio.getText().isEmpty() ) 
+			                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
 					controlador.RegistroPaseo(txtCodigo.getText(), txtDestino.getText(), txtHoraPartida.getText(), txtHoraLlegada.getText(), txtPrecio.getText());
 				} catch (RegistroExceptionII e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "El codigo ingresado no existe", "Error en codigo", JOptionPane.ERROR_MESSAGE);
 				} catch (DestinoException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "El Destino ingresado es incorrecto", "Error en el campo destino", JOptionPane.ERROR_MESSAGE);
+				} catch (AlfaNumericException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "El codigo ingresado posee digitos que no son alfanumericos", "Error en codigo", JOptionPane.ERROR_MESSAGE);
+				} catch (PrecioException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "El precio no puede ser menor o igual a 0", "Error", JOptionPane.ERROR_MESSAGE);
+				} catch (HorarioException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Actualmente no hay ninguna minivan que pueda realizar el paseo en ese horario", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

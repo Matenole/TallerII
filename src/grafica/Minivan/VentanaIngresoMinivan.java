@@ -101,9 +101,12 @@ public class VentanaIngresoMinivan extends JFrame {
 				String modelo = txtModelo.getText();
 				int asientos = Integer.valueOf(txtCapacidad.getText());
 				try {
+					if (txtMatricula.getText().isEmpty() || txtMarca.getText().isEmpty() || txtModelo.getText().isEmpty() || txtCapacidad.getText().isEmpty())
+			                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
 					controlador.IngresarMinivan(matricula, marca, modelo, asientos);
 				} catch (RegistroException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "La Matricula ya existe en el sistema", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

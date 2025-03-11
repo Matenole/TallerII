@@ -12,8 +12,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 
+import logica.excepciones.AlfaNumericException;
 import logica.excepciones.DestinoException;
+import logica.excepciones.HorarioException;
 import logica.excepciones.LogicaException;
+import logica.excepciones.PrecioException;
 import logica.excepciones.RegistroExceptionII;
 import logica.fachada.IFachada;
 
@@ -48,7 +51,7 @@ public class ControladorRegistroPaseo {
 		}
 	}
 	
-	public void RegistroPaseo(String cod, String des, String HP, String HL, String Prec) throws RegistroExceptionII, DestinoException{
+	public void RegistroPaseo(String cod, String des, String HP, String HL, String Prec) throws RegistroExceptionII, DestinoException, AlfaNumericException, PrecioException, HorarioException{
 		try {
 			float pre = Float.parseFloat(Prec);
 			

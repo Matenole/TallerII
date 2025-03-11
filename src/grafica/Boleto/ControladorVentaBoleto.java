@@ -10,7 +10,9 @@ import java.rmi.RemoteException;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 
+import logica.excepciones.CelularException;
 import logica.excepciones.DescuentoException;
+import logica.excepciones.EdadException;
 import logica.excepciones.LogicaException;
 import logica.fachada.IFachada;
 import logica.valueobject.VOboletoespecialingreso;
@@ -48,7 +50,7 @@ public class ControladorVentaBoleto {
 
 	}
 	
-	public void VentaBoleto(String codigo,String Nombre, String Edad, String Celular,boolean tienedesc, float desc) throws RemoteException, LogicaException, DescuentoException{
+	public void VentaBoleto(String codigo,String Nombre, String Edad, String Celular,boolean tienedesc, float desc) throws RemoteException, LogicaException, DescuentoException, CelularException, EdadException{
 			int edad = Integer.parseInt(Edad);
 			if (tienedesc) {
 				VOboletoespecialingreso vo = new VOboletoespecialingreso(Nombre, edad, Celular, desc);

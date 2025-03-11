@@ -31,7 +31,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 	}
 	
 	///Metodos
-	public void VentaBol(String codigo, VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException {
+	public void VentaBol(String codigo, VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException, CelularException, EdadException {
 		m.comienzoEscritura();
         paseo p = Viaje.find(codigo);
         Boletos bo = p.getBoletosVendidos();
@@ -41,15 +41,15 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		}
 		if(vo.getEdad() <= 0) {
 			m.terminoEscritura();
-			throw new LogicaException("La edad es menor o igual que 0");
+			throw new EdadException("La edad es menor o igual que 0");
 		}
-		if(vo.getCelular() == "0") {
+		if(vo.getCelular().equals("0")) {
 			m.terminoEscritura();
-			throw new LogicaException("El celular es 0");
+			throw new CelularException("El celular es 0");
 		}
 		if(vo.getCelular().contains("-")) {
 			m.terminoEscritura();
-			throw new LogicaException("El celular es negativo");
+			throw new CelularException("El celular es negativo");
 		}
 		if(vo instanceof VOboletoespecialingreso) {
 			if(desc > (p.getPrecio()*0.75) && vo.getEdad() < 18) {
@@ -96,7 +96,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		paseo p = Viaje.find(cod);
 		m.insertarPaseo(p);
 	}
-	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec) throws RemoteException,RegistroExceptionII, DestinoException {
+	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec) throws RemoteException,RegistroExceptionII, DestinoException, AlfaNumericException, PrecioException, HorarioException {
 		if(Viaje.member(cod)) {
 			m.terminoEscritura();
 			throw new RegistroExceptionII("El paseo no se puede registrar porque el mismo ya se encuentra en el sistema");
@@ -104,11 +104,11 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 		else
 			if(Prec <= 0){
 				m.terminoEscritura();
-				throw new RegistroExceptionII("El paseo posee un precio invalido");
+				throw new PrecioException("El paseo posee un precio invalido");
 			}else {
 				if(!cod.matches("[a-zA-Z0-9]+")) {
 					m.terminoEscritura();
-					throw new RegistroExceptionII("El paseo posee digitos que no son alfanumericos en su codigo");
+					throw new AlfaNumericException("El paseo posee digitos que no son alfanumericos en su codigo");
 				}
 				else {
 					if (!(DestinosUruguay.esDestinoValido(des.toLowerCase()))) {
@@ -118,7 +118,7 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 					else {
 						if (Locomocion.MiniDis(HP, HL) == null) {
 							m.terminoEscritura();
-							throw new RegistroExceptionII("No hay ninguna minivan disponible para ese horario");
+							throw new HorarioException("No hay ninguna minivan disponible para ese horario");
 						}else {
 							m.comienzoEscritura();
 							minivan mini = Locomocion.MiniDis(HP, HL);

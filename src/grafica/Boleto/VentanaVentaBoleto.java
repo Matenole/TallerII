@@ -5,7 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import logica.excepciones.CelularException;
 import logica.excepciones.DescuentoException;
+import logica.excepciones.EdadException;
 import logica.excepciones.LogicaException;
 
 import javax.swing.JLabel;
@@ -47,7 +50,6 @@ public class VentanaVentaBoleto extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -120,6 +122,9 @@ public class VentanaVentaBoleto extends JFrame {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					 if (txtCodigo.getText().isEmpty() || txtNombre.getText().isEmpty() || txtEdad.getText().isEmpty() || txtCelular.getText().isEmpty() || (txtDesc.isEnabled() && txtDesc.getText().isEmpty())) 
+			                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+			             
 					if (chcDescuento.isSelected()) {
 						float desc = Float.parseFloat(txtDesc.getText());
 						controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(), chcDescuento.isSelected(), desc);
@@ -130,10 +135,18 @@ public class VentanaVentaBoleto extends JFrame {
 					}
 				} catch (DescuentoException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Por favor,Coloque un Descuento valido", "Error al ingresar un Descuento", JOptionPane.ERROR_MESSAGE);
 				} catch (RemoteException e1) {
 					e1.printStackTrace();
 				} catch (LogicaException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "No hay mas boletos diponibles a la venta en este paseo","Error", JOptionPane.ERROR_MESSAGE);
+				} catch (CelularException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "El celular no puede ser 0 ni tener numeros negativos","Error", JOptionPane.ERROR_MESSAGE);
+				} catch (EdadException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "La edad no puede ser menor o igual a 0","Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
@@ -181,7 +194,7 @@ public class VentanaVentaBoleto extends JFrame {
 
 	}
 
-	public void MostrarMensaje(String mensaje) {
+	public void MostrarMensaje(String mensaje) { 
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
 }
