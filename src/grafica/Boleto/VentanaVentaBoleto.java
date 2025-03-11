@@ -122,11 +122,11 @@ public class VentanaVentaBoleto extends JFrame {
 				try {
 					if (chcDescuento.isSelected()) {
 						float desc = Float.parseFloat(txtDesc.getText());
-						controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(), chcDescuento.isSelected() , desc);
+						controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(), chcDescuento.isSelected(), desc);
 					}
 					else
 					{
-						controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(), chcDescuento.isSelected(),0);
+						controlador.VentaBoleto(txtCodigo.getText(), txtNombre.getText(), txtEdad.getText(), txtCelular.getText(), chcDescuento.isSelected(), 0);
 					}
 				} catch (DescuentoException e1) {
 					e1.printStackTrace();

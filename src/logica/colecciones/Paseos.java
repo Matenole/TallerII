@@ -72,9 +72,6 @@ public class Paseos implements Serializable{
 		Iterator <paseo> iter = AVL_Paseos.values().iterator();
     	while(iter.hasNext() && bool) {
     		aux = iter.next();
-    		//HP.isAfter(HL);
-    		//HP.isBefore(HL);
-    		
     		if(!(HP.isAfter(aux.getHorallegada()) || HL.isBefore(aux.getHorasalida()))) {
     			bool = false;
     		}
