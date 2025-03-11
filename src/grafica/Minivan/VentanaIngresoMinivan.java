@@ -49,7 +49,7 @@ public class VentanaIngresoMinivan extends JFrame {
 		setTitle("Ingresar Minivan");
 		controlador = new ControladorIngresoMinivan(this);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 277, 248);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
