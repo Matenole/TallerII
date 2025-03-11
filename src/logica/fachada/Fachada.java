@@ -52,11 +52,11 @@ public class Fachada extends UnicastRemoteObject implements IFachada{
 			throw new LogicaException("El celular es negativo");
 		}
 		if(vo instanceof VOboletoespecialingreso) {
-			if(desc >= (p.getPrecio()*0.75) && vo.getEdad() < 18) {
+			if(desc > (p.getPrecio()*0.75) && vo.getEdad() < 18) {
 				m.terminoEscritura();
 				throw new DescuentoException("El descuento no puede ser mayor que el precio del Paseo (En este caso el 75% del precio)");
 			}else {
-				if(desc >= p.getPrecio() && vo.getEdad() >= 18) {
+				if(desc > p.getPrecio() && vo.getEdad() >= 18) {
 					m.terminoEscritura();
 					throw new DescuentoException("El descuento no puede ser mayor que el precio del Paseo");
 				}else {
