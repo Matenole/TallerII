@@ -17,6 +17,7 @@ import logica.excepciones.AlfaNumericException;
 import logica.excepciones.DestinoException;
 import logica.excepciones.HorarioException;
 import logica.excepciones.LogicaException;
+import logica.excepciones.MinivanException;
 import logica.excepciones.PrecioException;
 import logica.excepciones.RegistroExceptionII;
 import logica.fachada.IFachada;
@@ -52,29 +53,46 @@ public class ControladorRegistroPaseo {
 		}
 	}
 	
-	public void RegistroPaseo(String cod, String des, String HP, String HL, String Prec) throws RegistroExceptionII, DestinoException, AlfaNumericException, PrecioException, HorarioException{
+	public void RegistroPaseo(String cod, String des, String HP, String HL, String Prec){
 		try {
 			if(HP.equals(HL)) {
-				v.MostrarMensaje("El horario de salida no puede ser igual al horario de llegada");
 				throw new HorarioException("El horario de salida no puede ser igual al horario de llegada");
 			}else {
 				float pre = Float.parseFloat(Prec);
 				
-				try {
 					DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 			        LocalTime partida = LocalTime.parse(HP, dateTimeFormatter);
 			        LocalTime llegada = LocalTime.parse(HL, dateTimeFormatter);
 					
 					f.RegisPas(cod, des, partida, llegada, pre);
 					v.MostrarMensaje("Paseo ingresado correctamente");
-				}catch(DateTimeParseException e) {
-					v.MostrarMensaje("El formato horario no es el correcto");
-					throw new HorarioException("El formato horario no es el correcto");
-				}
-				
 			}
 		} catch (LogicaException | RemoteException e) {
 			v.MostrarMensaje("Warning: No se pudo establecer conexion\nRevise su conexion al servidor\n" + "\nDetalle: \n" + e.getMessage());
+		}
+		catch (RegistroExceptionII e1) {
+			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "El codigo ingresado no existe", "Error en codigo", JOptionPane.ERROR_MESSAGE);
+		} catch (DestinoException e1) {
+			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "El Destino ingresado es incorrecto", "Error en el campo destino", JOptionPane.ERROR_MESSAGE);
+		} catch (AlfaNumericException e1) {
+			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "El codigo ingresado posee digitos que no son alfanumericos", "Error en codigo", JOptionPane.ERROR_MESSAGE);
+		} catch (PrecioException e1) {
+			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "El precio no puede ser menor o igual a 0", "Error", JOptionPane.ERROR_MESSAGE);
+		} catch (HorarioException e1) {
+			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "El horario ingresado es incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		catch (MinivanException e1) {
+			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Actualmente no hay ninguna minivan que pueda realizar el paseo en ese horario", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		catch(DateTimeParseException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "El formato horario no es el correcto", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

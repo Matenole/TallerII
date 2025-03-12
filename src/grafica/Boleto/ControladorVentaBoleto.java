@@ -14,6 +14,7 @@ import logica.excepciones.CelularException;
 import logica.excepciones.DescuentoException;
 import logica.excepciones.EdadException;
 import logica.excepciones.LogicaException;
+import logica.excepciones.NombreException;
 import logica.fachada.IFachada;
 import logica.valueobject.VOboletoespecialingreso;
 import logica.valueobject.VOboletoingreso;
@@ -67,7 +68,11 @@ public class ControladorVentaBoleto {
 			} catch (LogicaException e) {
 				JOptionPane.showMessageDialog(null, "No hay mas boletos diponibles a la venta en este paseo","Error", JOptionPane.ERROR_MESSAGE);
 				e.printStackTrace();
-			} catch (DescuentoException e) {
+			} catch (NombreException e) {
+				JOptionPane.showMessageDialog(null, "El nombre ha sido ingresado incorrectamente.(Solo se permiten letras y espacios)","Error", JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+			} 
+			catch (DescuentoException e) {
 				JOptionPane.showMessageDialog(null, "Por favor, coloque un Descuento valido", "Error al ingresar un Descuento", JOptionPane.ERROR_MESSAGE);
 				e.printStackTrace();
 			} catch (CelularException e) {

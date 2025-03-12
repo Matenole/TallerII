@@ -13,6 +13,8 @@ import logica.excepciones.DisponibilidadException;
 import logica.excepciones.EdadException;
 import logica.excepciones.HorarioException;
 import logica.excepciones.LogicaException;
+import logica.excepciones.MinivanException;
+import logica.excepciones.NombreException;
 import logica.excepciones.PersistenciaException;
 import logica.excepciones.PrecioException;
 import logica.excepciones.RegistroException;
@@ -26,12 +28,12 @@ import logica.valueobject.VOpaseolistado;
 public interface IFachada extends Remote {
 	///Metodos
 	public void RegisMin(@SuppressWarnings("exports") VOminivan mini) throws RemoteException, RegistroException;
-	public void VentaBol(String codigo, @SuppressWarnings("exports") VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException, CelularException, EdadException;
+	public void VentaBol(String codigo, @SuppressWarnings("exports") VOboletoingreso vo, float desc) throws RemoteException,LogicaException, DescuentoException, CelularException, EdadException, NombreException;
 	@SuppressWarnings("exports")
 	public List<VOminivanlistado> LisMin()  throws RemoteException;
 	@SuppressWarnings("exports")
 	public ArrayList<VOpaseolistado>  LisPasAsMin(String mat) throws RemoteException;
-	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec) throws RemoteException,LogicaException, RegistroExceptionII, DestinoException, AlfaNumericException, PrecioException, HorarioException;
+	public void RegisPas(String cod,String des,LocalTime HP,LocalTime HL,float Prec) throws RemoteException,LogicaException, RegistroExceptionII, DestinoException, AlfaNumericException, PrecioException, HorarioException, MinivanException;
 	@SuppressWarnings("exports")
 	public ArrayList<VOpaseolistado> LisPasDes(String des) throws RemoteException;
 	@SuppressWarnings("exports")
