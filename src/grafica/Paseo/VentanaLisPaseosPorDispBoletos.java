@@ -102,6 +102,7 @@ public class VentanaLisPaseosPorDispBoletos extends JFrame {
 					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Boletos Dis."
 				}
 			));
+			tableListadoPaseos.getTableHeader().setReorderingAllowed(false);
 			scrollPanePaseos.setViewportView(tableListadoPaseos);
 			
 			JLabel lblBoletosDisponibles = new JLabel("Boletos Disponibles");

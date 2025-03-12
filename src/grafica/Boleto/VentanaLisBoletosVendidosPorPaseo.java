@@ -104,6 +104,7 @@ public class VentanaLisBoletosVendidosPorPaseo extends JFrame {
 					"Numero", "Nombre Pasajero", "Edad", "Celular", "Descuento"
 				}
 			));
+			tableListadoBoletos.getTableHeader().setReorderingAllowed(false);
 			scrollPaneBoletos.setViewportView(tableListadoBoletos);
 			
 			JLabel lblCodigo = new JLabel("Codigo");

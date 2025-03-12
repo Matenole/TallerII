@@ -93,6 +93,7 @@ public class VentanaLisPaseosPorDestino extends JFrame {
 					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Boletos Dis."
 				}
 			));
+			tableListadoPaseos.getTableHeader().setReorderingAllowed(false);
 			scrollPanePaseos.setViewportView(tableListadoPaseos);
 			
 			JLabel lblDestino = new JLabel("Destino");

@@ -92,6 +92,7 @@ public class VentanaLisPaseosAsigMinivan extends JFrame {
 					"Codigo", "Destino", "Hora Salida", "Hora Llegada", "Precio", "Cant. Asientos", "Boletos Dis."
 				}
 			));
+			tableListadoPaseos.getTableHeader().setReorderingAllowed(false);
 			scrollPanePaseos.setViewportView(tableListadoPaseos);
 			
 			JLabel lblMatricula = new JLabel("Matricula");

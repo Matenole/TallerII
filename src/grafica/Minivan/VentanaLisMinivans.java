@@ -88,6 +88,7 @@ public class VentanaLisMinivans extends JFrame {
 					"Matricula", "Marca", "Modelo", "Cant. Asientos", "Paseos Asig."
 				}
 			));
+			tableListadoMinivans.getTableHeader().setReorderingAllowed(false);
 			scrollPaneLisMin.setViewportView(tableListadoMinivans);
 			
 		}
