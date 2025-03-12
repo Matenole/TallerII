@@ -30,9 +30,8 @@ public class Servidor {
 			prop.load (new FileInputStream (nomArch));
 			String ip = prop.getProperty("ip");
 			String puerto = prop.getProperty("puerto");
-			System.out.println ("Registro Pendiente");
 			Naming.rebind("//"+ip+":"+puerto+"/fachada", fachada);
-			System.out.println ("Registro Correcto");
+			System.out.println ("Servidor iniciado correctamente");
 		}
 		catch (RemoteException e)
 		{ e.printStackTrace(); }
